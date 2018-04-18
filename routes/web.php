@@ -19,3 +19,25 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('perkaras', 'perkaraController');
+
+Route::resource('perkaras', 'perkaraController');
+
+Route::resource('perkaras', 'perkaraController');
+
+Route::resource('perkaras', 'perkaraController');
+
+Route::resource('infos', 'infoController');
+
+Route::resource('infos', 'infoController');
+
+Route::resource('profiles', 'profileController');
+
+Route::resource('feedbackInfos', 'feedbackInfoController');
+
+Route::resource('komentarInfos', 'komentarInfoController');
+
+Route::resource('laporans', 'laporanController');
+
+Route::resource('perkembanganLaps', 'perkembanganLapController');
