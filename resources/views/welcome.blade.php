@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Want to start your travel agency online and need website for your travel business? Start with travel agency responsive website template. Its absolutely free.">
     <meta name="keywords" content="travel, tour, tourism, honeymoon pacakage, summer trip, exotic vacation, destination, international, domestic website template, holiday, travel agecny responsive website template">
-    <title>Tour and Travel Agency - Responsive Website Template</title>
+    <title>Pantau Kriminal</title>
     <!-- Bootstrap -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Style CSS -->
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md-4 hidden-sm col-sm-12">
                     <div class="call-info">
-                        <p class="call-text">Any Question? Call Us:<strong>252-386-7004</strong></p>
+                        <p class="call-text">Ada yang ingin ditanyakan? Hubungi kita:<strong>0000-000-0000</strong></p>
                     </div>
                 </div>
                 <div class="col-md-8 hidden-sm hidden-xs">
@@ -59,23 +59,23 @@
                         <div class="navigation">
                             <div id="navigation">
                                 <ul>
-                                    <li class="active"><a href="index.html" title="Home">Home</a></li>
-                                    <li><a href="about.html" title="About us">About us</a> </li>
-                                    <li class="has-sub"><a href="tours.html" title="Tours">Tours</a>
+                                    <li class="active"><a href="index.html" title="Home">Beranda</a></li>
+                                    {{--<li><a href="about.html" title="About us">Informasi</a> </li>--}}
+                                    <li class="has-sub"><a href="tours.html" title="Tours">Informasi</a>
                                         <ul>
-                                            <li><a href="domestic-tour.html" title="Group Tours">Domestic Tours</a></li>
-                                            <li><a href="international-tour.html" title="Couple Tours">International Tours</a></li>
+                                            <li><a href="domestic-tour.html" title="Group Tours">Pencurian</a></li>
+                                            <li><a href="international-tour.html" title="Couple Tours">Pembunuhan</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-sub"><a href="blog-default.html" title="Blog ">Blog</a>
+                                    <li class="has-sub"><a href="blog-default.html" title="Blog ">Peta</a>
                                         <ul>
                                             <li><a href="blog-default.html" title="Blog">Blog Default</a></li>
-                                            <li><a href="blog-single.html" title="Blog Single ">Blog Single</a></li>
+                                            <li><a href="blog-single.html" title="Blog Single ">Peta</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="testimonials.html" title="Testimonials">Testimonials</a>
+                                    <li><a href="testimonials.html" title="Testimonials">Profil</a>
                                     <li><a href="contact-us.html" title="Contact Us">Contact Us</a> </li>
-                                    <li><a href="styleguide.html" title="Styleguide">styleguide</a> </li>
+                                    <li><a href="styleguide.html" title="Styleguide">Masuk | Register </a> </li>
                                 </ul>
                             </div>
                         </div>
@@ -91,20 +91,71 @@
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                     <div class="hero-section-caption pinside40">
-                        <h1 class="hero-title">Discover The Places You’ve Never Been Before</h1>
-                        <a href="domestic-tour.html" class="btn btn-primary ">view tours</a> </div>
+                        <h1 class="hero-title">Provinsi Rawan Kriminal</h1>
+                        <a href="domestic-tour.html" class="btn btn-primary ">Lihat Lainnya</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+            <div class="service-block">
+               <div class="service-content">
+                   <div class="row">
+                       <div class="col-md-4">
+                           <h1><a href="#" class="title">10000</a></h1>
+                       </div>
+                       <div class="col-lg-7">
+                           <p>Tindakan Kriminal Yang Terselesaikan</p>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+            <div class="service-block">
+                <div class="service-content">
+                    <div class="service-content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h1><a href="#" class="title">10000</a></h1>
+                            </div>
+                            <div class="col-lg-7">
+                                <p>Laporan Masuk</p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+            <div class="service-block">
+                <div class="service-content">
+                    <div class="service-content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h1><a href="#" class="title">10000</a></h1>
+                            </div>
+                            <div class="col-lg-7">
+                                <p>Informasi Tindakan Kriminal</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- hero-section close -->
+    <br><br><br>
+    <br><br><br>
     <!-- service-section start -->
     <div class="space-medium">
         <div class="container">
             <div class="row">
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title text-center">
-                        <h1>Find The Tours</h1>
+                        <h1>Informasi Tindakan Kriminal Terbaru</h1>
                     </div>
                 </div>
             </div>
@@ -118,8 +169,8 @@
                         <div class="service-content">
                             <h3><a href="#" class="title">Group Tour</a></h3>
                             <p>Scelerisque vitae velit e llamcorper plvinar esras sit amet odio et dolor por bibendum sit amet neceros.</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Domestic Tour</a></div>
-                            <div><a href="international-tour.html" class="btn-link">International Tour</a></div>
+                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
+                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
                         </div>
                     </div>
                 </div>
@@ -133,8 +184,8 @@
                         <div class="service-content">
                             <h3><a href="#" class="title">Couple Tour</a></h3>
                             <p>Pellentesque bibendum, ante et ornare viverra, ex neque lorem ipusm dtium vestibulum eros ut lacinia.</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Domestic Tour</a></div>
-                            <div><a href="international-tour.html" class="btn-link">International Tour</a></div>
+                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
+                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
                         </div>
                     </div>
                 </div>
@@ -148,8 +199,8 @@
                         <div class="service-content">
                             <h3><a href="#" class="title">Off Season Tour</a></h3>
                             <p>Donec pretium vestibulum eros ut Pellentesque bineque luctus orci in pharetra ante quam etestibul.</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Domestic Tour</a></div>
-                            <div><a href="international-tour.html" class="btn-link">International Tour</a></div>
+                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
+                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
                         </div>
                     </div>
                 </div>
@@ -158,6 +209,67 @@
         </div>
     </div>
     <!-- service-section close -->
+
+    <!-- Testimonials-section start -->
+    <div class="bg-default space-medium">
+        <div class="container">
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-center">
+                        <h1>Informasi dan Tips Tindakan Kriminal</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Testimonials-one-start -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="testimonial-block">
+                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
+                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
+                        <div class="testimonial-content">
+                            <h4>Paul Hasburg</h4>
+                            <span class="location">Kerala</span>
+                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
+                            <div>
+                                <p class="testimonial-text">“I love this tour. We have enough time to fully experience the Kerala. I have the opportunity to show my region, thank you" </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonials-one-close -->
+                <!-- Testimonials-two-start -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="testimonial-block">
+                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
+                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
+                        <div class="testimonial-content">
+                            <h4>Plisa Moody</h4>
+                            <span class="location">Kullu-manali</span>
+                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
+                            <div>
+                                <p class="testimonial-text">“You were an excellent Travel Agency for us! It was invaluable trip to kullu-manali & You considered our unique needs, thank you ”</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonials-two-start -->
+                <!-- Testimonials-three-start -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="testimonial-block">
+                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
+                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
+                        <div class="testimonial-content">
+                            <h4>Christine Smith</h4>
+                            <span class="location">Turkey</span>
+                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
+                            <div>
+                                <p class="testimonial-text">“Suspendisse vitaea enim dictum fringilla ullam interdum atelit id vestibulum TURKEY aecenas viverra risusit amet quam consectetu, thank you”</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonials-three-close -->
+
     <!-- about-section start -->
     <div class="bg-default space-medium">
         <div class="container">
@@ -247,65 +359,7 @@
         </div>
     </div>
     <!-- Destination-section-close -->
-    <!-- Testimonials-section start -->
-    <div class="bg-default space-medium">
-        <div class="container">
-            <div class="row">
-                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-title text-center">
-                        <h1>Our Happy Travelers Reviews</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Testimonials-one-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
-                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
-                        <div class="testimonial-content">
-                            <h4>Paul Hasburg</h4>
-                            <span class="location">Kerala</span>
-                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
-                            <div>
-                                <p class="testimonial-text">“I love this tour. We have enough time to fully experience the Kerala. I have the opportunity to show my region, thank you" </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonials-one-close -->
-                <!-- Testimonials-two-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
-                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
-                        <div class="testimonial-content">
-                            <h4>Plisa Moody</h4>
-                            <span class="location">Kullu-manali</span>
-                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
-                            <div>
-                                <p class="testimonial-text">“You were an excellent Travel Agency for us! It was invaluable trip to kullu-manali & You considered our unique needs, thank you ”</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonials-two-start -->
-                <!-- Testimonials-three-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
-                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
-                        <div class="testimonial-content">
-                            <h4>Christine Smith</h4>
-                            <span class="location">Turkey</span>
-                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
-                            <div>
-                                <p class="testimonial-text">“Suspendisse vitaea enim dictum fringilla ullam interdum atelit id vestibulum TURKEY aecenas viverra risusit amet quam consectetu, thank you”</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonials-three-close -->
+
             </div>
         </div>
     </div>
