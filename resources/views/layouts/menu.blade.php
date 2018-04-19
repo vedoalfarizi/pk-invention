@@ -2,22 +2,6 @@
     <a href="{!! route('perkaras.index') !!}"><i class="fa fa-edit"></i><span>Perkaras</span></a>
 </li>
 
-<li class="{{ Request::is('perkaras*') ? 'active' : '' }}">
-    <a href="{!! route('perkaras.index') !!}"><i class="fa fa-edit"></i><span>Perkaras</span></a>
-</li>
-
-<li class="{{ Request::is('perkaras*') ? 'active' : '' }}">
-    <a href="{!! route('perkaras.index') !!}"><i class="fa fa-edit"></i><span>Perkaras</span></a>
-</li>
-
-<li class="{{ Request::is('perkaras*') ? 'active' : '' }}">
-    <a href="{!! route('perkaras.index') !!}"><i class="fa fa-edit"></i><span>Perkaras</span></a>
-</li>
-
-<li class="{{ Request::is('infos*') ? 'active' : '' }}">
-    <a href="{!! route('infos.index') !!}"><i class="fa fa-edit"></i><span>Infos</span></a>
-</li>
-
 <li class="{{ Request::is('infos*') ? 'active' : '' }}">
     <a href="{!! route('infos.index') !!}"><i class="fa fa-edit"></i><span>Infos</span></a>
 </li>

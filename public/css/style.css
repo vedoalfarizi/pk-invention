@@ -82,6 +82,7 @@ hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #f1
 -------------------------*/
 label { }
 .control-label { font-size: 13px; letter-spacing: .75px; text-transform: uppercase; color: #5f5f5f; }
+.regist-label { font-size: 13px; letter-spacing: .75px; text-transform: uppercase; color: #f6f431; }
 .form-control:focus { }
 .textarea.form-control { }
 .required { }
@@ -663,18 +664,87 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {
-    .top-bar { padding-top: 0px; padding-bottom: 0px; }
-    .header { padding-top: 10px; padding-bottom: 5px; }
-    .navigation { margin-top: 12px; border-top: #e3e2da 1px solid; }
-    .hero-section-caption { padding: 30px; }
-    .hero-title { color: #fff; font-size: 26px; line-height: 30px; }
-    .page-section { padding-top: 70px; padding-bottom: 50px; }
-    .page-title { font-size: 26px; color: #fff; line-height: 36px; }
-    .post-block { margin-bottom: 0px; }
-    .post-content { position: static; padding-left: 0px; margin-top: 10px; }
-    .post-title { font-size: 26px; line-height: 32px; color: #333333; margin-bottom: 20px; display: block; }
-    .quoteblock { position: static; padding-left: 0px; border-radius: 0px; }
-    .quoteblock h1 { color: #333333; padding-bottom: 20px; font-size: 26px }
-    .quoteblock-content { font-size: 16px; font-weight: 700; color: #333333; }
-    .quoteblock p { margin: 0px; }
-    .quoteblock-author { text-transform: uppercase; letter-spacing: 1.5px; font-size: 14px; font-weight: 700; color: #ffe762; }
+    .top-bar {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .header {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    .navigation {
+        margin-top: 12px;
+        border-top: #e3e2da 1px solid;
+    }
+
+    .hero-section-caption {
+        padding: 30px;
+    }
+
+    .hero-title {
+        color: #fff;
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .page-section {
+        padding-top: 70px;
+        padding-bottom: 50px;
+    }
+
+    .page-title {
+        font-size: 26px;
+        color: #fff;
+        line-height: 36px;
+    }
+
+    .post-block {
+        margin-bottom: 0px;
+    }
+
+    .post-content {
+        position: static;
+        padding-left: 0px;
+        margin-top: 10px;
+    }
+
+    .post-title {
+        font-size: 26px;
+        line-height: 32px;
+        color: #333333;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .quoteblock {
+        position: static;
+        padding-left: 0px;
+        border-radius: 0px;
+    }
+
+    .quoteblock h1 {
+        color: #333333;
+        padding-bottom: 20px;
+        font-size: 26px
+    }
+
+    .quoteblock-content {
+        font-size: 16px;
+        font-weight: 700;
+        color: #333333;
+    }
+
+    .quoteblock p {
+        margin: 0px;
+    }
+
+    .quoteblock-author {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #ffe762;
+    }
+}

@@ -22,14 +22,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('perkaras', 'perkaraController');
 
-Route::resource('perkaras', 'perkaraController');
-
-Route::resource('perkaras', 'perkaraController');
-
-Route::resource('perkaras', 'perkaraController');
-
-Route::resource('infos', 'infoController');
-
 Route::resource('infos', 'infoController');
 
 Route::resource('profiles', 'profileController');
