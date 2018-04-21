@@ -21,14 +21,19 @@
     {{--</li>--}}
 
 @elseif(Auth::user()->role == 0)
+    <li class="{{ Request::is('pengguna*') ? 'active' : '' }}">
+        <a href="{!! url('/pengguna') !!}"><i class="fa fa-edit"></i><span>Pengguna</span></a>
+    </li>
 
     <li class="{{ Request::is('perkaras*') ? 'active' : '' }}">
         <a href="{!! route('perkaras.index') !!}"><i class="fa fa-edit"></i><span>Perkara</span></a>
     </li>
 
-    {{--<li class="{{ Request::is('feedbackInfos*') ? 'active' : '' }}">--}}
-        {{--<a href="{!! route('feedbackInfos.index') !!}"><i class="fa fa-edit"></i><span>Feedback Infos</span></a>--}}
-    {{--</li>--}}
+
+
+    <li class="{{ Request::is('feedbackInfos*') ? 'active' : '' }}">
+        <a href="{!! route('feedbackInfos.index') !!}"><i class="fa fa-edit"></i><span>Feedback Infos</span></a>
+    </li>
 
     {{--<li class="{{ Request::is('komentarInfos*') ? 'active' : '' }}">--}}
         {{--<a href="{!! route('komentarInfos.index') !!}"><i class="fa fa-edit"></i><span>Komentar</span></a>--}}

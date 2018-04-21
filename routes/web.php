@@ -33,3 +33,8 @@ Route::resource('komentarInfos', 'komentarInfoController');
 Route::resource('laporans', 'laporanController');
 
 Route::resource('perkembanganLaps', 'perkembanganLapController');
+
+//pengguna
+Route::get('/pengguna', 'penggunaController@index');
+Route::get('/pengguna/verifikasi/{id}', 'penggunaController@verifikasi');
+

@@ -80,6 +80,6 @@ class profile extends Model
      **/
     public function users()
     {
-        return $this->hasMany(\App\Models\ users::class, ' id', ' user_id');
+        return $this->hasMany(\App\User::class, ' id', ' user_id');
     }
 }
