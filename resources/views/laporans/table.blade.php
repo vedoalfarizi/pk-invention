@@ -37,11 +37,11 @@
             <td>
 
                 {!! Form::open(['route' => ['laporans.destroy', $laporan->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    <a href="{!! route('laporans.show', [$laporan->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('laporans.edit', [$laporan->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                </div>
+                {{--<div class='btn-group'>--}}
+                    {{--<a href="{!! route('laporans.show', [$laporan->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>--}}
+                    {{--<a href="{!! route('laporans.edit', [$laporan->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>--}}
+                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-fill', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                {{--</div>--}}
                 {!! Form::close() !!}
 
         {{--<------------------------ MODAL _ LAPORAN------------------->--}}
