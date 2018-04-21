@@ -26,7 +26,8 @@ class profile extends Model
     use SoftDeletes;
 
     public $table = 'profiles';
-    
+
+    protected $primaryKey = 'user_id';
 
     protected $dates = ['deleted_at'];
 
@@ -39,6 +40,7 @@ class profile extends Model
         'alamat',
         'no_hp',
         'file_ktp',
+        'tempat_lahir',
         'tanggal_lahir',
         'no_identitas'
     ];
@@ -54,10 +56,11 @@ class profile extends Model
         'username' => 'string',
         'pekerjaan' => 'string',
         'alamat' => 'string',
-        'no_hp' => 'string',
+        'no_hp' => 'integer',
         'file_ktp' => 'string',
         'tanggal_lahir' => 'date',
-        'no_identitas' => 'string'
+        'tempat_lahir' => 'string',
+        'no_identitas' => 'integer'
     ];
 
     /**
@@ -66,7 +69,10 @@ class profile extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required'
+        'user_id' => 'required',
+        'no_hp' => 'numeric',
+        'file_ktp' => 'image',
+        'no_identitas' => 'numeric'
     ];
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->role == 0){
+            return view('home');
+        }elseif(Auth::user()->role == 1){
+            if(Auth::user()->status_verifikasi != NULL){
+                return view('home');
+            }else{
+                $profile = profile::where('user_id', Auth::user()->id)->first();
+
+                return view('profiles.index', compact('profile'));
+            }
+        }
+
     }
 }

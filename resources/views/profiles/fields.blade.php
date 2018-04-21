@@ -1,12 +1,15 @@
+<h4 class="text-danger">Pastikan data Anda sudah sesuai dengan data di KTP</h4>
 <!-- Jekel Field -->
+{!! Form::hidden('user_id', Auth::user()->id, ['class' => 'form-control']) !!}
+
 <div class="form-group col-sm-6">
-    {!! Form::label('jekel', 'Jekel:') !!}
-    {!! Form::text('jekel', null, ['class' => 'form-control']) !!}
+    {!! Form::label('jekel', 'Jenis Kelamin:') !!}
+    {!! Form::select('jekel', ['0' => 'Laki-laki', '1' => 'Perempuan'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Username Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('username', 'Username:') !!}
+    {!! Form::label('username', 'Nama Lengkap:') !!}
     {!! Form::text('username', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -16,22 +19,10 @@
     {!! Form::text('pekerjaan', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Alamat Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('alamat', 'Alamat:') !!}
-    {!! Form::text('alamat', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- No Hp Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('no_hp', 'No Hp:') !!}
     {!! Form::text('no_hp', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- File Ktp Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('file_ktp', 'File Ktp:') !!}
-    {!! Form::text('file_ktp', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tanggal Lahir Field -->
@@ -45,6 +36,25 @@
     {!! Form::label('no_identitas', 'No Identitas:') !!}
     {!! Form::text('no_identitas', null, ['class' => 'form-control']) !!}
 </div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('tempat_lahir', 'Tempat Lahir:') !!}
+    {!! Form::text('tempat_lahir', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- File Ktp Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('file_ktp', 'Scan KTP:') !!}
+    {!! Form::file('file_ktp', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Alamat Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('alamat', 'Alamat:') !!}
+    {!! Form::textarea('alamat', null, ['class' => 'form-control']) !!}
+</div>
+
+
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

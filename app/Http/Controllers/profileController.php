@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\Auth;
 
 class profileController extends AppBaseController
 {
@@ -30,10 +31,9 @@ class profileController extends AppBaseController
     public function index(Request $request)
     {
         $this->profileRepository->pushCriteria(new RequestCriteria($request));
-        $profiles = $this->profileRepository->all();
+        $profile = $this->profileRepository->findWithoutFail(Auth::user()->id);
 
-        return view('profiles.index')
-            ->with('profiles', $profiles);
+        return view('profiles.index', compact('profile'));
     }
 
     /**
@@ -56,6 +56,9 @@ class profileController extends AppBaseController
     public function store(CreateprofileRequest $request)
     {
         $input = $request->all();
+        $fileName = $request->file_ktp->getClientOriginalName();
+
+        $input['file_ktp']=$request->file_ktp->storeAs('file_ktp/', Auth::user()->name.'_'.$fileName);
 
         $profile = $this->profileRepository->create($input);
 
