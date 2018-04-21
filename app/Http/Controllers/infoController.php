@@ -8,6 +8,7 @@ use App\Repositories\infoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -32,8 +33,19 @@ class infoController extends AppBaseController
         $this->infoRepository->pushCriteria(new RequestCriteria($request));
         $infos = $this->infoRepository->all();
 
-        return view('infos.index')
-            ->with('infos', $infos);
+        if(Auth::check()){
+            if(Auth::user()->role == 0){
+                return view('infos.index')
+                    ->with('infos', $infos);
+            }elseif(Auth::user()->role == 1){
+                return view('user.infos.index')
+                    ->with('infos', $infos);
+            }
+        }else{
+            return view('user.infos.index')
+                ->with('infos', $infos);
+        }
+
     }
 
     /**

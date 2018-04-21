@@ -64,8 +64,8 @@ class info extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function perkaras()
+    public function perkara()
     {
-        return $this->hasMany(\App\Models\perkaras::class, 'id', 'perkara_id');
+        return $this->belongsTo(perkara::class, 'perkara_id', 'id');
     }
 }

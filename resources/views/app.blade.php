@@ -61,7 +61,7 @@
                             <ul>
                                 <li class="active"><a href="{!! url('/') !!}" title="Home">Beranda</a></li>
                                 {{--<li><a href="about.html" title="About us">Informasi</a> </li>--}}
-                                <li class="has-sub"><a href="tours.html" title="Tours">Informasi</a>
+                                <li class="has-sub"><a href="{!!route('infos.index') !!}" title="Tours">Info & Tips</a>
                                     <ul>
                                         <li><a href="domestic-tour.html" title="Group Tours">Pencurian</a></li>
                                         <li><a href="international-tour.html" title="Couple Tours">Pembunuhan</a></li>
