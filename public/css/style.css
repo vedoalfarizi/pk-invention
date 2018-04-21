@@ -159,7 +159,7 @@ button.btn { height: 50px; margin-right: -1px; margin-top: 15px; }
 .pinside10 { padding: 10px; }
 .pinside20 { padding: 20px; }
 .pinside30 { padding: 30px; }
-.pinside40 { padding: 40px; }
+.pinside40 { padding: 0px; }
 .pinside50 { padding: 50px; }
 .pinside60 { padding: 60px; }
 .pinside80 { padding: 80px; }
@@ -293,8 +293,8 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
     5.2 Navigations Regular
    ----------------------------*/
 .hero-section { background: url(../images/hero-img.jpg) no-repeat center; background-size: cover; }
-.hero-section-caption { margin-top: 110px; margin-bottom: 110px; background-color: #4d8638; border-radius: 6px; }
-.hero-title { color: #fff; font-size: 35px; font-weight: 100; line-height: 45px; margin-bottom: 25px; }
+.hero-section-caption { margin-top: 110px; margin-bottom: 110px; background-color: #dee1e5; border-radius: 6px; }
+.hero-title { color: #000000; font-size: 35px; font-weight: 100; line-height: 45px; margin-bottom: 25px; }
 #navigation { float: right; }
 #navigation, #navigation ul, #navigation ul li, #navigation ul li a, #navigation #menu-button { margin: 0; padding: 0; border: 0; list-style: none; line-height: 1; display: block; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 #navigation:after, #navigation > ul:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
@@ -648,7 +648,7 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
     .top-bar { padding-top: 0px; padding-bottom: 0px; }
     .header { padding-top: 5px; padding-bottom: 5px }
     .navigation { margin-top: 12px; border-top: #e3e2da 1px solid; }
-    .hero-section-caption { padding: 30px; }
+    .hero-section-caption { padding: 1px; }
     .hero-title { color: #fff; font-size: 26px; line-height: 30px; }
     .page-section { padding-top: 70px; padding-bottom: 50px; }
     .page-title { font-size: 26px; color: #fff; line-height: 36px; }
@@ -680,7 +680,7 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
     }
 
     .hero-section-caption {
-        padding: 30px;
+        padding: 1px;
     }
 
     .hero-title {
