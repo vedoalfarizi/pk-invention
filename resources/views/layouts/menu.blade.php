@@ -28,6 +28,10 @@
     <li class="{{ Request::is('laporans*') ? 'active' : '' }}">
         <a href="{!! route('laporans.index') !!}"><i class="fa fa-edit"></i><span>Laporan</span></a>
     </li>
+    <li class="{{ Request::is('pelaporans*') ? 'active' : '' }}">
+        <a href="{!! url('/pelaporans') !!}"><i class="fa fa-edit"></i><span>Progres Pelaporan</span></a>
+    </li>
+
 
     <li class="{{ Request::is('perkaras*') ? 'active' : '' }}">
         <a href="{!! route('perkaras.index') !!}"><i class="fa fa-edit"></i><span>Perkara</span></a>

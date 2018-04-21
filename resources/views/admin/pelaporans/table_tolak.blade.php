@@ -2,35 +2,21 @@
 <table class="table table-responsive" id="laporans-table">
     <thead>
         <tr>
+
+            <th>Tanggal Pelaporan</th>
             <th>Pelapor</th>
-        <th>Waktu Lapor</th>
-        <th>Perkara</th>
-        <th>Waktu Kejadian</th>
-        <th>Tempat Kejadian</th>
-        <th>Status Laporan</th>
+            <th>Perkara</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
-    @foreach($laporans as $laporan)
+    @foreach($laporans_tolak as $laporan)
         <tr>
-            <td>{!! $laporan->users->name !!}</td>
-            <td>{!! substr($laporan->created_at,0,10) !!}</td>
-            <td>{!! $laporan->perkaras->nama !!}</td>
-            <td>{!! substr($laporan->waktu_kejadian,0,10) !!}</td>
-            <td>{!! $laporan->tempat_kejadian !!}</td>
-            <td>
 
-                @if( @$laporan->status_laporan==0)
-                    <label class="label label-danger" style="color: white"> Belum Baca </label>
-                @elseif(@$laporan->status_laporan==1)
-                    <label class="label label-success" style="color: white"> Diterima </label>
-                @elseif(@$laporan->status_laporan==2)
-                    <label class="label label-default" style="color: white"> Ditolak </label>
-                @elseif(@$laporan->status_laporan==3)
-                    <label class="label label-primary" style="color: white"> Tindak lanjut </label>
-               @endif
-            </td>
+            <td>{!! $laporan->created_at !!}</td>
+            <td>{!! $laporan->users->name !!}</td>
+            <td>{!! $laporan->perkaras->nama !!}</td>
+
             <td>
                 <a class='btn btn-info btn-fill' data-toggle='modal' data-target='#lihat-{{$laporan->id}}'><i class="glyphicon glyphicon-eye-open"></i> Lihat </a>
             </td>
@@ -134,18 +120,20 @@
 
                         <div class="row">
                             <div class="col-md-12" style="background-color: #e6e5e5">
-                                Uraian Kejadian : <br>
+                                <strong> Uraian Kejadian :</strong>
+                                <br>
                                 {{$laporan->uraian_kejadian}}
+                                <br><br>
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <center>
-                            <div class="col-md-12">
-                                <a class='btn btn-info btn-fill' data-toggle='modal' data-target='#diterima-{{$laporan->id}}'>Terima </a>
-                                <a class='btn btn-danger btn-fill' data-toggle='modal' data-target='#ditolak-{{$laporan->id}}'>Tolak </a>
+                            <div class="col-md-12" style="background-color: #e6e5e5">
+                                <strong> Alasan ditolak :</strong>
+                                <br>
+                                {{$laporan->alasan}}
+                                <br><br>
                             </div>
-                            </center>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -226,3 +214,6 @@
 
     </tbody>
 </table>
+<ul class="pagination pagination-sm inline pull-right">
+    {!! $laporans_tolak->links() !!}
+</ul>

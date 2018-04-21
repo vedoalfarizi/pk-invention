@@ -38,7 +38,11 @@ Route::resource('perkembanganLaps', 'perkembanganLapController');
 Route::get('/pengguna', 'penggunaController@index');
 Route::get('/pengguna/verifikasi/{id}', 'penggunaController@verifikasi');
 
-//laporan
-//Route::get('/laporan/terima/{id}', 'laporanController')
-//href="{{url('/laporan/terima/'.$laporan->id)}}"
+//Progress laporan
+Route::get('/pelaporans', 'progresLaporanController@index');
+Route::get('/pelaporans/cetak/{id}', function ($id) {
+    $laporan = \App\Models\laporan::where('id',$id)->first();
+    return view('admin.pelaporans.cetak_surat', compact('laporan'));
+});
+
 
