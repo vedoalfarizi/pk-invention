@@ -1,17 +1,271 @@
 @extends('app')
 @section('content')
+    <meta name="description" content="map created using amCharts pixel map generator" />
+
+    <!-- amCharts javascript sources -->
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/indonesiaLow.js"></script>
+
+    <!-- amCharts javascript code -->
+    <script type="text/javascript">
+        AmCharts.makeChart("map",{
+            "type": "map",
+            "pathToImages": "http://www.amcharts.com/lib/3/images/",
+            "addClassNames": true,
+            "fontSize": 15,
+            "color": "#000000",
+            "projection": "mercator",
+            "backgroundAlpha": 1,
+            "backgroundColor": "rgba(255,255,255,1)",
+            "dataProvider": {
+                "map": "indonesiaLow",
+                "getAreasFromMap": true,
+                "images": [
+                    {
+                        "top": 40,
+                        "left": 60,
+                        "width": 80,
+                        "height": 40,
+                        "pixelMapperLogo": true,
+                        "imageURL": "http://pixelmap.amcharts.com/static/img/logo-black.svg",
+                        "url": "http://www.amcharts.com"
+                    }
+                ],
+                "areas": [
+                    {
+                        "id": "ID-AC",
+                        "title": "Aceh<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(26,88,217,1)"
+                    },
+                    {
+                        "id": "ID-BA",
+                        "title": "Bali<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(163,98,89,1)"
+                    },
+                    {
+                        "id": "ID-BE",
+                        "title": "Bengkulu<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(25,70,165,1)"
+                    },
+                    {
+                        "id": "ID-BT",
+                        "title": "Banten<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(139,147,165,1)"
+                    },
+                    {
+                        "id": "ID-GO",
+                        "title": "Gorontalo<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(155,163,89,1)"
+                    },
+                    {
+                        "id": "ID-JA",
+                        "title": "Jambi<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(22,36,66,1)"
+                    },
+                    {
+                        "id": "ID-JB",
+                        "title": "Jawa Barat<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(126,140,170,1)"
+                    },
+                    {
+                        "id": "ID-JI",
+                        "title": "Jawa Timur<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(14,48,118,1)"
+                    },
+                    {
+                        "id": "ID-JT",
+                        "title": "Jawa Tengah<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(27,75,173,1)"
+                    },
+                    {
+                        "id": "ID-KB",
+                        "title": "Kalimantan Barat<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(18,43,94,1)"
+                    },
+                    {
+                        "id": "ID-KI",
+                        "title": "Kalimantan Timur<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(70,208,174,0.8)"
+                    },
+                    {
+                        "id": "ID-KS",
+                        "title": "Kalimantan Selatan<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(163,89,143,1)"
+                    },
+                    {
+                        "id": "ID-KT",
+                        "title": "Kalimantan Tengah<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(70,208,174,0.8)"
+                    },
+                    {
+                        "id": "ID-KU",
+                        "title": "Kalimantan Utara<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(54,98,189,1)"
+                    },
+                    {
+                        "id": "ID-LA",
+                        "title": "Lampung<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(138,148,168,1)"
+                    },
+                    {
+                        "id": "ID-MA",
+                        "title": "Maluku<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(10,18,35,1)"
+                    },
+                    {
+                        "id": "ID-MU",
+                        "title": "Maluku Utara<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(18,33,62,1)"
+                    },
+                    {
+                        "id": "ID-NB",
+                        "title": "Nusa Tenggara Barat<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(10,24,54,1)"
+                    },
+                    {
+                        "id": "ID-NT",
+                        "title": "Nusa Tenggara Timur<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(28,86,210,1)"
+                    },
+                    {
+                        "id": "ID-PA",
+                        "title": "Papua<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(4,15,38,1)"
+                    },
+                    {
+                        "id": "ID-PB",
+                        "title": "Papua Barat<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(158,89,163,1)"
+                    },
+                    {
+                        "id": "ID-RI",
+                        "title": "Riau<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(70,208,174,0.8)"
+                    },
+                    {
+                        "id": "ID-SA",
+                        "title": "Sulawesi Utara<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(44,87,177,1)"
+                    },
+                    {
+                        "id": "ID-SB",
+                        "title": "Sumatera Barat<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(27,96,241,1)"
+                    },
+                    {
+                        "id": "ID-SG",
+                        "title": "Sulawesi Tenggara<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(43,80,156,1)"
+                    },
+                    {
+                        "id": "ID-SN",
+                        "title": "Sulawesi Selatan<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(10,21,43,1)"
+                    },
+                    {
+                        "id": "ID-SR",
+                        "title": "Sulawesi Barat<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(20,78,201,1)"
+                    },
+                    {
+                        "id": "ID-SS",
+                        "title": "Sumatera Selatan<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(70,208,174,0.8)"
+                    },
+                    {
+                        "id": "ID-ST",
+                        "title": "Sulawesi Tengah<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(9,13,21,1)"
+                    },
+                    {
+                        "id": "ID-SU",
+                        "title": "Sumatera Utara<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(17,31,59,1)"
+                    },
+                    {
+                        "id": "ID-YO",
+                        "title": "Yogyakarta<br/><small>Total Kriminalitas:333<small>",
+                        "color": "rgba(48,61,41,1)"
+                    },
+                    {
+                        "id": "TL",
+                        "title": "Timor-Leste",
+                        "color": "rgba(33,128,40,1)"
+                    },
+                    {
+                        "id": "MY-12",
+                        "title": "Sabah",
+                        "color": "rgba(38,91,203,1)"
+                    },
+                    {
+                        "id": "MY-13",
+                        "title": "Sarawak",
+                        "color": "rgba(70,208,174,0.8)"
+                    }
+                ]
+            },
+            "balloon": {
+                "horizontalPadding": 15,
+                "borderAlpha": 0,
+                "borderThickness": 1,
+                "verticalPadding": 15
+            },
+            "areasSettings": {
+                "color": "rgba(89,113,163,1)",
+                "outlineColor": "rgba(255,255,255,1)",
+                "rollOverOutlineColor": "rgba(255,255,255,1)",
+                "rollOverBrightness": 20,
+                "selectedBrightness": 20,
+                "selectable": true,
+                "unlistedAreasAlpha": 0,
+                "unlistedAreasOutlineAlpha": 0
+            },
+            "imagesSettings": {
+                "alpha": 1,
+                "color": "rgba(89,113,163,1)",
+                "outlineAlpha": 0,
+                "rollOverOutlineAlpha": 0,
+                "outlineColor": "rgba(255,255,255,1)",
+                "rollOverBrightness": 20,
+                "selectedBrightness": 20,
+                "selectable": true
+            },
+            "linesSettings": {
+                "color": "rgba(89,113,163,1)",
+                "selectable": true,
+                "rollOverBrightness": 20,
+                "selectedBrightness": 20
+            },
+            "zoomControl": {
+                "zoomControlEnabled": true,
+                "homeButtonEnabled": false,
+                "panControlEnabled": false,
+                "right": 38,
+                "bottom": 30,
+                "minZoomLevel": 0.25,
+                "gridHeight": 100,
+                "gridAlpha": 0.1,
+                "gridBackgroundAlpha": 0,
+                "gridColor": "#FFFFFF",
+                "draggerAlpha": 1,
+                "buttonCornerRadius": 2
+            }
+        });
+    </script>
+
+    <script src="{{asset('code/highcharts.js')}}"></script>
+    <script src="{{asset('code/modules/exporting.js')}}"></script>
+    {{--src="{{asset('images/service-img-1.jpg')}}"--}}
+
     <!-- hero-section start -->
-    <div class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-                    <div class="hero-section-caption pinside40">
-                        <h1 class="hero-title">Provinsi Rawan Kriminal</h1>
-                        <a href="domestic-tour.html" class="btn btn-primary ">Lihat Lainnya</a> </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
+    <div id="map" style="width: 100%; height: 613px;"></div><center>
+    <div class="hero-section-caption nopadding" style="width: 90%">
+        <h1 class="hero-title"><center> Tingkatan Kriminalitas </center></h1>
+        <a style="float: left">Rendah</a> <a style="float: right">Tinggi</a> <img src="{{asset('images/bar.png')}}"/><br/>. </div></center>
+
     <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
             <div class="service-block">
@@ -77,48 +331,73 @@
             <div class="row">
                 <!-- service start -->
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img">
-                            <a href="#"><img src="{{asset('images/service-img-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
-                        </div>
-                        <div class="service-content">
-                            <h3><a href="#" class="title">Group Tour</a></h3>
-                            <p>Scelerisque vitae velit e llamcorper plvinar esras sit amet odio et dolor por bibendum sit amet neceros.</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
-                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
-                        </div>
-                    </div>
+                    <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
                 </div>
+
+                <script type="text/javascript">
+
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'bar'
+                        },
+                        title: {
+                            text: 'Daerah Paling Rawan Kriminal'
+                        },
+                        subtitle: {
+                            text: '2018'
+                        },
+                        xAxis: {
+                            categories: ['.','Jawa Barat', 'Sumatera Utara', 'Sulawesi Selatan', 'Jakarta', 'Sumatera Barat'],
+                            title: {
+                                text: null
+                            }
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Population (millions)',
+                                align: 'high'
+                            },
+                            labels: {
+                                overflow: 'justify'
+                            }
+                        },
+                        tooltip: {
+                            valueSuffix: ' millions'
+                        },
+                        plotOptions: {
+                            bar: {
+                                dataLabels: {
+                                    enabled: true
+                                }
+                            }
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'top',
+                            x: -40,
+                            y: 80,
+                            floating: true,
+                            borderWidth: 1,
+                            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                            shadow: true
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        series: [{
+                            name: 'angka krimintalitas',
+                            data: [0,924, 800, 635, 203, 96]
+                        }]
+                    });
+                </script>
                 <!-- service close -->
                 <!-- service start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img">
-                            <a href="#"><img src="{{asset('images/service-img-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
-                        </div>
-                        <div class="service-content">
-                            <h3><a href="#" class="title">Couple Tour</a></h3>
-                            <p>Pellentesque bibendum, ante et ornare viverra, ex neque lorem ipusm dtium vestibulum eros ut lacinia.</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
-                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
-                        </div>
-                    </div>
-                </div>
+
                 <!-- service close -->
                 <!-- service start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img">
-                            <a href="#"><img src="{{asset('images/service-img-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
-                        </div>
-                        <div class="service-content">
-                            <h3><a href="#" class="title">Off Season Tour</a></h3>
-                            <p>Donec pretium vestibulum eros ut Pellentesque bineque luctus orci in pharetra ante quam etestibul.</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
-                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
-                        </div>
-                    </div>
-                </div>
+
                 <!-- service close -->
             </div>
         </div>
@@ -138,141 +417,52 @@
             <div class="row">
                 <!-- Testimonials-one-start -->
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
-                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
-                        <div class="testimonial-content">
-                            <h4>Paul Hasburg</h4>
-                            <span class="location">Kerala</span>
-                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
-                            <div>
-                                <p class="testimonial-text">“I love this tour. We have enough time to fully experience the Kerala. I have the opportunity to show my region, thank you" </p>
-                            </div>
+                    <div class="service-block">
+                        <div class="service-img">
+                            <a href="#"><img src="{{asset('images/begal.png')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
+                        </div>
+                        <div class="service-content">
+                            <p>Tips aman berkendara ketika malam hari</p>
+                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
+                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
                         </div>
                     </div>
                 </div>
                 <!-- Testimonials-one-close -->
                 <!-- Testimonials-two-start -->
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
-                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
-                        <div class="testimonial-content">
-                            <h4>Plisa Moody</h4>
-                            <span class="location">Kullu-manali</span>
-                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
-                            <div>
-                                <p class="testimonial-text">“You were an excellent Travel Agency for us! It was invaluable trip to kullu-manali & You considered our unique needs, thank you ”</p>
-                            </div>
+                    <div class="service-block">
+                        <div class="service-img">
+                            <a href="#"><img src="{{asset('images/maling.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
+                        </div>
+                        <div class="service-content">
+                            <p>Cara mencegah ponsel agar tidak mudah dicuri</p>
+                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
+                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
                         </div>
                     </div>
                 </div>
                 <!-- Testimonials-two-start -->
                 <!-- Testimonials-three-start -->
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <div class="testimonial-img"><img src="{{asset('images/testimonial-img-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></div>
-                        <div class="testimonial-user-img"><img src="{{asset('images/testimonial-user-img-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-circle"></div>
-                        <div class="testimonial-content">
-                            <h4>Christine Smith</h4>
-                            <span class="location">Turkey</span>
-                            <div class="rating"> <span> <i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> <span><i class="fa fa-star"></i> </span> </div>
-                            <div>
-                                <p class="testimonial-text">“Suspendisse vitaea enim dictum fringilla ullam interdum atelit id vestibulum TURKEY aecenas viverra risusit amet quam consectetu, thank you”</p>
-                            </div>
+                    <div class="service-block">
+                        <div class="service-img">
+                            <a href="#"><img src="{{asset('images/parkiran.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
+                        </div>
+                        <div class="service-content">
+                            <p>Cara menjaga helm agar tetap aman di parkiran</p>
+                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
+                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
                         </div>
                     </div>
                 </div>
+                <center>
+                    <button class="btn btn-primary">Lihat Semua</button></center>
                 <!-- Testimonials-three-close -->
 
     <!-- about-section start -->
-    <div class="bg-default space-medium">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-title text-center">
-                        <h1>Why Choose Our Travel Agency?</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- feature start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="feature-block">
-                        <div class="feature-icon"><i class="fa fa-building"></i></div>
-                        <div class="feature-content">
-                            <h3 class="feature-title">Accommodation</h3>
-                            <p>Lorem ipsum dolor sitamet consec tetur adipiscing elied rs tristi quetur etullam corper viver.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- feature close -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="feature-block">
-                        <div class="feature-icon"><i class="fa fa-plane"></i></div>
-                        <div class="feature-content">
-                            <h3 class="feature-title">Transportation</h3>
-                            <p>Vivamus tincidunt varius arcu vitaeli ac fringilla nioamile just oetbi once bendum dapibus. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="feature-block">
-                        <div class="feature-icon"><i class="fa fa-star"></i></div>
-                        <div class="feature-content">
-                            <h3 class="feature-title">Easy Trip Planning</h3>
-                            <p>Apretium imperdie is nullam facili sis elit velest blandit ultri ciesras atvar ac ius lorem sitamet velerat. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- about-section close -->
-    <!-- Destination-section-start -->
-    <div class="space-medium">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-title text-center">
-                        <h1>Top Destinations</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- destination-one-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="destination-img">
-                        <a href="#" class="imghover"><img src="{{asset('images/destination-1.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-responsive"></a>
-                    </div>
-                    <div class="destination-content">
-                        <h3><a href="#" class="destination-title">Singapore</a></h3>
-                    </div>
-                </div>
-                <!-- destination-one-close -->
-                <!-- destination-two-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="destination-img imghover">
-                        <a href="#" class="imghover"><img src="{{asset('images/destination-2.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-responsive"></a>
-                    </div>
-                    <div class="destination-content">
-                        <h3><a href="#" class="destination-title">Greece</a></h3>
-                    </div>
-                </div>
-                <!-- destination-two-close -->
-                <!-- destination-three-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="destination-img imghover">
-                        <a href="#"><img src="{{asset('images/destination-3.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template" class="img-responsive"></a>
-                    </div>
-                    <div class="destination-content">
-                        <h3><a href="#" class="destination-title">Thailand</a></h3>
-                    </div>
-                </div>
-                <!-- destination-three-close -->
-            </div>
-        </div>
-    </div>
+
+
     <!-- Destination-section-close -->
 
             </div>

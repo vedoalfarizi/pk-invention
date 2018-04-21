@@ -53,7 +53,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12">
-                    <a href="index.html"><img src="{{asset('images/logo.png')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
+                    <a href="index.html" alt="Tour and Travel Agency - Responsive Website Template"><img src="{{asset('images/pk.png')}}" style="width: 20%"/> </a>
                 </div>
                 <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
                     <div class="navigation">
@@ -91,58 +91,39 @@
 <!-- footer start -->
 <div class="footer">
     <div class="container">
-        <div class="row">
+        <div class="row" style="float: left">
             <!-- footer-about-start -->
-            <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <br class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-widget">
-                    <h3 class="footer-title ">About us</h3>
-                    <p>Booking, reviews and advices on hotels, resorts, flights, vacation rentals, travel packages, and lots more in our travel agency !</p>
-                    <a href="#" class="footer-link">More about us</a></div>
+                    <strong style="color: white; font-size: 130%"><i class="fa fa-instagram"></i></strong> @pantau_kriminal<p/><br/>
+                    <strong style="color: white; font-size: 130%"><i class="fa fa-envelope"></i></strong> @info@pk.com<p/>
+                    <strong style="color: white; font-size: 130%"><i class="fa fa-map-marker"></i></strong>
+                    Jurusan Sistem Informasi<br/>
+                    &emsp;Fakultas Teknologi Informasi<br/>
+                    &emsp;Universitas Andalas<br/>
+                    &emsp;Limau Manis, Pauh, Padang<br/>
+                    <p/>
+                </div>
             </div>
             <!-- footer-about-close -->
             <!-- footer-location-start -->
-            <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="footer-widget">
-                    <h3 class="footer-title">Our Locations</h3>
-                    <ul class="arrow arrow-chevron-circle-right">
-                        <li><a href="#">Ahmedabad</a></li>
-                        <li><a href="#">Mumbai</a></li>
-                        <li><a href="#">Surat</a></li>
-                        <li><a href="#">Jamnagar</a></li>
-                        <li><a href="#">Bhuj</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- footer-location-close -->
-            <!-- footer-contact-start -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
-                <div class="footer-widget">
-                    <h3 class="footer-title">Contact Info</h3>
-                    <div class="contact-info">
-                        <ul>
-                            <li>2867 University Street Ahmedabad, WA 98052</li>
-                            <li>252-386-7004 </li>
-                            <li>info@yourwebsitedomian.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- footer-contact-close -->
-            <!-- footer-social-start -->
-            <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12 ">
-                <div class="footer-widget">
-                    <h3 class="footer-title">Follow us on</h3>
-                    <div class="footer-social">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div style="float: right">
+            <table>
+                <tr><td colspan="3"><center><b>Kirim Masukan</b></center</td></tr>
+                <tr><td>&nbsp</td></tr>
+                <tr>
+                    <td>E-mail</td>
+                    <td>:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr><td>&nbsp</td></tr>
+                <tr>
+                    <td>Saran</td>
+                    <td>:</td>
+                    <td><textarea rows="6"></textarea> </td>
+                </tr>
+            </table>
+        </div>
             <!-- footer-social-close -->
         </div>
     </div>
@@ -151,7 +132,7 @@
 <div class="tiny-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">© 2020. All Rights Reserved. Privacy Policy</div>
+            <div class="col-md-12">© 2018. ASIMETR15</div>
         </div>
     </div>
     <!-- tiny-footer-start -->
