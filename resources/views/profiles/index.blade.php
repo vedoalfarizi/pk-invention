@@ -8,31 +8,22 @@
         <div class="clearfix"></div>
 
         @include('flash::message')
+        @include('adminlte-templates::common.errors')
 
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                @if($profile != NULL)
 
-                    <h4 class="text-success">Data Anda akan segera diverifikasi oleh Admin</h4>
-                    {!! Form::model($profile, ['route' => ['profiles.update', $profile->id], 'method' => 'patch']) !!}
+                {!! Form::open(['route' => 'profiles.store', 'files' => true]) !!}
 
-                        @include('profiles.fields')
+                @include('profiles.fields')
 
-                    {!! Form::close() !!}
-                @else
-                    @include('adminlte-templates::common.errors')
+                {!! Form::close() !!}
 
-                    {!! Form::open(['route' => 'profiles.store', 'files' => true]) !!}
-
-                        @include('profiles.fields')
-
-                    {!! Form::close() !!}
-                @endif
             </div>
         </div>
         <div class="text-center">
-        
+
         </div>
     </div>
 @endsection

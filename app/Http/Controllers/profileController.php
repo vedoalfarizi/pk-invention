@@ -33,7 +33,12 @@ class profileController extends AppBaseController
         $this->profileRepository->pushCriteria(new RequestCriteria($request));
         $profile = $this->profileRepository->findWithoutFail(Auth::user()->id);
 
-        return view('profiles.index', compact('profile'));
+        if($profile != NULL){
+            return view('profiles.edit', compact('profile'));
+        }else{
+            return view('profiles.index', compact('profile'));
+        }
+
     }
 
     /**
@@ -58,13 +63,13 @@ class profileController extends AppBaseController
         $input = $request->all();
         $fileName = $request->file_ktp->getClientOriginalName();
 
-        $input['file_ktp']=$request->file_ktp->storeAs('file_ktp/', Auth::user()->name.'_'.$fileName);
+        $input['file_ktp']=$request->file_ktp->storeAs('file_ktp', Auth::user()->name.'_'.$fileName);
 
         $profile = $this->profileRepository->create($input);
 
         Flash::success('Profile saved successfully.');
 
-        return redirect(route('profiles.index'));
+        return redirect(route('home'));
     }
 
     /**
@@ -118,14 +123,18 @@ class profileController extends AppBaseController
     public function update($id, UpdateprofileRequest $request)
     {
         $profile = $this->profileRepository->findWithoutFail($id);
+        $data = $request->all();
+
+        $fileName = $request->file_ktp->getClientOriginalName();
+        $data['file_ktp']=$request->file_ktp->storeAs('file_ktp', Auth::user()->name.'_'.$fileName);
 
         if (empty($profile)) {
             Flash::error('Profile not found');
 
-            return redirect(route('profiles.index'));
+            return redirect(route('profiles.edit'));
         }
 
-        $profile = $this->profileRepository->update($request->all(), $id);
+        $profile = $this->profileRepository->update($data, $id);
 
         Flash::success('Profile updated successfully.');
 

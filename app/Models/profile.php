@@ -56,11 +56,11 @@ class profile extends Model
         'username' => 'string',
         'pekerjaan' => 'string',
         'alamat' => 'string',
-        'no_hp' => 'integer',
-        'file_ktp' => 'string',
-        'tanggal_lahir' => 'date',
+        'no_hp' => 'string',
+        'file_ktp' => 'file',
         'tempat_lahir' => 'string',
-        'no_identitas' => 'integer'
+        'tanggal_lahir' => 'date',
+        'no_identitas' => 'string'
     ];
 
     /**
@@ -70,8 +70,14 @@ class profile extends Model
      */
     public static $rules = [
         'user_id' => 'required',
+        'jekel' => 'required',
+        'username' => 'required',
+        'pekerjaan' => 'required',
+        'alamat' => 'required',
         'no_hp' => 'numeric',
         'file_ktp' => 'image',
+        'tempat_lahir' => 'required',
+        'tanggal_lahir' => 'required',
         'no_identitas' => 'numeric'
     ];
 

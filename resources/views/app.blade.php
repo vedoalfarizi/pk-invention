@@ -73,9 +73,27 @@
                                         <li><a href="blog-single.html" title="Blog Single ">Peta</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="testimonials.html" title="Testimonials">Profil</a>
                                 <li><a href="contact-us.html" title="Contact Us">Contact Us</a> </li>
-                                <li><a href="{!! url('/login') !!}" title="Styleguide">Masuk</a></li>
+
+                                @if(Auth::check())
+                                    @if(Auth::user()->role == 1)
+                                        <li><a href="{!! route('profiles.index') !!}" title="Testimonials">Profil</a>
+                                    @elseif(Auth::user()->role == 0)
+                                        <li><a href="{!! route('home') !!}" title="Testimonials">Dashboard</a>
+                                    @endif
+                                @endif
+
+                                @if(!Auth::check())
+                                    <li><a href="{!! url('/login') !!}" title="Styleguide">Masuk</a></li>
+                                @else
+                                    <li><a href="{!! url('/logout') !!}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Keluar
+                                        </a></li>
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                @endif
+
                             </ul>
                         </div>
                     </div>

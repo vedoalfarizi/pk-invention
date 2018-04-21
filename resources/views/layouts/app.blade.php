@@ -71,9 +71,13 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="{!! route('profiles.index') !!}" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
+
+                                    @if(Auth::user()->role == 1)
+                                        <div class="pull-left">
+                                            <a href="{!! route('profiles.index') !!}" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                    @endif
+
                                     <div class="pull-right">
                                         <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

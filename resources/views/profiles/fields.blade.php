@@ -1,4 +1,7 @@
-<h4 class="text-danger">Pastikan data Anda sudah sesuai dengan data di KTP</h4>
+
+<div class="form-group col-sm-12">
+    <h4 class="text-danger">Pastikan data Anda sudah sesuai dengan data di KTP</h4>
+</div>
 <!-- Jekel Field -->
 {!! Form::hidden('user_id', Auth::user()->id, ['class' => 'form-control']) !!}
 
@@ -59,5 +62,4 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('profiles.index') !!}" class="btn btn-default">Cancel</a>
 </div>
