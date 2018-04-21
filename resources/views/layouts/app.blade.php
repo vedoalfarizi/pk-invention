@@ -36,7 +36,7 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="#" class="logo">
+            <a href="{!! url('/') !!}" class="logo">
                 <b>Pantau Kriminal</b>
             </a>
 
