@@ -74,7 +74,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="testimonials.html" title="Testimonials">Profil</a>
-                                <li><a href="contact-us.html" title="Contact Us">Contact Us</a> </li>
+                                <li><a href="contact-us.html" title="Lapor" class="btn btn-warning"><font color="white">Lapor</font></a> </li>
                                 <li><a href="{!! url('/login') !!}" title="Styleguide">Masuk</a></li>
                             </ul>
                         </div>
@@ -114,13 +114,13 @@
                 <tr>
                     <td>E-mail</td>
                     <td>:</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" style="width: 100%"></td>
                 </tr>
                 <tr><td>&nbsp</td></tr>
                 <tr>
                     <td>Saran</td>
                     <td>:</td>
-                    <td><textarea rows="6"></textarea> </td>
+                    <td><textarea rows="6" cols="60"></textarea> </td>
                 </tr>
             </table>
         </div>
