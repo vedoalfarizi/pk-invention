@@ -25,6 +25,10 @@
         <a href="{!! url('/pengguna') !!}"><i class="fa fa-edit"></i><span>Pengguna</span></a>
     </li>
 
+    <li class="{{ Request::is('laporans*') ? 'active' : '' }}">
+        <a href="{!! route('laporans.index') !!}"><i class="fa fa-edit"></i><span>Laporan</span></a>
+    </li>
+
     <li class="{{ Request::is('perkaras*') ? 'active' : '' }}">
         <a href="{!! route('perkaras.index') !!}"><i class="fa fa-edit"></i><span>Perkara</span></a>
     </li>
@@ -43,9 +47,6 @@
         <a href="{!! route('infos.index') !!}"><i class="fa fa-edit"></i><span>Info dan Tips</span></a>
     </li>
 
-    <li class="{{ Request::is('laporans*') ? 'active' : '' }}">
-        <a href="{!! route('laporans.index') !!}"><i class="fa fa-edit"></i><span>Laporan</span></a>
-    </li>
 
     <li class="{{ Request::is('perkembanganLaps*') ? 'active' : '' }}">
         <a href="{!! route('perkembanganLaps.index') !!}"><i class="fa fa-edit"></i><span>Perkembangan Laporan</span></a>

@@ -54,6 +54,8 @@ class laporan extends Model
         'pasal',
         'status_laporan',
         'no_surat',
+        'tanggal_surat',
+        'alasan',
         'lat',
         'long'
     ];
@@ -94,16 +96,21 @@ class laporan extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function userIds()
+    public function users()
     {
-        return $this->hasMany(\App\Models\ user_id::class, ' id', ' users');
+        return $this->belongsTo(\App\User::class, 'user_id', 'id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function perkaraIds()
+    public function perkaras()
     {
-        return $this->hasMany(\App\Models\ perkara_id::class, ' id', ' perkaras');
+        return $this->belongsTo(\App\Models\perkara::class, 'perkara_id', 'id');
+    }
+
+    public function profiles()
+    {
+        return $this->belongsTo(\App\Models\profile::class, 'user_id', 'user_id');
     }
 }

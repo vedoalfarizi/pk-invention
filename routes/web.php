@@ -38,3 +38,7 @@ Route::resource('perkembanganLaps', 'perkembanganLapController');
 Route::get('/pengguna', 'penggunaController@index');
 Route::get('/pengguna/verifikasi/{id}', 'penggunaController@verifikasi');
 
+//laporan
+//Route::get('/laporan/terima/{id}', 'laporanController')
+//href="{{url('/laporan/terima/'.$laporan->id)}}"
+
