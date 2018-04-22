@@ -10,7 +10,9 @@
 
     <hr width="100%">
 </div>
+@include('flash::message')
 <table class="table table-responsive" id="perkembanganLaps-table">
+
     <thead>
     <tr>
         <th>Keterangan Perkembangan</th>
@@ -26,7 +28,7 @@
             <td>@if($p->file==NULL)
                     <label class="label label-default">Tidak ada File</label>
                     @else
-                    <a class="btn btn-info btn-xs" href="{{url('/pelaporans/dokumen/'.$p->id)}}">lihat Dokumen</a>
+                    <a class="btn btn-info btn-xs" target="_blank" href="{{url('/pelaporans/dokumen/'.$p->id)}}">lihat Dokumen</a>
             </td>
             @endif
             <td>
@@ -83,7 +85,7 @@
                                     <!-- Keterangan -->
                                         <div class="form-group col-sm-12">
                                             {!! Form::label('keterangan', 'Keterangan :') !!}
-                                            {!! Form::textarea('keterangan', null,['class' => 'form-control']) !!}
+                                            {!! Form::textarea('keterangan', null,['class' => 'form-control', 'required' => 'yes']) !!}
                                         </div>
 
                                         <!-- Keterangan -->
@@ -129,7 +131,7 @@
                 <!-- Keterangan -->
                     <div class="form-group col-sm-12">
                         {!! Form::label('keterangan', 'Keterangan :') !!}
-                        {!! Form::textarea('keterangan', null,['class' => 'form-control']) !!}
+                        {!! Form::textarea('keterangan', null,['class' => 'form-control', 'required' => 'yes']) !!}
                     </div>
 
                     <!-- Keterangan -->
