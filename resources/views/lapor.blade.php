@@ -6,39 +6,48 @@
         <aside>
             <div id="sidebar"  class="nav-collapse ">
 
-
-                </ul>
             </div>
         </aside>
         <section id="main-content">
             <section class="wrapper site-min-height">
-                <div class="row mt">
-                    <div style="float: left; padding-left: 2%">
-                        <br/>
-                        <input type="text" placeholder="Perkara/jenis tindak kriminal" style="width:200%;"> <br/><br/>
-                        <input type="text" placeholder="Korban" style="width:200%;"> <br/><br/>
-                        <input type="text" placeholder="Alamat korban" style="width:200%;"> <br/><br/>
-                        <input type="text" placeholder="Kerugian" style="width:200%;"> <br/><br/>
-                        <input type="text" placeholder="Terlapor" style="width:200%;"> <br/><br/>
-                        <input type="text" placeholder="Alamat terlapor" style="width:200%;"> <br/><br/>
-                        <input type="text" placeholder="Saksi" style="width:200%;"> <br/><br/>
-                        <textarea rows="5" placeholder="uraian kejadian" style="width: 200%"></textarea>
+                {!! Form::open(['url' => '/lapor/add', 'method' => 'post']) !!}
+                <div class="row">
+                    <div class="col-md-1">
                     </div>
-
-                            <div style="float: right">
-                                <br/>
-                                Lokasi kejadian :
-                                <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
-                                <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Posisi manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
-                                <input type="text" id="lat" readonly style="background-color: lightblue;">
-                                <input type="text" id="long" readonly style="background-color: lightblue;">
-                            </div>
-                    <br/><br/><br/><br/>
-                                <div id="map" style="width:60%;height:400px; float: right; padding-right: 50%"></div>
-                </div>
-                <br/>
-
-                <center><button class="btn btn-primary"">Kirim Laporan</button></center>
+                    <div class="col-md-4">
+                        <input hidden="yes" name="user_id">
+                        <input hidden="yes" type="date" name="waktu_lapor" value="{{date('Y-m-d')}}" required="yes">
+                        @php $perkaras = \App\Models\perkara::all(); @endphp
+                        <select name="perkara_id" class="form-control">
+                            <option value="0" disabled selected>-- Perkara --</option>
+                            @foreach($perkaras as $perkara)
+                                <option value="{{$perkara->id}}">{{$perkara->nama}}</option>
+                                @endforeach
+                        </select>
+                        <input type="date" placeholder="Waktu Kejadian" class="form-control" name="waktu_kejadian" required="yes">
+                        <input type="text" placeholder="Tempat Kejadian" class="form-control" name="tempat_kejadian" required="yes">
+                        <input type="text" placeholder="Korban" class="form-control" name="korban" required="yes">
+                        <input type="text" placeholder="Alamat korban" class="form-control" name="alamat_korban">
+                        <input type="text" placeholder="Kerugian" class="form-control" name="kerugian" required="yes">
+                        <input type="text" placeholder="Terlapor" class="form-control" name="pelapor" required="yes">
+                        <input type="text" placeholder="Saksi" class="form-control" name="saksi" required="yes">
+                        <textarea rows="3" placeholder="uraian kejadian" class="form-control" name="uraian_kejadian" required="yes"></textarea>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="col-md-12">
+                            Lokasi kejadian :
+                            <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
+                            <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Posisi manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
+                            <input hidden="yes" type="text" id="lat" name="lat" required="yes">
+                            <input hidden="yes" type="text" id="long" name="long" readonly style="background-color: lightblue;" required="yes">
+                        </div>
+                        <div class="col-md-12">
+                            <div id="map" style="height:400px; padding-right: 50%"></div>
+                        </div>
+                        </div>
+                    <center><input class="btn btn-primary" type="submit">Kirim Laporan</input></center>
+                    </div>
+                {!! Form::close() !!}
 
 
 
@@ -59,8 +68,6 @@
                         });
                         $('[data-toggle="tooltip"]').tooltip();
                     </script>
-                    </body>
-                    </html>
                     <script type="text/javascript">
                         window.onload=init;
                         var infoDua = [];
@@ -224,5 +231,9 @@
                             rute=[];
                         }
                     </script>
-                </div>
+            </section>
+        </section>
+    </section>
+
+
 @endsection

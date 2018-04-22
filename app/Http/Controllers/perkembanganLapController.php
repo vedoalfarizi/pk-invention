@@ -32,8 +32,8 @@ class perkembanganLapController extends AppBaseController
     public function index(Request $request)
     {
         $this->perkembanganLapRepository->pushCriteria(new RequestCriteria($request));
-        $perkembanganLaps = perkembanganLap::selectRaw('laporan_id')->groupBy('laporan_id')->get();
-
+        $perkembanganLaps = perkembanganLap::all();
+        $perkembanganLaps->groupBy('laporan_id');
 //        dd($perkembanganLaps);
 
         return view('admin.perkembangan_laps.index')
@@ -61,19 +61,18 @@ class perkembanganLapController extends AppBaseController
     {
         $input = $request->all();
         $perkembanganLap=perkembanganLap::where('laporan_id',$input['laporan_id'])->get();
-        $jum =count($perkembanganLap);
+        $jum =count($perkembanganLap)+1;
         if($request->file){
-            $file = $request->file('file');
-            $fileName= $input['laporan_id'].'_'.$jum.'_'.$file->getClientOriginalName();
-            $input['file']='file_perkembangan/'.$input['laporan_id'].'/'.$fileName;
-            $request->file('file')->storeAs('/public/file_perkembangan/'.$input['laporan_id'],$fileName);
+            $fileName = $request->file->getClientOriginalName();
+            $input['file']=$request->file->storeAs('file_perkembangan/'.$input['laporan_id'], $input['laporan_id'].'_'.$jum);
+
         }
 
         $perkembanganLap = $this->perkembanganLapRepository->create($input);
 
         Flash::success('Perkembangan Lap saved successfully.');
         $perkembanganLap = perkembanganLap::where('laporan_id',$input['laporan_id'] )->first();
-        return redirect(action('perkembanganLapController@show',$perkembanganLap->laporan_id));
+        return redirect(action('perkembanganLapController@show',$perkembanganLap->id));
     }
 
     /**
@@ -85,7 +84,7 @@ class perkembanganLapController extends AppBaseController
      */
     public function show($id)
     {
-        $perkembanganLap = perkembanganLap::where('laporan_id', $id)->first();
+        $perkembanganLap = $this->perkembanganLapRepository->findWithoutFail($id);
 
         if (empty($perkembanganLap)) {
             Flash::error('Perkembangan Lap not found');
@@ -107,7 +106,6 @@ class perkembanganLapController extends AppBaseController
     {
         $perkembanganLap = $this->perkembanganLapRepository->findWithoutFail($id);
 
-
         if (empty($perkembanganLap)) {
             Flash::error('Perkembangan Lap not found');
 
@@ -127,30 +125,19 @@ class perkembanganLapController extends AppBaseController
      */
     public function update($id, UpdateperkembanganLapRequest $request)
     {
-        $perkemLap = $this->perkembanganLapRepository->findWithoutFail($id);
-        $input=$request->all();
-        $perkembangan=perkembanganLap::where('laporan_id',$input['laporan_id'])->get();
-        $jum =count($perkembangan);
-        if($request->file){
-            $file = $request->file('file');
-            $fileName= $input['laporan_id'].'_'.$jum.'_'.$file->getClientOriginalName();
+        $perkembanganLap = $this->perkembanganLapRepository->findWithoutFail($id);
 
-            $request->file('file')->storeAs('/public/file_perkembangan/'.$input['laporan_id'],$fileName);
-            $input['file']='file_perkembangan/'.$input['laporan_id'].'/'.$fileName;
-
-        }
-
-        if (empty($perkemLap)) {
+        if (empty($perkembanganLap)) {
             Flash::error('Perkembangan Lap not found');
 
             return redirect(route('perkembanganLaps.index'));
         }
 
-        $perkemLap->update($input);
+        $perkembanganLap = $this->perkembanganLapRepository->update($request->all(), $id);
 
-        Flash::success('Perkembangan Lap saved successfully.');
-        $perkembanganLap = perkembanganLap::where('laporan_id',$input['laporan_id'] )->first();
-        return redirect(action('perkembanganLapController@show',$perkembanganLap->laporan_id));
+        Flash::success('Perkembangan Lap updated successfully.');
+
+        return redirect(action('perkembanganLapController@show',$perkembanganLap->id));
     }
 
     /**
