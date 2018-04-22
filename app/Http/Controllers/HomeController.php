@@ -29,7 +29,7 @@ class HomeController extends Controller
             return view('home');
         }elseif(Auth::user()->role == 1){
             if(Auth::user()->status_verifikasi != NULL){
-                return view('/');
+                return view('welcome');
             }else{
                 $profile = profile::where('user_id', Auth::user()->id)->first();
 

@@ -67,13 +67,7 @@
                                         <li><a href="international-tour.html" title="Couple Tours">Pembunuhan</a></li>
                                     </ul>
                                 </li>
-                                <li class="has-sub"><a href="blog-default.html" title="Blog ">Peta</a>
-                                    <ul>
-                                        <li><a href="blog-default.html" title="Blog">Blog Default</a></li>
-                                        <li><a href="blog-single.html" title="Blog Single ">Peta</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact-us.html" title="Contact Us">Contact Us</a> </li>
+                                <li><a href="blog-default.html" title="Blog ">Cek Keamanan</a></li>
 
                                 @if(Auth::check())
                                     @if(Auth::user()->role == 1)
@@ -82,6 +76,8 @@
                                         <li><a href="{!! route('home') !!}" title="Testimonials">Dashboard</a>
                                     @endif
                                 @endif
+
+                                <li><a href="{!! url('/lapor') !!}" title="Lapor" class="btn btn-warning"><font color="white">Lapor</font></a> </li>
 
                                 @if(!Auth::check())
                                     <li><a href="{!! url('/login') !!}" title="Styleguide">Masuk</a></li>
@@ -94,9 +90,6 @@
                                     </form>
                                 @endif
 
-                                <li><a href="testimonials.html" title="Testimonials">Profil</a>
-                                <li><a href="{!! url('/lapor') !!}" title="Lapor" class="btn btn-warning"><font color="white">Lapor</font></a> </li>
-                                <li><a href="{!! url('/login') !!}" title="Styleguide">Masuk</a></li>
                             </ul>
                         </div>
                     </div>

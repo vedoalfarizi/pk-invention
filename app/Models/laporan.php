@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property \Illuminate\Database\Eloquent\Collection  user_id
  * @property \Illuminate\Database\Eloquent\Collection  perkara_id
- * @property integer user_id
+ * @property integer
  * @property date waktu_lapor
- * @property integer perkara_id
+ * @property integer
  * @property date waktu_kejadian
  * @property string tempat_kejadian
  * @property satring korban
