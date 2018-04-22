@@ -74,7 +74,7 @@ a { text-decoration: none; color: #5f5f5f; -webkit-transition: all 0.3s; -moz-tr
 a:focus, a:hover { text-decoration: none; color: #599642; }
 .lead { font-size: 24px; font-weight: 300; line-height: 1.4; }
 .blockquote { padding: 14px 24px; margin: 0px 0px 30px 0px; font-size: 21px; font-weight: 600; font-style: italic; border-top: 2px solid #fadd00; border-bottom: 2px solid #fadd00; text-align: left; }
-strong { color: #333; font-weight: 800; }
+strong { color: #040404; font-weight: 800; }
 hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #f1f3f8; }
 
 /*----------------------- 
@@ -507,18 +507,18 @@ option:first {
 
 /*----- post-----*/
 .post-block { margin-bottom: 40px; }
-.post-title { text-align: left; line-height: 32px; color: #fff; margin-bottom: 20px; display: block; }
+.post-title { text-align: left; line-height: 32px; color: #040404; margin-bottom: 20px; display: block; }
 .post-title:hover { color: #f7da3d }
 .post-img img { border-radius: 10px; }
 .post-content { position: absolute; bottom: 50px; padding-left: 40px; display: inline-block; }
-.post-sticky { position: absolute; bottom: 85px; right: 50px; color: #fff; font-size: 24px; }
+.post-sticky { position: absolute; bottom: 85px; right: 50px; color: #040404; font-size: 24px; }
 
 /*----- meta -----*/
 .meta { margin-bottom: 20px; text-align: left; }
-.meta-date { color: #ffe762; font-size: 14px; font-weight: 600; letter-spacing: .75px; text-transform: uppercase; }
+.meta-date { color: #040404; font-size: 14px; font-weight: 600; letter-spacing: .75px; text-transform: uppercase; }
 .meta-categories { font-size: 14px; text-transform: uppercase; font-weight: 700; letter-spacing: .75px; color: #333333; }
-.meta-author { margin-left: 18px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; font-size: 14px; color: #fff; }
-.meta-author a { color: #fff; }
+.meta-author { margin-left: 18px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; font-size: 14px; color: #040404; }
+.meta-author a { color: #040404; }
 .meta-author a:hover { color: #ffe762; }
 .meta-tag { }
 

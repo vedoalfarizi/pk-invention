@@ -61,7 +61,9 @@ class komentarInfoController extends AppBaseController
 
         Flash::success('Komentar Info saved successfully.');
 
-        return redirect(route('komentarInfos.index'));
+
+
+        return redirect()->back();
     }
 
     /**

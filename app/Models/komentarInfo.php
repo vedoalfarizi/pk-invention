@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -12,8 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property \Illuminate\Database\Eloquent\Collection  info_id
  * @property \Illuminate\Database\Eloquent\Collection  user_id
- * @property integer info_id
- * @property integer user_id
+ * @property integer
+ * @property integer
  * @property string komentar
  */
 class komentarInfo extends Model
@@ -67,5 +68,10 @@ class komentarInfo extends Model
     public function userIds()
     {
         return $this->hasMany(\App\Models\ user_id::class, ' id', ' users');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
