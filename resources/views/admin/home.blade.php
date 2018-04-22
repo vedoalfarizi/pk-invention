@@ -1,140 +1,192 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
+    <script src="{!! asset('code/highcharts.js') !!}"></script>
+    <script src="{!! asset('code/modules/exporting.js') !!}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE"></script>
-
-    <section id="container" >
-
-        <section id="main-content">
-            <section class="wrapper site-min-height">
-                <div class="row mt">
-                    <div class="col-sm-8" id="hide2">
-                        <section class="panel">
-                            <header class="panel-heading"> <br/>
-                                <label style="color: black">Cek Keamanan Lokasi</label>
-                                <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi Sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
-                                <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Atur Posisi Secara Manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
-                                <a class="btn btn-warning" role="button" data-toggle="collapse" onclick="tampilsemua();resultt()" title="Tampilkan Semua Kriminalitas" aria-controls="terdekat"><i class="fa fa-map-pin" style="color:k;"></i></a>
-
-                                <div class="well">
-                                    <label><b>Radius&nbsp</b></label><label style="color:black" id="km"><b>0</b></label>&nbsp<label><b>m</b></label><br>
-                                    <input  type="range" onclick="cek();aktifkanRadius();resultt()" id="inputradiusmes" name="inputradiusmes" data-highlight="true" min="1" max="50" value="1" >
-                                </div>
+<div class="container">
+    <div class="row">
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 
 
-                                </h3>
-                            </header>
-                            <div class="panel-body">
-                                <div id="map" style="width:100%;height:400px;"></div>
-                            </div>
-                        </section>
+        <script type="text/javascript">
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Peringkat Kejadian Kriminal'
+                },
+                subtitle: {
+                    text: 'per provinsi di Indonesia'
+                },
+                xAxis: {
+                    categories: [
+                        'Nanggroe Aceh Darussalam',
+                        'Sumatera Utara',
+                        'Riau',
+                        'Kep. Riau',
+                        'Sumatera Barat',
+                        'Bengkulu',
+                        'Jambi',
+                        'Bangka Belitung',
+                        'Sumatera Selatan',
+                        'Lampung',
+                        'Banten',
+                        'Jakarta',
+                        'Jawa Barat',
+                        'Jawa Tengah',
+                        'D.I. Yogyakarta',
+                        'Jawa Timur'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Jumlah kriminalitas'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Total Angka Kriminalitas per provinsi',
+                    data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4, 55, 25, 33, 45]
+
+                }]
+            });
+        </script>
+        <center>
+            <br/>
+            <h2>Peta Persebaran Tindak Kejahatan Kriminal</h2>
+            <br/>
+        <a class="btn btn-default" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Current Position"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
+        <a class="btn btn-default" role="button" data-toggle="collapse" onclick="manualLocation()" title=" Manual Position"><i class="fa fa-location-arrow" style="color:black;"></i></a>
+        <a class="btn btn-default" role="button" data-toggle="collapse" onclick="tampilsemua();resultt()" title="Tampilkan Semua Kriminalitas" aria-controls="terdekat"><i class="fa fa-map-pin" style="color:black;"></i></a>
+        </center>
+        <label><b>Radius&nbsp</b></label><label style="color:black" id="km"><b>0</b></label>&nbsp<label><b>m</b></label><br>
+        <input  type="range" onclick="cek();aktifkanRadius();resultt()" id="inputradiusmes" name="inputradiusmes" data-highlight="true" min="1" max="20" value="1" >
+        <div id="map" style="width:100%;height:400px"></div>
+    </div>
+    <div class="col-sm-4" id="result">
+        <section class="panel">
+            <div class="panel-body">
+                <a class="btn btn-compose">Result</a>
+                <div class="box-body" style="max-height:400px;overflow:auto;">
+
+                    <div class="form-group" id="hasilcari1" style="display:none;">
+                        <table class="table table-bordered" id='hasilcari'>
+                        </table>
                     </div>
-                    <div class="col-sm-4" id="result">
-                        <section class="panel">
-                            <div class="panel-body">
-                                <a class="btn btn-compose">Result</a>
-                                <div class="box-body" style="max-height:400px;overflow:auto;">
+                </div>
+            </div>
+        </section>
+    </div>
 
-                                    <div class="form-group" id="hasilcari1" style="display:none;">
-                                        <table class="table table-bordered" id='hasilcari'>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+
+
+    <div class="col-sm-8" style="display:none;" id="infoo">
+        <section class="panel">
+            <div class="panel-body">
+                <a class="btn btn-compose">Information</a>
+                <div class="box-body" style="max-height:350px;overflow:auto;">
+
+                    <div class="form-group">
+                        <table class="table" id='info'>
+                            <tbody  style='vertical-align:top;'>
+                            </tbody>
+                        </table>
+
                     </div>
-
-
-
-                    <div class="col-sm-8" style="display:none;" id="infoo">
-                        <section class="panel">
-                            <div class="panel-body">
-                                <a class="btn btn-compose">Information</a>
-                                <div class="box-body" style="max-height:350px;overflow:auto;">
-
-                                    <div class="form-group">
-                                        <table class="table" id='info'>
-                                            <tbody  style='vertical-align:top;'>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
-
-
-                    <div class="col-sm-4" style="display:none;" id="resultaround">
-                        <section class="panel">
-                            <div class="panel-body">
-                                <a class="btn btn-compose">Attraction Around</a>
-                                <div class="box-body" style="max-height:400px;overflow:auto;">
-
-                                    <div class="form-group" id="hasilcari2" style="display:none;">
-                                        <table class="table table-bordered" id='hasilcariaround'>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
 
 
                 </div>
+            </div>
+        </section>
+    </div>
 
-                <div class="row mt" style="display:none;" id="showlist">
-                    <?php
-                    //include 'connect.php';
-                    //$sql = pg_query("SELECT * FROM worship_place");
-                    ?>
-                    <?php
-                    $jml_kolom=3;
-                    $cnt = 1;
-//                    while($data =  pg_fetch_assoc($sql)){
-//                    if ($cnt >= $jml_kolom)
-//                    {
-//                        echo "<div class='row mt mb'>";
-//                    }
 
-                    ?>
-                    <div class="row-mt">
-                        <div class="col-lg-4 col-md-4 col-sm-8 col-xs-6 desc">
-                            <div class="project-wrapper">
-                                <div class="project">
-                                    <div class="photo-wrapper">
-                                        <div class="photo">
 
-                                        </div>
-                                        <div class="overlay"></div>
-                                       {{--nama dan alamat--}}
-                                    </div>
-                                </div>
+    <div class="col-sm-4" style="display:none;" id="resultaround">
+        <section class="panel">
+            <div class="panel-body">
+                <a class="btn btn-compose">Attraction Around</a>
+                <div class="box-body" style="max-height:400px;overflow:auto;">
+
+                    <div class="form-group" id="hasilcari2" style="display:none;">
+                        <table class="table table-bordered" id='hasilcariaround'>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+</div>
+
+    <div class="row mt" style="display:none;" id="showlist">
+        <?php
+        //include 'connect.php';
+        //$sql = pg_query("SELECT * FROM worship_place");
+        ?>
+        <?php
+        $jml_kolom=3;
+        $cnt = 1;
+        //                    while($data =  pg_fetch_assoc($sql)){
+        //                    if ($cnt >= $jml_kolom)
+        //                    {
+        //                        echo "<div class='row mt mb'>";
+        //                    }
+
+        ?>
+        <div class="row-mt">
+            <div class="col-lg-4 col-md-4 col-sm-8 col-xs-6 desc">
+                <div class="project-wrapper">
+                    <div class="project">
+                        <div class="photo-wrapper">
+                            <div class="photo">
+
                             </div>
+                            <div class="overlay"></div>
+                            {{--nama dan alamat--}}
                         </div>
                     </div>
-
-                    <?php
-                    if ($cnt >= $jml_kolom)
-                    {
-
-                        $cnt = 0;
-                        echo "</div>";
-                    }
-//                    $cnt++;
-//                    }
-                    ?>
-
-
                 </div>
+            </div>
+        </div>
 
-            </section>
+        <?php
+        if ($cnt >= $jml_kolom)
+        {
 
-        </section>
+            $cnt = 0;
+            echo "</div>";
+        }
+        //                    $cnt++;
+        //                    }
+        ?>
+
+
+    </div>
+
+    </section>
+
+    </section>
 
     </section>
 
@@ -617,4 +669,5 @@
             rute=[];
         }
     </script>
+    </div>
 @endsection
