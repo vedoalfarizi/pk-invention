@@ -44,8 +44,12 @@
                         <div class="col-md-12">
                             <div id="map" style="height:400px; padding-right: 50%"></div>
                         </div>
+                        <div class="col-md-12">
+                            <br>
+                            <center><input class="btn btn-primary" type="submit"></center>
                         </div>
-                    <center><input class="btn btn-primary" type="submit">Kirim Laporan</input></center>
+                        </div>
+
                     </div>
                 {!! Form::close() !!}
 
