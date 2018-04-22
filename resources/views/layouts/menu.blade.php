@@ -38,6 +38,12 @@
     </li>
 
 
+    <li class="{{ Request::is('perkembanganLaps*') ? 'active' : '' }}">
+        <a href="{!! route('perkembanganLaps.index') !!}"><i class="fa fa-edit"></i><span>Perkembangan Laporan</span></a>
+    </li>
+
+
+
 
     <li class="{{ Request::is('feedbackInfos*') ? 'active' : '' }}">
         <a href="{!! route('feedbackInfos.index') !!}"><i class="fa fa-edit"></i><span>Feedback Infos</span></a>
@@ -51,10 +57,6 @@
         <a href="{!! route('infos.index') !!}"><i class="fa fa-edit"></i><span>Info dan Tips</span></a>
     </li>
 
-
-    <li class="{{ Request::is('perkembanganLaps*') ? 'active' : '' }}">
-        <a href="{!! route('perkembanganLaps.index') !!}"><i class="fa fa-edit"></i><span>Perkembangan Laporan</span></a>
-    </li>
 
 @endif
 

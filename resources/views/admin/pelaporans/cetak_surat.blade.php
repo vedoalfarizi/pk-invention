@@ -18,7 +18,7 @@
     </tr>
     <tr>
         <td>Tempat, Tanggal lahir</td>
-        <td>: {{$laporan->profiles->tempat_lahir}}, {{$laporan->profiles->tanggal_lahir}}</td>
+        <td>: {{$laporan->profiles->tempat_lahir}}, {{substr($laporan->profiles->tanggal_lahir,0,10)}}</td>
     </tr>
     <tr>
         <td>Jenis Kelamin </td>

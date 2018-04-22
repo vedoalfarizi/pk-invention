@@ -15,6 +15,36 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
+
+
+                <form action="{{url('/pelaporans/cari')}}" method="get" class="col-md-3 pull-right">
+                    <div class="input-group">
+                        <input type="text" name="cari" class="form-control" placeholder="Cari No surat / pelapor ..."/>
+                        <span class="input-group-btn">
+                            <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+                <form action="{{url('/pelaporans/cariPerkara')}}" method="get" class="col-md-3 pull-right">
+                    <div class="input-group">
+                        <select class="form-control" name="cari">
+                            <option value="0" disabled="true" selected="true">--- Pilih Perkara---</option>
+                            @php $perkaras = \App\Models\perkara::all()@endphp
+                            @foreach($perkaras as $perkara)
+                                <option value="{{$perkara->id}}">{{$perkara->nama}}</option>
+                                @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                            <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+
+
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Laporan Diterima</a></li>
                     <li><a data-toggle="tab" href="#menu1">Laporan Ditolak</a></li>
@@ -39,8 +69,10 @@
             </div>
         </div>
         <div class="text-center">
-        
+
         </div>
-    </div>
 @endsection
+
+
+
 

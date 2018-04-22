@@ -15,7 +15,7 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                    @include('perkembangan_laps.table')
+                    @include('admin.perkembangan_laps.table')
             </div>
         </div>
         <div class="text-center">

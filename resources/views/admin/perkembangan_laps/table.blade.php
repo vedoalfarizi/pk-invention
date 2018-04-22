@@ -8,6 +8,7 @@
     <tbody>
     @foreach($perkembanganLaps as $perkembanganLap)
         <tr>
+{{--            {{dd($perkembanganLap)}}--}}
             <td>{!! $perkembanganLap->laporan_id !!}</td>
             <td>
                 {!! Form::open(['route' => ['perkembanganLaps.destroy', $perkembanganLap->id], 'method' => 'delete']) !!}
