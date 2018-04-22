@@ -33,13 +33,12 @@ class HomeController extends Controller
             }else{
                 $profile = profile::where('user_id', Auth::user()->id)->first();
 
-                if($profile != NULL){
-                    return view('profiles.edit', compact('profile'));
-                }else{
-                    return view('profiles.index', compact('profile'));
-                }
-
-
+//                if($profile != NULL){
+//                    return view('profiles.edit', compact('profile'));
+//                }else{
+//                    return view('profiles.index', compact('profile'));
+//                }
+                return view('user.profil.index');
             }
         }
 

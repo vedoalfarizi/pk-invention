@@ -153,6 +153,6 @@ class laporanController extends AppBaseController
 
         Flash::success('Laporan deleted successfully.');
 
-        return redirect(route('laporans.index'));
+        return redirect(action('profilUserController@index'));
     }
 }

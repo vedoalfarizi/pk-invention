@@ -123,25 +123,30 @@ class profileController extends AppBaseController
      */
     public function update($id, UpdateprofileRequest $request)
     {
+//        dd($request->all());
         $profile = $this->profileRepository->findWithoutFail($id);
         $data = $request->all();
+        if($request->file_ktp){
+            $fileName = $request->file_ktp->getClientOriginalName();
 
-        $fileName = $request->file_ktp->getClientOriginalName();
+            $simpan = $request->file_ktp->storeAs('public/file_ktp', Auth::user()->name.'_'.$fileName);
+            $data['file_ktp'] = 'file_ktp/'.Auth::user()->name.'_'.$fileName;
+        }
 
-        $simpan = $request->file_ktp->storeAs('public/file_ktp', Auth::user()->name.'_'.$fileName);
-        $data['file_ktp'] = 'file_ktp/'.Auth::user()->name.'_'.$fileName;
 
         if (empty($profile)) {
             Flash::error('Profile not found');
-
-            return redirect(route('profiles.edit'));
+            $mesage = 'gagal';
+            return view('user.profil.index',compact('mesage'));
         }
 
         $profile = $this->profileRepository->update($data, $id);
+        $mesage = 'berhasil';
+        $isi_mesage='Profil Anda Berhasil Diubah';
 
         Flash::success('Profile updated successfully.');
 
-        return redirect(route('profiles.index'));
+        return view('user.profil.index', compact('mesage','isi_mesage'));
     }
 
     /**

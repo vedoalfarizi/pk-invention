@@ -71,7 +71,7 @@
 
                                 @if(Auth::check())
                                     @if(Auth::user()->role == 1)
-                                        <li><a href="{!! route('profiles.index') !!}" title="Testimonials">Profil</a>
+                                        <li><a href="{!! url('/user/profil') !!}" title="Testimonials">Profil</a>
                                     @elseif(Auth::user()->role == 0)
                                         <li><a href="{!! route('home') !!}" title="Testimonials">Dashboard</a>
                                     @endif
@@ -123,7 +123,7 @@
             <!-- footer-location-start -->
         <div style="float: right">
             <table>
-                <tr><td colspan="3"><center><b>Kirim Masukan</b></center</td></tr>
+                <tr><td colspan="3"><center><b>Kirim Masukan</b></center></td></tr>
                 <tr><td>&nbsp</td></tr>
                 <tr>
                     <td>E-mail</td>
