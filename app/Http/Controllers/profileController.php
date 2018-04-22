@@ -63,7 +63,8 @@ class profileController extends AppBaseController
         $input = $request->all();
         $fileName = $request->file_ktp->getClientOriginalName();
 
-        $input['file_ktp']=$request->file_ktp->storeAs('file_ktp', Auth::user()->name.'_'.$fileName);
+        $simpan = $request->file_ktp->storeAs('public/file_ktp', Auth::user()->name.'_'.$fileName);
+        $input['file_ktp'] = 'file_ktp/'.Auth::user()->name.'_'.$fileName;
 
         $profile = $this->profileRepository->create($input);
 
@@ -126,7 +127,9 @@ class profileController extends AppBaseController
         $data = $request->all();
 
         $fileName = $request->file_ktp->getClientOriginalName();
-        $data['file_ktp']=$request->file_ktp->storeAs('file_ktp', Auth::user()->name.'_'.$fileName);
+
+        $simpan = $request->file_ktp->storeAs('public/file_ktp', Auth::user()->name.'_'.$fileName);
+        $data['file_ktp'] = 'file_ktp/'.Auth::user()->name.'_'.$fileName;
 
         if (empty($profile)) {
             Flash::error('Profile not found');

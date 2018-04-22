@@ -511,7 +511,7 @@ option:first {
 .post-title:hover { color: #f7da3d }
 .post-img img { border-radius: 10px; }
 .post-content { position: absolute; bottom: 50px; padding-left: 40px; display: inline-block; }
-.post-sticky { position: absolute; bottom: 85px; right: 50px; color: #fff; font-size: 32px; }
+.post-sticky { position: absolute; bottom: 85px; right: 50px; color: #fff; font-size: 24px; }
 
 /*----- meta -----*/
 .meta { margin-bottom: 20px; text-align: left; }
