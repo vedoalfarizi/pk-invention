@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateperkembanganLapRequest;
 use App\Http\Requests\UpdateperkembanganLapRequest;
+use App\Models\perkembanganLap;
 use App\Repositories\perkembanganLapRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Auth;
 
 class perkembanganLapController extends AppBaseController
 {
@@ -30,9 +32,11 @@ class perkembanganLapController extends AppBaseController
     public function index(Request $request)
     {
         $this->perkembanganLapRepository->pushCriteria(new RequestCriteria($request));
-        $perkembanganLaps = $this->perkembanganLapRepository->all();
+        $perkembanganLaps = perkembanganLap::all();
+        $perkembanganLaps->groupBy('laporan_id');
+//        dd($perkembanganLaps);
 
-        return view('perkembangan_laps.index')
+        return view('admin.perkembangan_laps.index')
             ->with('perkembanganLaps', $perkembanganLaps);
     }
 
@@ -41,9 +45,9 @@ class perkembanganLapController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('perkembangan_laps.create');
+        return view('admin.perkembangan_laps.create');
     }
 
     /**
@@ -56,12 +60,19 @@ class perkembanganLapController extends AppBaseController
     public function store(CreateperkembanganLapRequest $request)
     {
         $input = $request->all();
+        $perkembanganLap=perkembanganLap::where('laporan_id',$input['laporan_id'])->get();
+        $jum =count($perkembanganLap)+1;
+        if($request->file){
+            $fileName = $request->file->getClientOriginalName();
+            $input['file']=$request->file->storeAs('file_perkembangan/'.$input['laporan_id'], $input['laporan_id'].'_'.$jum);
+
+        }
 
         $perkembanganLap = $this->perkembanganLapRepository->create($input);
 
         Flash::success('Perkembangan Lap saved successfully.');
-
-        return redirect(route('perkembanganLaps.index'));
+        $perkembanganLap = perkembanganLap::where('laporan_id',$input['laporan_id'] )->first();
+        return redirect(action('perkembanganLapController@show',$perkembanganLap->id));
     }
 
     /**
@@ -81,7 +92,7 @@ class perkembanganLapController extends AppBaseController
             return redirect(route('perkembanganLaps.index'));
         }
 
-        return view('perkembangan_laps.show')->with('perkembanganLap', $perkembanganLap);
+        return view('admin.perkembangan_laps.show')->with('perkembanganLap', $perkembanganLap);
     }
 
     /**
@@ -126,7 +137,7 @@ class perkembanganLapController extends AppBaseController
 
         Flash::success('Perkembangan Lap updated successfully.');
 
-        return redirect(route('perkembanganLaps.index'));
+        return redirect(action('perkembanganLapController@show',$perkembanganLap->id));
     }
 
     /**
@@ -150,6 +161,6 @@ class perkembanganLapController extends AppBaseController
 
         Flash::success('Perkembangan Lap deleted successfully.');
 
-        return redirect(route('perkembanganLaps.index'));
+        return view('admin.perkembangan_laps.show')->with('perkembanganLap', $perkembanganLap);
     }
 }

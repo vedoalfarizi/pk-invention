@@ -16,9 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/lapor' ,function () {
+    if(auth::user()== null){
+        return view('auth.login');
+    }
     return view('lapor');
 });
 
+Route::get('/cekkeamanan' ,function () {
+    return view('cekkeamanan');
+});
 
 Auth::routes();
 
@@ -49,5 +55,11 @@ Route::get('/pelaporans/cetak/{id}', function ($id) {
     $laporan = \App\Models\laporan::where('id',$id)->first();
     return view('admin.pelaporans.cetak_surat', compact('laporan'));
 });
+Route::get('/pelaporans/tindakLanjut/{id}', 'progresLaporanController@tindak');
+Route::get('/pelaporans/dokumen/{id}', 'progresLaporanController@tindakDokumen');
 
+Route::get('/pelaporans/cari', 'progresLaporanController@cari');
+Route::get('/pelaporans/cariPerkara', 'progresLaporanController@cariPerkara');
 
+//User Laporan
+Route::post('/lapor/add', 'laporanUserController@create');

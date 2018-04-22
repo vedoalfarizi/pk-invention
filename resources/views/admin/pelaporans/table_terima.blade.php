@@ -14,6 +14,7 @@
     <tbody>
 
     @foreach($laporans_terima as $laporan)
+
         <tr>
             <td>{!! $laporan->users->name !!}</td>
             <td>{!! substr($laporan->created_at,0,10) !!}</td>
@@ -130,6 +131,7 @@
 
                     </div>
                     <div class="modal-footer">
+                        <a type="button" class="btn btn-warning btn-fill" href="{{url('/pelaporans/tindakLanjut/'.$laporan->id)}}"><i class="glyphicon glyphicon-arrow-right"></i> Tindak Lanjut</a>
                         <a type="button" class="btn btn-primary btn-fill" target="_blank" href="{{url('/pelaporans/cetak/'.$laporan->id)}}"><i class="glyphicon glyphicon-print"></i> Cetak</a>
                         <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>
                     </div>

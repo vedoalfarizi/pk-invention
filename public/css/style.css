@@ -393,6 +393,9 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 /*-----------------------------------
 8. Footer 
 -------------------------------------*/
+option:first {
+    color: #999;
+}
 
 .footer { background-color: #4d8638; padding-top: 50px; padding-bottom: 50px; color: #bfedae; }
 .footer-widget { margin-bottom: 30px; }
