@@ -33,9 +33,11 @@ class info extends Model
         'judul',
         'perkara_id',
         'status_verifikasi',
-        'file',
+        'file_foto',
         'narasi',
-        'lat'
+        'lat',
+        'long',
+        'user_id'
     ];
 
     /**
@@ -47,8 +49,11 @@ class info extends Model
         'judul' => 'string',
         'perkara_id' => 'integer',
         'status_verifikasi' => 'integer',
+        'file_foto' => 'file',
         'narasi' => 'string',
-        'lat' => 'string'
+        'lat' => 'string',
+        'long' => 'string',
+        'user_id' => 'integer'
     ];
 
     /**
@@ -58,8 +63,9 @@ class info extends Model
      */
     public static $rules = [
         'judul' => 'required',
-        'perkara_id' => '1tm,perkaras,id,perkara_id',
-        'lat' => 'long string text'
+        'perkara_id' => 'required',
+        'lat' => 'required',
+        'long' => 'required'
     ];
 
     /**
