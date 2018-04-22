@@ -24,7 +24,7 @@ class perkembanganLap extends Model
 
 
     public $fillable = [
-        'laporan_id'
+        'laporan_id','keterangan',  'file'
     ];
 
     /**
@@ -48,8 +48,8 @@ class perkembanganLap extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function laporanIds()
+    public function laporans()
     {
-        return $this->hasMany(\App\Models\ laporan_id::class, ' id', ' laporans');
+        return $this->belongsTo(\App\Models\laporan::class, 'laporan_id', 'id');
     }
 }
