@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('perkaras', 'perkaraController');
 
 Route::resource('infos', 'infoController');
+Route::post('infos-filter', 'infoController@showWithFilter')->name('infos.filter');
 
 Route::resource('profiles', 'profileController');
 

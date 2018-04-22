@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateinfoRequest;
 use App\Http\Requests\UpdateinfoRequest;
+use App\Models\info;
 use App\Repositories\infoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class infoController extends AppBaseController
     public function index(Request $request)
     {
         $this->infoRepository->pushCriteria(new RequestCriteria($request));
-        $infos = $this->infoRepository->all();
+        $infos = $this->infoRepository->paginate(12);
 
         if(Auth::check()){
             if(Auth::user()->role == 0){
@@ -93,7 +94,14 @@ class infoController extends AppBaseController
             return redirect(route('infos.index'));
         }
 
-        return view('infos.show')->with('info', $info);
+        return view('user.infos.show')->with('info', $info);
+    }
+
+    public function showWithFilter(Request $request)
+    {
+        $infos = info::whereYear('created_at', '=', $request->year)->orderBy('created_at', 'desc')->paginate(12);
+
+        return view('user.infos.index', compact('infos'));
     }
 
     /**
