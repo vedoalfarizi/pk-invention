@@ -67,7 +67,7 @@
                                         <li><a href="international-tour.html" title="Couple Tours">Pembunuhan</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog-default.html" title="Blog ">Cek Keamanan</a></li>
+                                <li><a href="{!! url('/cekkeamanan') !!}" title="Blog ">Cek Keamanan</a></li>
 
                                 @if(Auth::check())
                                     @if(Auth::user()->role == 1)
