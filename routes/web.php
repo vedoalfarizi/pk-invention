@@ -19,6 +19,9 @@ Route::get('/lapor' ,function () {
     return view('lapor');
 });
 
+Route::get('/cekkeamanan' ,function () {
+    return view('cekkeamanan');
+});
 
 Auth::routes();
 
