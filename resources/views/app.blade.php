@@ -1,3 +1,6 @@
+@php
+    $menus = \App\Models\perkara::get();
+@endphp
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -63,8 +66,9 @@
                                 {{--<li><a href="about.html" title="About us">Informasi</a> </li>--}}
                                 <li class="has-sub"><a href="{!!route('infos.index') !!}" title="Tours">Info & Tips</a>
                                     <ul>
-                                        <li><a href="domestic-tour.html" title="Group Tours">Pencurian</a></li>
-                                        <li><a href="international-tour.html" title="Couple Tours">Pembunuhan</a></li>
+                                        @foreach($menus as $menu)
+                                        <li><a href="{!! url('infos/cat/'.$menu->id) !!}">{!! $menu->nama !!}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li><a href="{!! url('/cekkeamanan') !!}" title="Blog ">Cek Keamanan</a></li>

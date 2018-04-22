@@ -49,6 +49,13 @@ class infoController extends AppBaseController
 
     }
 
+    public function showByCatagories($id)
+    {
+        $infos = info::where('perkara_id', '=', $id)->orderBy('created_at', 'desc')->paginate(12);
+
+        return view('user.infos.index', compact('infos'));
+    }
+
     /**
      * Show the form for creating a new info.
      *
@@ -69,6 +76,18 @@ class infoController extends AppBaseController
     public function store(CreateinfoRequest $request)
     {
         $input = $request->all();
+
+
+
+        if(!isset($request->file_foto)){
+            $input['file_foto'] = 'info/default.jpg';
+        }else{
+            $fileName = $request->file_foto->getClientOriginalName();
+
+            $simpan = $request->file_foto->storeAs('public/info', Auth::user()->name.'_'.$fileName);
+            $input['file_foto'] = 'info/'.Auth::user()->name.'_'.$fileName;
+        }
+
 
         $info = $this->infoRepository->create($input);
 

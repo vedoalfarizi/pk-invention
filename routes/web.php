@@ -34,6 +34,7 @@ Route::resource('perkaras', 'perkaraController');
 
 Route::resource('infos', 'infoController');
 Route::post('infos-filter', 'infoController@showWithFilter')->name('infos.filter');
+Route::get('infos/cat/{id}', 'infoController@showByCatagories');
 
 Route::resource('profiles', 'profileController');
 

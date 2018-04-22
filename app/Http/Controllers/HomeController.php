@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->role == 0){
-            return view('home');
+            return view('admin.home');
         }elseif(Auth::user()->role == 1){
             if(Auth::user()->status_verifikasi != NULL){
                 return view('welcome');

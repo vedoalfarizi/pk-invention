@@ -23,9 +23,10 @@ class infoRepository extends BaseRepository
         'judul',
         'perkara_id',
         'status_verifikasi',
-        'file',
+        'file_foto',
         'narasi',
-        'lat'
+        'lat',
+        'long'
     ];
 
     /**
