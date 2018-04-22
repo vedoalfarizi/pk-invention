@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatelaporanRequest;
 use App\Http\Requests\UpdatelaporanRequest;
+use App\Models\laporan;
 use App\Repositories\laporanRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -93,6 +94,7 @@ class laporanController extends AppBaseController
      */
     public function edit($id)
     {
+
         $laporan = $this->laporanRepository->findWithoutFail($id);
 
         if (empty($laporan)) {
@@ -114,7 +116,8 @@ class laporanController extends AppBaseController
      */
     public function update($id, UpdatelaporanRequest $request)
     {
-        $laporan = $this->laporanRepository->findWithoutFail($id);
+//        dd($request->all());
+      $laporan = $this->laporanRepository->findWithoutFail($id);
 
         if (empty($laporan)) {
             Flash::error('Laporan not found');
