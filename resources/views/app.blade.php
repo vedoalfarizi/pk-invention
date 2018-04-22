@@ -95,7 +95,7 @@
                                 @endif
 
                                 <li><a href="testimonials.html" title="Testimonials">Profil</a>
-                                <li><a href="contact-us.html" title="Lapor" class="btn btn-warning"><font color="white">Lapor</font></a> </li>
+                                <li><a href="{!! url('/lapor') !!}" title="Lapor" class="btn btn-warning"><font color="white">Lapor</font></a> </li>
                                 <li><a href="{!! url('/login') !!}" title="Styleguide">Masuk</a></li>
                             </ul>
                         </div>

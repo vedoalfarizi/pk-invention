@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/lapor' ,function () {
+    return view('lapor');
+});
+
 
 Auth::routes();
 
