@@ -22,7 +22,7 @@
 
 @elseif(Auth::user()->role == 0)
     <li class="{{ Request::is('home*') ? 'active' : '' }}">
-        <a href="{!! url('/homea') !!}"><i class="fa fa-edit"></i><span>Home</span></a>
+        <a href="{!! url('/home') !!}"><i class="fa fa-edit"></i><span>Home</span></a>
     </li>
     <li class="{{ Request::is('pengguna*') ? 'active' : '' }}">
         <a href="{!! url('/pengguna') !!}"><i class="fa fa-edit"></i><span>Pengguna</span></a>
