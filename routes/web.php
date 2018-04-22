@@ -64,3 +64,10 @@ Route::get('/pelaporans/cariPerkara', 'progresLaporanController@cariPerkara');
 
 //User Laporan
 Route::post('/lapor/add', 'laporanUserController@create');
+
+//User Profil
+Route::get('/user/profil','profilUserController@index');
+Route::get('/laporan/edit/{id}', function ($id) {
+    $laporan = \App\Models\laporan::find($id);
+        return view('user.profil.edit_lapor', compact('laporan'));
+});

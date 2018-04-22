@@ -26,5 +26,12 @@
 
         </div>
     </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myDate").required;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
 @endsection
 

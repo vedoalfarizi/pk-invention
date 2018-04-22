@@ -19,19 +19,19 @@
                         <input hidden="yes" type="date" name="waktu_lapor" value="{{date('Y-m-d')}}" required="yes">
                         @php $perkaras = \App\Models\perkara::all(); @endphp
                         <select name="perkara_id" class="form-control">
-                            <option value="0" disabled selected>-- Perkara --</option>
+                            <option value="{{$laporan->perkara_id}}">{{$laporan->perkaras->nama}}</option>
                             @foreach($perkaras as $perkara)
                                 <option value="{{$perkara->id}}">{{$perkara->nama}}</option>
                                 @endforeach
                         </select>
-                        <input type="date" placeholder="Waktu Kejadian" class="form-control" name="waktu_kejadian" required="yes">
-                        <input type="text" placeholder="Tempat Kejadian" class="form-control" name="tempat_kejadian" required="yes">
-                        <input type="text" placeholder="Korban" class="form-control" name="korban" required="yes">
-                        <input type="text" placeholder="Alamat korban" class="form-control" name="alamat_korban">
-                        <input type="text" placeholder="Kerugian" class="form-control" name="kerugian" required="yes">
-                        <input type="text" placeholder="Terlapor" class="form-control" name="pelapor" required="yes">
-                        <input type="text" placeholder="Saksi" class="form-control" name="saksi" required="yes">
-                        <textarea rows="3" placeholder="uraian kejadian" class="form-control" name="uraian_kejadian" required="yes"></textarea>
+                        {!! Form::date('waktu_kejadian', $laporan->waktu_kejadian , ['class' => 'form-control', 'id' => 'myDate']) !!}
+                        <input type="text" placeholder="Tempat Kejadian" class="form-control" name="tempat_kejadian" required="yes" value="{{$laporan->tempat_kejadian}}">
+                        <input type="text" placeholder="Korban" class="form-control" name="korban" required="yes" value="{{$laporan->korban}}">
+                        <input type="text" placeholder="Alamat korban" class="form-control" name="alamat_korban" value="{{$laporan->alamat_korban}}">
+                        <input type="text" placeholder="Kerugian" class="form-control" name="kerugian" required="yes" value="{{$laporan->kerugian}}">
+                        <input type="text" placeholder="Terlapor" class="form-control" name="pelapor" required="yes" value="{{$laporan->pelapor}}">
+                        <input type="text" placeholder="Saksi" class="form-control" name="saksi" required="yes" value="{{$laporan->saksi}}">
+                        <textarea rows="3" placeholder="uraian kejadian" class="form-control" name="uraian_kejadian" required="yes">{{$laporan->uraian_kejadian}}</textarea>
                     </div>
                     <div class="col-md-7">
                         <div class="col-md-12">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-md-12">
                             <br>
-                            <center><input class="btn btn-primary" type="submit"></center>
+                            <center><input class="btn btn-primary" type="submit" onclick="check()"></center>
                         </div>
                         </div>
 
@@ -58,6 +58,14 @@
                     <!--common script for all pages-->
 
                     <script type="text/javascript">
+                        function check() {
+                            $lat = document.getElementById('lat').value;
+                            if($lat == 0){
+                                alert('Isi Lokasi terlebih dahulu');
+                            }
+
+                        }
+
                         $(function() {
                             //    fancybox
                             jQuery(".fancybox").fancybox();

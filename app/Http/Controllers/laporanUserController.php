@@ -17,6 +17,17 @@ class laporanUserController extends Controller
         laporan::create($input);
 
         Flash::success('Laporan saved successfully.');
-        return redirect(route('home'));
+        return redirect(action('profilUserController@index'));
+    }
+
+    public function edit(request $request){
+        $input=$request->all();
+
+        $input['user_id']=auth::user()->id;
+
+        laporan::create($input);
+
+        Flash::success('Laporan berhasil diubah.');
+        return redirect(action('profilUserController@index'));
     }
 }

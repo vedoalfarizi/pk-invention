@@ -75,7 +75,7 @@
 
                                 @if(Auth::check())
                                     @if(Auth::user()->role == 1)
-                                        <li><a href="{!! route('profiles.index') !!}" title="Testimonials">Profil</a>
+                                        <li><a href="{!! url('/user/profil') !!}" title="Testimonials">Profil</a>
                                     @elseif(Auth::user()->role == 0)
                                         <li><a href="{!! route('home') !!}" title="Testimonials">Dashboard</a>
                                     @endif

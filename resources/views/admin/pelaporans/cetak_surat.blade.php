@@ -14,7 +14,7 @@
 <table class="table table-responsive" id="laporans-table">
     <tr>
         <td width="40%">Nama</td>
-        <td>: {{$laporan->users->name}}</td>
+        <td>: {{$laporan->profiles->username}}</td>
     </tr>
     <tr>
         <td>Tempat, Tanggal lahir</td>
@@ -92,6 +92,6 @@
         Pelapor,
             <br><br>
             <br><br>
-            {{$laporan->users->name}}
+            {{$laporan->profiles->username}}
     </div>
 </div>
