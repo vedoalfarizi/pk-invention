@@ -8,6 +8,7 @@ use App\Models\perkembanganLap;
 use Illuminate\Http\Request;
 use App\User;
 use Flash;
+use Response;
 
 class progresLaporanController extends Controller
 {
@@ -103,7 +104,7 @@ class progresLaporanController extends Controller
                         'Content-Type' => 'application/pdf',
                         'Content-Disposition' => 'inline; filename="' . $name . '"'
                     ]);
-                    return response()->download($file);
+                    return response()->download($path);
                 }
                 else{
                     return redirect(url($path));
