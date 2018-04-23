@@ -3,7 +3,6 @@
     <script src="{!! asset('code/highcharts.js') !!}"></script>
     <script src="{!! asset('code/modules/exporting.js') !!}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <?php
     define('db_host','localhost');
@@ -35,15 +34,16 @@
 
         google.maps.event.addDomListener(window, 'load', initialize);
         var simpan;
+        var n=0;
     </script>
     {{--<script>codeLatLng()</script>--}}
     <?php
+    $n=0;
     while($kriminal = $result->fetch_object()){
         $lokasi=$kriminal->lat.",".$kriminal->long;
         echo "
         <script>
             // ambil value dari combobox
-
             var input = '".$lokasi."';
             var latlngStr = input.split(',', 2);
             var latlng = new google.maps.LatLng(latlngStr[0], latlngStr[1]);
@@ -68,7 +68,9 @@
 
         ";
     }
+
     ?>
+
     <div id="lokasi"></div>
     <div class="container">
         <div class="row">

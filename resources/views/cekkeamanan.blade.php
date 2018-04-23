@@ -1,5 +1,15 @@
 @extends('app')
 @section('content')
+    <?php
+    define('db_host','localhost');
+    define('db_user','root');
+    define('db_pass','');
+    define('db_name','pk');
+    $db = new mysqli(db_host,db_user,db_pass,db_name);
+    if($db->connect_errno > 0){
+        die('Unable to connect to database [' . $db->connect_error . ']');
+    }
+    ?>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE"></script>
 
     <section id="container" >
@@ -171,10 +181,45 @@
 
             map = new google.maps.Map(document.getElementById('map'),
                 {
-                    zoom: 13,
-                    center: new google.maps.LatLng(-0.904820, 100.381421),
+                    zoom: 5,
+                    center: new google.maps.LatLng(-0.456972, 118.433241),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                 });
+            var locations = [
+            <?php
+
+            $sql="select * from laporans";
+            if(!$result = $db->query($sql)){
+            die(' query error [' . $db->error . ']');
+            }
+            while($kriminal = $result->fetch_object()){
+            echo "['".$kriminal->no_surat."', ".$kriminal->lat.", ".$kriminal->long.", ".$kriminal->id."],";
+            }
+            ?>
+            ];
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+            /* kode untuk menampilkan banyak marker */
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map,
+                    icon: 'marker.png',
+                    animation: google.maps.Animation.BOUNCE
+                });
+                /* menambahkan event clik untuk menampikan
+                  infowindows dengan isi sesuai denga
+                  marker yang di klik */
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    var ContenString='<a href="#'+locations[i][3]+'">No. Surat:'+locations[i][0]+'</a>"'
+                    return function() {
+                        infowindow.setContent(ContenString);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
         }
 
         function aktifkanGeolocation(){ //posisi saat ini
