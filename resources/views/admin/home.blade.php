@@ -53,7 +53,7 @@
                     // jika berhasil, map akan secara automatis berpindah ke koordinat tersebut
                     if (results[1]) {
                         simpan = results[1].formatted_address;
-                        $('#lokasi').after(simpan+'<br/>');
+
                     } else {
                         window.alert('No results found');
                     }
@@ -68,7 +68,7 @@
 
         ";
     }
-
+//    $('#lokasi').after(simpan+'<br/>');
     ?>
 
     <div id="lokasi"></div>
