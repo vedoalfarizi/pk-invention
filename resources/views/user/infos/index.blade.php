@@ -5,23 +5,25 @@
     <div class="space-medium">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-left">
-                    {!! Form::open(['route' => 'infos.filter']) !!}
-
-                        {!! Form::selectYear('year', 2017, date(now()), null, ['class' => 'form-control']) !!}
-                        {!! Form::submit('Filter', ['class' => 'btn btn-default btn-xs mb30']) !!}
-
-                    {!! Form::close() !!}
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     @if(Auth::check())
                         <button type="button" class="btn btn-default btn-xs mb30 pull-right" data-toggle="modal" data-target="#myModal" id="open">Berbagi Informasi</button>
                     @else
                         <a type="button" class="btn btn-default btn-xs mb30 pull-right" href="{!! url('/login') !!}">Berbagi Informasi</a>
                     @endif
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-left">
+                    {!! Form::open(['route' => 'infos.filter']) !!}
 
+                    {!! Form::selectYear('year', 2017, date(now()), null, ['class' => 'form-control']) !!}
+                    {!! Form::submit('Filter', ['class' => 'btn btn-default btn-xs mb30']) !!}
+
+                    {!! Form::close() !!}
+                </div>
+            </div>
+            <div class="row">
                 {!! Form::open(['route' => 'infos.store', 'id' => 'form', 'files' => true]) !!}
                 @if(Auth::check())
                     {!! Form::hidden('user_id', Auth::user()->id, ['class' => 'form-control']) !!}
@@ -109,8 +111,8 @@
                             <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="{!! $info->judul !!}"></a>
                         </div>
                         <div class="tour-content">
-                            <h2><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h2>
-                            <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span class="tour-meta-text">{!! $info->lat !!}|{!! $info->long !!}</span> <span class="tour-meta-text">|</span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
+                            <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
+                            <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span class="tour-meta-text">{!! $info->lat !!}|{!! $info->long !!}</span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
                             <div class="tour-text mb40">
                                 <p>{!! substr($info->narasi, 0, 100) !!} ...</p>
                             </div>
