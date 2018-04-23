@@ -45,7 +45,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12">
-                    <a href="index.html" alt="Tour and Travel Agency - Responsive Website Template"><img src="{{asset('images/pk.png')}}" style="width: 50%"/> </a>
+                    <a href="{!! url('/')!!}" alt="PK"><img src="{{asset('images/pk.png')}}" style="width: 20%"/> </a>
                 </div>
                 <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
                     <div class="navigation">
@@ -137,7 +137,7 @@
 <div class="tiny-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">© {!! date('Y') !!}. All Rights Reserved. Privacy Policy</div>
+            <div class="col-md-12">© {!! date('Y') !!}. ASIMETR15</div>
         </div>
     </div>
     <!-- tiny-footer-start -->
