@@ -99,11 +99,21 @@
                             <div class="tour-text mb40">
                                 <p>{!! substr($info->narasi, 0, 100) !!} ...</p>
                             </div>
+
+                            @php
+                                $jumlahKomentar = \App\Models\komentarInfo::where('info_id', $info->id)->count();
+                                $jumlahLike = \App\Models\feedbackInfo::where('info_id', $info->id)
+                                                ->where('status_feed', 1)->count();
+                                $jumlahDislike = \App\Models\feedbackInfo::where('info_id', $info->id)
+                                                ->where('status_feed', 0)->count();
+
+                            @endphp
+
                             <div class="tour-details">
                                 <div class="tour-details-text">
-                                    <span class="tour-meta-icon"><i class="fa fa-comment"></i>10</span>
-                                    <span class="tour-meta-icon"><i class="fa fa-thumbs-up"></i>11</span>
-                                    <span class="tour-meta-icon"><i class="fa fa-thumbs-down"></i>12</span>
+                                    <span class="tour-meta-icon"><i class="fa fa-comment"></i>{!! $jumlahKomentar !!}</span>
+                                    <span class="tour-meta-icon"><i class="fa fa-thumbs-up"></i>{!! $jumlahLike !!}</span>
+                                    <span class="tour-meta-icon"><i class="fa fa-thumbs-down"></i>{!! $jumlahDislike !!}</span>
                                     @if($info->status_verifikasi == 1)
                                         <span class="tour-meta-icon"><i class="fa fa-check-circle">Verified</i></span>
                                     @endif

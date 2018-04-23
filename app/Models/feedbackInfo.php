@@ -26,7 +26,8 @@ class feedbackInfo extends Model
 
     public $fillable = [
         'info_id',
-        'status_feed'
+        'status_feed',
+        'user_id'
     ];
 
     /**
@@ -36,7 +37,8 @@ class feedbackInfo extends Model
      */
     protected $casts = [
         'info_id' => 'integer',
-        'status_feed' => 'integer'
+        'status_feed' => 'integer',
+        'user_id' => 'integer'
     ];
 
     /**
@@ -45,7 +47,9 @@ class feedbackInfo extends Model
      * @var array
      */
     public static $rules = [
-        'info_id' => 'required'
+        'info_id' => 'required',
+        'status_feed' => 'required',
+        'user_id' => 'required'
     ];
 
     /**
