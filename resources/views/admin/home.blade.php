@@ -1,9 +1,75 @@
 @extends('layouts.app')
 @section('content')
-
     <script src="{!! asset('code/highcharts.js') !!}"></script>
     <script src="{!! asset('code/modules/exporting.js') !!}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <?php
+    define('db_host','localhost');
+    define('db_user','root');
+    define('db_pass','');
+    define('db_name','pk');
+    $db = new mysqli(db_host,db_user,db_pass,db_name);
+    if($db->connect_errno > 0){
+        die('Unable to connect to database [' . $db->connect_error . ']');
+    }
+
+    $sql="select * from laporans";
+    if(!$result = $db->query($sql)){
+        die(' query error [' . $db->error . ']');
+    }
+
+    ?>
+    <script type="text/javascript">
+        // memanggil library Geocoder
+        var geocoder = new google.maps.Geocoder();
+        var map;
+        // memanggil library Infowindow untuk memunculkan infowindow pada marker
+        var infowindow = new google.maps.InfoWindow();
+        var marker;
+
+
+        function codeLatLng() {
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+        var simpan;
+    </script>
+    {{--<script>codeLatLng()</script>--}}
+    <?php
+    while($kriminal = $result->fetch_object()){
+        $lokasi=$kriminal->lat.",".$kriminal->long;
+        echo "
+        <script>
+            // ambil value dari combobox
+
+            var input = '".$lokasi."';
+            var latlngStr = input.split(',', 2);
+            var latlng = new google.maps.LatLng(latlngStr[0], latlngStr[1]);
+            // cari lokasi dari latitude dan longitude
+            geocoder.geocode({'location': latlng}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    // jika berhasil, map akan secara automatis berpindah ke koordinat tersebut
+                    if (results[1]) {
+                        simpan = results[1].formatted_address;
+                        $('#lokasi').after(simpan+'<br/>');
+                    } else {
+                        window.alert('No results found');
+                    }
+                } else {
+                    window.alert('Geocoder failed due to: ' + status);
+                }
+            });
+
+        </script>
+
+
+
+        ";
+    }
+    ?>
+    <div id="lokasi"></div>
     <div class="container">
         <div class="row">
             <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -75,6 +141,7 @@
                 <h2>Peta Persebaran Tindak Kejahatan Kriminal</h2>
 
                 <div id="map" style="width:100%;height:400px"></div>
+            </center>
         </div>
 
 
@@ -108,18 +175,8 @@
                 var map = new google.maps.Map(document.getElementById('map'), options);
                 // Tambahkan Marker
                 var locations = [
-                    <?php
-                    define('db_host','localhost');
-                    define('db_user','root');
-                    define('db_pass','');
-                    define('db_name','pk');
+                  <?php
 
-                    $db = new mysqli(db_host,db_user,db_pass,db_name);
-
-
-                    if($db->connect_errno > 0){
-                        die('Unable to connect to database [' . $db->connect_error . ']');
-                    }
                     $sql="select * from laporans";
                     if(!$result = $db->query($sql)){
                         die(' query error [' . $db->error . ']');
@@ -128,10 +185,6 @@
                         echo "['".$kriminal->no_surat."', ".$kriminal->lat.", ".$kriminal->long.", ".$kriminal->id."],";
                     }
                     ?>
-                    //  ['STMIK AKAKOM', -7.790085, 110.408465],
-                    // ['Universitas Gadjah Mada', -7.764147, 110.378939],
-                    // ['Universitas Muhamadiyah Yogyakarta', -7.810845, 110.324223],
-                    //['Univeritas Ahmad Dahlan', -7.819295, 110.387915],
 
                 ];
                 var infowindow = new google.maps.InfoWindow();
