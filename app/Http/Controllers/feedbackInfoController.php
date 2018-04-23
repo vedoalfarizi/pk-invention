@@ -61,7 +61,7 @@ class feedbackInfoController extends AppBaseController
 
         Flash::success('Feedback Info saved successfully.');
 
-        return redirect(route('feedbackInfos.index'));
+        return redirect()->back();
     }
 
     /**
@@ -126,7 +126,7 @@ class feedbackInfoController extends AppBaseController
 
         Flash::success('Feedback Info updated successfully.');
 
-        return redirect(route('feedbackInfos.index'));
+        return redirect()->back();
     }
 
     /**
