@@ -14,11 +14,11 @@ class ChangeLaporan extends Migration
     public function up()
     {
         Schema::table('laporans', function($table) {
-           $table->string('pasal')->nullable->change();
-            $table->string('status_laporan')->nullable->change();
-            $table->string('no_surat')->nullable->change();
-            $table->date('tanggal_surat')->nullable->change();
-            $table->text('alasan')->nullable->change();
+           $table->string('pasal')->nullable()->change();
+            $table->string('status_laporan')->nullable()->change();
+            $table->string('no_surat')->nullable()->change();
+            $table->date('tanggal_surat')->nullable()->change();
+            $table->text('alasan')->nullable()->change();
         });
     }
 
