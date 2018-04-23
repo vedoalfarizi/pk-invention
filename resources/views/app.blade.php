@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12">
-                    <a href="index.html" alt="Tour and Travel Agency - Responsive Website Template"><img src="{{asset('images/pk.png')}}" style="width: 20%"/> </a>
+                    <a href="index.html" alt="Tour and Travel Agency - Responsive Website Template"><img src="{{asset('images/pk.png')}}" style="width: 50%"/> </a>
                 </div>
                 <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
                     <div class="navigation">
@@ -109,39 +109,42 @@
 <!-- footer start -->
 <div class="footer">
     <div class="container">
-        <div class="row" style="float: left">
+        <div class="row">
             <!-- footer-about-start -->
             <br class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="footer-widget">
+            <div class="col-md-4">
                     <strong style="color: white; font-size: 130%"><i class="fa fa-instagram"></i></strong> @pantau_kriminal<p/><br/>
+            </div>
+            <div class="col-md-3">
                     <strong style="color: white; font-size: 130%"><i class="fa fa-envelope"></i></strong> @info@pk.com<p/>
+            </div>
+            <div class="col-md-5">
                     <strong style="color: white; font-size: 130%"><i class="fa fa-map-marker"></i></strong>
-                    Jurusan Sistem Informasi<br/>
-                    &emsp;Fakultas Teknologi Informasi<br/>
-                    &emsp;Universitas Andalas<br/>
-                    &emsp;Limau Manis, Pauh, Padang<br/>
-                    <p/>
-                </div>
+                    Jurusan Sistem Informasi, Fakultas Teknologi Informasi<br/>
+                    &emsp;Universitas Andalas,emsp;Limau Manis, Pauh, Padang<br/>
+
+            </div>
+
             </div>
             <!-- footer-about-close -->
             <!-- footer-location-start -->
-        <div style="float: right">
-            <table>
-                <tr><td colspan="3"><center><b>Kirim Masukan</b></center></td></tr>
-                <tr><td>&nbsp</td></tr>
-                <tr>
-                    <td>E-mail</td>
-                    <td>:</td>
-                    <td><input type="text" style="width: 100%"></td>
-                </tr>
-                <tr><td>&nbsp</td></tr>
-                <tr>
-                    <td>Saran</td>
-                    <td>:</td>
-                    <td><textarea rows="6" cols="60"></textarea> </td>
-                </tr>
-            </table>
-        </div>
+        {{--<div style="float: right">--}}
+            {{--<table>--}}
+                {{--<tr><td colspan="3"><center><b>Kirim Masukan</b></center></td></tr>--}}
+                {{--<tr><td>&nbsp</td></tr>--}}
+                {{--<tr>--}}
+                    {{--<td>E-mail</td>--}}
+                    {{--<td>:</td>--}}
+                    {{--<td><input type="text" style="width: 100%"></td>--}}
+                {{--</tr>--}}
+                {{--<tr><td>&nbsp</td></tr>--}}
+                {{--<tr>--}}
+                    {{--<td>Saran</td>--}}
+                    {{--<td>:</td>--}}
+                    {{--<td><textarea rows="6" cols="60"></textarea> </td>--}}
+                {{--</tr>--}}
+            {{--</table>--}}
+        {{--</div>--}}
             <!-- footer-social-close -->
         </div>
     </div>
