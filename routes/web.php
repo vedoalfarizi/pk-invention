@@ -71,3 +71,5 @@ Route::get('/laporan/edit/{id}', function ($id) {
     $laporan = \App\Models\laporan::find($id);
         return view('user.profil.edit_lapor', compact('laporan'));
 });
+
+Route::get('/info/{id}', 'profilUserController@showInfo');

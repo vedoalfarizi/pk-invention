@@ -3,16 +3,18 @@
 @section('content')
     <div class="space-medium">
         <div class="container">
-            @if($mesage=='berhasil')
-            <div class="alert alert-success alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Sukses!</strong> {{$isi_mesage}}
-            </div>
-            @elseif($mesage=='gagal')
-            <div class="alert alert-danger alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Gagal!</strong>
-            </div>
+            @if(isset($mesage))
+                @if($mesage=='berhasil')
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Sukses!</strong> {{$isi_mesage}}
+                </div>
+                @elseif($mesage=='gagal')
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Gagal!</strong>
+                </div>
+                @endif
             @endif
 
             <div class="row">
