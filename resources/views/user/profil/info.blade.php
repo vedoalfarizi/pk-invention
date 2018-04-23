@@ -2,7 +2,7 @@
     {{--<a href="{!! url('/lapor') !!}" title="Lapor" class="btn btn-warning pull-right"><font color="white">Tambah Peinfo</font></a>--}}
 
     @include('adminlte-templates::common.errors')
-    @if($infos!=null)
+
     @foreach($infos as $info)
     <div class="col-lg-12 col-md-4 col-sm-3 col-xs-3">
         <div class="service-block">
@@ -34,7 +34,7 @@
         </div>
     </div>
     @endforeach
-    @endif
+
     {{--<table class="table table-responsive" id="infos-table">--}}
         {{--<thead>--}}
         {{--<tr>--}}

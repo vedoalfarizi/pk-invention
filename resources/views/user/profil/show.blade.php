@@ -1,24 +1,33 @@
 @extends('app')
 
 @section('content')
+
     <div class="space-medium">
+
         <div class="container">
+            <div class="row pull-left" >
+                <div class="tour-details-btn"> <span><a href="{!! action('profilUserController@index') !!}" class="btn btn-primary">kembali</a></span> </div>
+                <br><br>
+            </div>
+
                         <div class="row">
+
                             <!-- post-one-start -->
                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
                                 <div class="post-block">
                                     <div class="post-img"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto Info dan Tips" class="img-responsive"></div>
                                     <div class="post-sticky"> <i class="fa fa-map-marker">{!! $info->lat !!}|{!! $info->long !!} </i> </div>
                                     <div class="post-content">
 
-                                        <div class="meta"> <span class="meta-date">Dibagikan pada {!! $info->created_at->format('d M Y') !!} </span> <span class="meta-author">by <a href="#">{!! $info->user->name !!}</a></span> </div>
+                                        <div class="meta"> <span class="meta-date">Dibagikan pada {!! $info->created_at->format('d M Y') !!} </span> <span class="meta-author">Perkara - <a href="#">{!! $info->perkara->nama!!}</a></span> </div>
                                     </div>
                                 </div>
                             </div>
                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                 <p class="blockquote">{!! $info->judul !!} <br>
-                                    - <small>{!! $info->perkara->nama !!}</small></p>
+                                    </p>
 
                                 <p>{!! $info->narasi !!}</p>
 
@@ -56,12 +65,14 @@
 
                                 </div>
                             </div>
+            <div class="row pull-left" >
+                <div class="tour-details-btn"> <span><a href="{!! action('profilUserController@index') !!}" class="btn btn-primary">kembali</a></span> </div>
+                <br><br>
+            </div>
                         </div>
-                    </div>
-                </div>
 
-        </div>
-    </div>
+                    </div>
+
 
 
 

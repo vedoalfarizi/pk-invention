@@ -31,14 +31,29 @@
                 <div class="col-lg-9">
 
                      <div class="tab-content">
+                         @php $profil = \App\Models\profile::where('user_id',auth::user()->id)->first();@endphp
                             <div id="Beranda" class="tab-pane fade in active">
+                                @if($profil!= null)
                                 @include('user.profil.info')
+                                    @else
+                                    <div class="form-group col-sm-12">
+                                        <h4 class="text-danger">Silahkan Lengkapi Profil Anda</h4>
+                                    </div>
+                                    @endif
                             </div>
                             <div id="laporan" class="tab-pane fade">
+                                @if($profil!= null)
                                 @include('user.profil.laporan')
+                                @else
+                                    <div class="form-group col-sm-12">
+                                        <h4 class="text-danger">Silahkan Lengkapi Profil Anda</h4>
+                                    </div>
+                                    @endif
                             </div>
                             <div id="profil" class="tab-pane fade">
+
                                 @include('user.profil.profil')
+
                             </div>
                         </div>
                     </div>
