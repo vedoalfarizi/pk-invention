@@ -16,6 +16,8 @@
         </tr>
         </thead>
         <tbody>
+{{--        {{dd(count($laporans))}}--}}
+
         @foreach($laporans as $laporan)
             <tr>
                 <td>{!! substr($laporan->created_at,0,10) !!}</td>
@@ -164,6 +166,7 @@
             </tr>
 
         @endforeach
+
 
         </tbody>
     </table>

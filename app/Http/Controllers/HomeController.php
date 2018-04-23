@@ -28,17 +28,14 @@ class HomeController extends Controller
         if(Auth::user()->role == 0){
             return view('admin.home');
         }elseif(Auth::user()->role == 1){
-            if(Auth::user()->status_verifikasi != NULL){
+            if(Auth::user()->status_verifikasi != 0){
                 return view('welcome');
             }else{
                 $profile = profile::where('user_id', Auth::user()->id)->first();
 
-//                if($profile != NULL){
-//                    return view('profiles.edit', compact('profile'));
-//                }else{
-//                    return view('profiles.index', compact('profile'));
-//                }
-                return view('user.profil.index');
+                    return redirect(action('profilUserController@index'));
+
+
             }
         }
 
