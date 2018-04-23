@@ -45,7 +45,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Jumlah kriminalitas'
+                        text: 'Jumlah kriminalitas per provinsi'
                     }
                 },
                 tooltip: {
@@ -63,7 +63,7 @@
                     }
                 },
                 series: [{
-                    name: 'Total Angka Kriminalitas per provinsi',
+                    name: 'Total kriminalitas',
                     data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4, 55, 25, 33, 45]
 
                 }]
