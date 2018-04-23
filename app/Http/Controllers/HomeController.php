@@ -35,7 +35,6 @@ class HomeController extends Controller
 
                     return redirect(action('profilUserController@index'));
 
-                    return redirect(action('profilUserController@index'));
 
             }
         }

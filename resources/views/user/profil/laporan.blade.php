@@ -17,7 +17,7 @@
         </thead>
         <tbody>
 {{--        {{dd(count($laporans))}}--}}
-        @if(count($laporans)!=0)
+
         @foreach($laporans as $laporan)
             <tr>
                 <td>{!! substr($laporan->created_at,0,10) !!}</td>
@@ -166,7 +166,7 @@
             </tr>
 
         @endforeach
-            @endif
+
 
         </tbody>
     </table>
