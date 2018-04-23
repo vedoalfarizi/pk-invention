@@ -8,7 +8,7 @@
 
             </div>
         </aside>
-        <section id="main-content">
+        <section id="main-content"><br/>
             <section class="wrapper site-min-height">
                 {!! Form::open(['url' => '/lapor/add', 'method' => 'post']) !!}
                 <div class="row">
