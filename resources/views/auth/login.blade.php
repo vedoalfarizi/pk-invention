@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-    <div class="hero-section">
+    <div class="bg-default space-medium">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
