@@ -34,18 +34,7 @@
         <div class="row">
             <div class="col-md-4 hidden-sm col-sm-12">
                 <div class="call-info">
-                    <p class="call-text">Ada yang ingin ditanyakan? Hubungi kita:<strong>0000-000-0000</strong></p>
-                </div>
-            </div>
-            <div class="col-md-8 hidden-sm hidden-xs">
-                <div class="social">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    </ul>
+                    <p class="call-text">Ada yang ingin ditanyakan? Hubungi kita:<strong><a target="_blank" href="https://www.instagram.com/asimetr15/">ASIMETR15</a></strong></p>
                 </div>
             </div>
         </div>
@@ -106,43 +95,41 @@
 
 @yield('content')
 
-<!-- footer start -->
 <div class="footer">
     <div class="container">
-        <div class="row" style="float: left">
+        <div class="row">
             <!-- footer-about-start -->
-            <br class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="footer-widget">
-                    <strong style="color: white; font-size: 130%"><i class="fa fa-instagram"></i></strong> @pantau_kriminal<p/><br/>
-                    <strong style="color: white; font-size: 130%"><i class="fa fa-envelope"></i></strong> @info@pk.com<p/>
-                    <strong style="color: white; font-size: 130%"><i class="fa fa-map-marker"></i></strong>
-                    Jurusan Sistem Informasi<br/>
-                    &emsp;Fakultas Teknologi Informasi<br/>
-                    &emsp;Universitas Andalas<br/>
-                    &emsp;Limau Manis, Pauh, Padang<br/>
-                    <p/>
+                    <h3 class="footer-title ">Tentang Kami</h3>
+                    <p>PK (Pantau Kriminalitas) merupakan platform berbasis website yang membantu pemerintah dalam memantau
+                        kriminilitas yang terjadi di suatu daerah serta sebagai sarana berbagi informasi dan pelaporan
+                        tindakan kejahatan oleh masyarakat.</p>
                 </div>
             </div>
             <!-- footer-about-close -->
             <!-- footer-location-start -->
-        <div style="float: right">
-            <table>
-                <tr><td colspan="3"><center><b>Kirim Masukan</b></center></td></tr>
-                <tr><td>&nbsp</td></tr>
-                <tr>
-                    <td>E-mail</td>
-                    <td>:</td>
-                    <td><input type="text" style="width: 100%"></td>
-                </tr>
-                <tr><td>&nbsp</td></tr>
-                <tr>
-                    <td>Saran</td>
-                    <td>:</td>
-                    <td><textarea rows="6" cols="60"></textarea> </td>
-                </tr>
-            </table>
-        </div>
-            <!-- footer-social-close -->
+            <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Lokasi Kami</h3>
+                    <p><i class="fa fa-map-marker"></i>  Jurusan Sistem Informasi, Fakultas Teknologi Informasi, Universitas Andalas</p>
+                </div>
+            </div>
+            <!-- footer-location-close -->
+            <!-- footer-contact-start -->
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Kontak Kami</h3>
+                    <div class="contact-info">
+                        <ul>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/vedo-alfarizi-56a04b145/">Vedo Alfarizi</a></li>
+                            <li><a>ridhodarman@gmail.com</a></li>
+                            <li><a>dartikaanie@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- footer-contact-close -->
         </div>
     </div>
 </div>
@@ -150,12 +137,12 @@
 <div class="tiny-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">© 2018. ASIMETR15</div>
+            <div class="col-md-12">© {!! date('Y') !!}. All Rights Reserved. Privacy Policy</div>
         </div>
     </div>
     <!-- tiny-footer-start -->
 </div>
-<!-- footer close -->
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

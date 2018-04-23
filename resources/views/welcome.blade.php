@@ -258,56 +258,49 @@
     {{--src="{{asset('images/service-img-1.jpg')}}"--}}
 
     <!-- hero-section start -->
-
-
-
-    <div id="map" style="width: 100%; height: 613px;"></div><center>
-    <div class="hero-section-caption nopadding" style="width: 90%">
-        <h1 class="hero-title"><center> Tingkatan Kriminalitas </center></h1>
-        <a style="float: left">Rendah</a> <a style="float: right">Tinggi</a> <img src="{{asset('images/bar.png')}}"/><br/>. </div></center>
-
-    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
-            <div class="service-block">
-               <div class="service-content">
-                   <div class="row">
-                       <div class="col-md-4">
-                           <h1><a href="#" class="title">10000</a></h1>
-                       </div>
-                       <div class="col-lg-7">
-                           <p>Tindakan Kriminal Yang Terselesaikan</p>
-                       </div>
-                   </div>
-                </div>
+    <div class="bg-default space-medium">
+        <div class="container">
+            <div class="row">
+                <div id="map" style="width: 100%; height: 613px;"></div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
-            <div class="service-block">
-                <div class="service-content">
-                    <div class="service-content">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h1><a href="#" class="title">10000</a></h1>
-                            </div>
-                            <div class="col-lg-7">
-                                <p>Laporan Masuk</p>
-                                <p></p>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-center">
+                        <h1 class="hero-title text-center"> Tingkatan Kriminalitas</h1>
+                        <a style="float: left">Rendah</a> <a style="float: right">Tinggi</a> <img src="{{asset('images/bar.png')}}"/><br/>.
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
-            <div class="service-block">
-                <div class="service-content">
-                    <div class="service-content">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h1><a href="#" class="title">10000</a></h1>
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    @php
+                        $laporanSelesai = \App\Models\laporan::where('status_laporan', '=', 3)->count();
+                        $laporanMasuk = \App\Models\laporan::get()->count();
+                        $infoMasuk = \App\Models\info::get()->count();
+                    @endphp
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="service-block">
+                                <div class="service-content">
+                                    <h3 class="text-center"><a class="title">{!! $laporanSelesai !!}</a></h3>
+                                    <div class="service-btn-link text-center"><a class="btn-link">Tindakan Kriminal Yang Terselesaikan</a></div>
+                                </div>
                             </div>
-                            <div class="col-lg-7">
-                                <p>Informasi Tindakan Kriminal</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="service-block">
+                                <div class="service-content">
+                                    <h3 class="text-center"><a class="title">{!! $laporanMasuk !!}</a></h3>
+                                    <div class="service-btn-link text-center"><a class="btn-link">Laporan Masuk</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="service-block">
+                                <div class="service-content">
+                                    <h3 class="text-center"><a class="title">{!! $infoMasuk !!}</a></h3>
+                                    <div class="service-btn-link text-center"><a class="btn-link">Informasi Tindakan Kriminal</a></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -316,21 +309,19 @@
         </div>
     </div>
     <!-- hero-section close -->
-    <br><br><br>
-    <br><br><br>
     <!-- service-section start -->
     <div class="space-medium">
         <div class="container">
             <div class="row">
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title text-center">
-                        <h1>Informasi Tindakan Kriminal Terbaru</h1>
+                        <h1>Informasi Tindakan Kriminal</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <!-- service start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
                 </div>
 
@@ -415,56 +406,25 @@
                 </div>
             </div>
             <div class="row">
-                <!-- Testimonials-one-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img">
-                            <a href="#"><img src="{{asset('images/begal.png')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
-                        </div>
-                        <div class="service-content">
-                            <p>Tips aman berkendara ketika malam hari</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
-                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonials-one-close -->
-                <!-- Testimonials-two-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img">
-                            <a href="#"><img src="{{asset('images/maling.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
-                        </div>
-                        <div class="service-content">
-                            <p>Cara mencegah ponsel agar tidak mudah dicuri</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
-                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
+                @php
+                    $infos = \App\Models\info::orderBy('created_at', 'desc')->limit(3)->get();
+                @endphp
+                @foreach($infos as $info)
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="service-block">
+                            <div class="service-img">
+                                <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto"></a>
+                            </div>
+                            <div class="service-content">
+                                <p>{!! $info->judul !!}</p>
+                                <div class="service-btn-link"><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn-link">Baca Selengkapnya...</a></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Testimonials-two-start -->
-                <!-- Testimonials-three-start -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-img">
-                            <a href="#"><img src="{{asset('images/parkiran.jpg')}}" alt="Tour and Travel Agency - Responsive Website Template"></a>
-                        </div>
-                        <div class="service-content">
-                            <p>Cara menjaga helm agar tetap aman di parkiran</p>
-                            <div class="service-btn-link"><a href="domestic-tour.html" class="btn-link">Baca Selengkapnya...</a></div>
-                            {{--<div><a href="international-tour.html" class="btn-link">International Tour</a></div>--}}
-                        </div>
-                    </div>
-                </div>
-                <center>
-                    <button class="btn btn-primary">Lihat Semua</button></center>
-                <!-- Testimonials-three-close -->
-
-    <!-- about-section start -->
-
-
-    <!-- Destination-section-close -->
-
+                @endforeach
+            </div>
+            <div class="row text-center">
+                <a href="{!! route('infos.index') !!}" class="text-center btn btn-primary">Lihat Semua</a>
             </div>
         </div>
     </div>
