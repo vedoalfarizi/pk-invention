@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateperkembanganLapRequest;
 use App\Http\Requests\UpdateperkembanganLapRequest;
+use App\Models\laporan;
 use App\Models\perkembanganLap;
 use App\Repositories\perkembanganLapRepository;
 use App\Http\Controllers\AppBaseController;
@@ -35,9 +36,16 @@ class perkembanganLapController extends AppBaseController
         $perkembanganLaps = perkembanganLap::all();
         $perkembanganLaps->groupBy('laporan_id');
 //        dd($perkembanganLaps);
-
-        return view('admin.perkembangan_laps.index')
-            ->with('perkembanganLaps', $perkembanganLaps);
+        $laporans2 = laporan::all();
+        $tindaks=[];$n=0;
+        foreach ($laporans2 as $laporan) {
+            $tindak=perkembanganLap::where('laporan_id',$laporan->id)->first();
+            if($tindak!=null){
+                $tindaks[$n]=perkembanganLap::where('laporan_id',$laporan->id)->first();
+            }
+            $n++;
+        }
+        return view('admin.perkembangan_laps.index', compact('perkembanganLaps','tindaks'));
     }
 
     /**
@@ -64,7 +72,8 @@ class perkembanganLapController extends AppBaseController
         $jum =count($perkembanganLap)+1;
         if($request->file){
             $fileName = $request->file->getClientOriginalName();
-            $input['file']=$request->file->storeAs('file_perkembangan/'.$input['laporan_id'], $input['laporan_id'].'_'.$jum);
+            $input['file']='file_perkembangan/'.$input['laporan_id'].'/'. $input['laporan_id'].'_'.$jum;
+            $request->file->storeAs('/public/file_perkembangan/'.$input['laporan_id'], $input['laporan_id'].'_'.$jum);
 
         }
 
@@ -84,15 +93,10 @@ class perkembanganLapController extends AppBaseController
      */
     public function show($id)
     {
-        $perkembanganLap = $this->perkembanganLapRepository->findWithoutFail($id);
-
-        if (empty($perkembanganLap)) {
-            Flash::error('Perkembangan Lap not found');
-
-            return redirect(route('perkembanganLaps.index'));
-        }
-
-        return view('admin.perkembangan_laps.show')->with('perkembanganLap', $perkembanganLap);
+        $tindaks= perkembanganLap::where('laporan_id',$id)->get();
+        $laporan = laporan::where('id',$id)->first();
+//        dd($id);
+        return view('admin.perkembangan_laps.show', compact('laporan','tindaks'));
     }
 
     /**
@@ -126,18 +130,26 @@ class perkembanganLapController extends AppBaseController
     public function update($id, UpdateperkembanganLapRequest $request)
     {
         $perkembanganLap = $this->perkembanganLapRepository->findWithoutFail($id);
-
+        $input = $request->all();
+        $jum =count($perkembanganLap);
+        if($request->file){
+            $fileName = $request->file->getClientOriginalName();
+            $input['file']='file_perkembangan/'.$input['laporan_id'].'/'. $input['laporan_id'].'_'.$jum;
+            $request->file->storeAs('/public/file_perkembangan/'.$input['laporan_id'], $input['laporan_id'].'_'.$jum);
+        }
+//        dd($input);
         if (empty($perkembanganLap)) {
             Flash::error('Perkembangan Lap not found');
 
             return redirect(route('perkembanganLaps.index'));
         }
 
-        $perkembanganLap = $this->perkembanganLapRepository->update($request->all(), $id);
+        $perkembanganLap = $this->perkembanganLapRepository->update($input, $id);
 
         Flash::success('Perkembangan Lap updated successfully.');
 
-        return redirect(action('perkembanganLapController@show',$perkembanganLap->id));
+//        dd($perkembanganLap);
+        return redirect(action('perkembanganLapController@show',$perkembanganLap->laporan_id));
     }
 
     /**

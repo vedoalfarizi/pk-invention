@@ -28,61 +28,76 @@
                     {!! Form::hidden('status_verifikasi', 0, ['class' => 'form-control']) !!}
                 @endif
 
-                    <!-- Modal -->
-                    <div class="modal" tabindex="-1" role="dialog" id="myModal">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="alert alert-danger" style="display:none"></div>
-                                <div class="modal-header">
+            <!-- Modal -->
+                <div class="modal fade " tabindex="-1" role="dialog" id="myModal">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="alert alert-danger" style="display:none"></div>
+                            <div class="modal-header">
 
-                                    <h5 class="modal-title">Berbagi Informasi</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-
-                                            <div class="form-group col-md-12">
-                                                {!! Form::text('judul', null, ['class' => 'form-control', 'placeholder' => 'Judul Info & Tips']) !!}
-                                            </div>
-
-                                            <div class="form-group col-md-12">
-                                                @php
-                                                    $perkaras = \App\Models\perkara::get()->pluck('nama', 'id');
-                                                @endphp
-                                                {!! Form::select('perkara_id', $perkaras, null, ['class' => 'form-control', 'placeholder' => 'Jenis Perkara']) !!}
-                                            </div>
-
-                                            <div class="form-group col-md-12">
-                                                {!! Form::file('file_foto', null, ['class' => 'form-control']) !!}
-                                            </div>
-
-                                            <div class="form-group col-md-12">
-                                                {!! Form::textarea('narasi', null, ['class' => 'form-control', 'placeholder' => 'Ceritakan kronologi kejadian, bagikan juga tips untuk mencegah kejadian terulang']) !!}
-                                            </div>
-
+                                <h5 class="modal-title">Berbagi Informasi</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="row"><br></div>
+                                        <div class="form-group col-md-12">
+                                            <label>Judul</label>
+                                            {!! Form::text('judul', null, ['class' => 'form-control', 'placeholder' => 'Judul Info & Tips']) !!}
                                         </div>
-                                        <div class="col-md-8">
-                                            Lokasi kejadian :
-                                            <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
-                                            <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Posisi manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
-                                            {!! Form::hidden('lat', null, ['class' => 'form-control', 'id' => 'lat']) !!}
-                                            {!! Form::hidden('long', null, ['class' => 'form-control', 'id' => 'long']) !!}
 
-                                            <div id="map" style="height:400px; padding-right: 50%"></div>
+                                        <div class="form-group col-md-12">
+                                            <label>Perkara</label>
+                                            @php
+                                                $perkaras = \App\Models\perkara::get()->pluck('nama', 'id');
+                                            @endphp
+                                            {!! Form::select('perkara_id', $perkaras, null, ['class' => 'form-control', 'placeholder' => 'Jenis Perkara']) !!}
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            {!! Form::file('file_foto', null, ['class' => 'form-control']) !!}
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Lokasi kejadian :
+                                                <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
+                                                <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Posisi manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
+                                                {!! Form::hidden('lat', null, ['class' => 'form-control', 'id' => 'lat']) !!}
+                                                {!! Form::hidden('long', null, ['class' => 'form-control', 'id' => 'long']) !!}
+                                                <div class="alert alert-warning alert-dismissible">
+                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                    Jangan lupa set lokasi Anda!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="map" style="height:300px; padding-right: 10%" class="col-md-12"></div>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" style="padding: 5%">
+                                        {!! Form::textarea('narasi', null, ['class' => 'form-control', 'placeholder' => 'Ceritakan kronologi kejadian, bagikan juga tips untuk mencegah kejadian terulang']) !!}
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button  class="btn btn-success" id="ajaxSubmit">Save changes</button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button  class="btn btn-success" id="ajaxSubmit">Save changes</button>
                             </div>
                         </div>
                     </div>
+                </div>
                 {!! Form::close() !!}
             </div>
             <div class="row">

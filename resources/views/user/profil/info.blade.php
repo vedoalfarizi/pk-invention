@@ -2,9 +2,97 @@
     {{--<a href="{!! url('/lapor') !!}" title="Lapor" class="btn btn-warning pull-right"><font color="white">Tambah Peinfo</font></a>--}}
 
     @include('adminlte-templates::common.errors')
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-right">
+        @if(Auth::check())
+            <button type="button" class="btn btn-default btn-xs mb30 pull-right" data-toggle="modal" data-target="#myModal" id="open">Berbagi Informasi</button>
+        @else
+            <a type="button" class="btn btn-default btn-xs mb30 pull-right" href="{!! url('/login') !!}">Berbagi Informasi</a>
+        @endif
+    </div>
+
+    {!! Form::open(['route' => 'infos.store', 'id' => 'form', 'files' => true]) !!}
+    @if(Auth::check())
+        {!! Form::hidden('user_id', Auth::user()->id, ['class' => 'form-control']) !!}
+        {!! Form::hidden('status_verifikasi', 0, ['class' => 'form-control']) !!}
+    @endif
+
+<!-- Modal -->
+    <div class="modal fade " tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="alert alert-danger" style="display:none"></div>
+                <div class="modal-header">
+
+                    <h5 class="modal-title">Berbagi Informasi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row"><br></div>
+                            <div class="form-group col-md-12">
+                                <label>Judul</label>
+                                {!! Form::text('judul', null, ['class' => 'form-control', 'placeholder' => 'Judul Info & Tips']) !!}
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label>Perkara</label>
+                                @php
+                                    $perkaras = \App\Models\perkara::get()->pluck('nama', 'id');
+                                @endphp
+                                {!! Form::select('perkara_id', $perkaras, null, ['class' => 'form-control', 'placeholder' => 'Jenis Perkara']) !!}
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                {!! Form::file('file_foto', null, ['class' => 'form-control']) !!}
+                            </div>
+
+
+                        </div>
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                    Lokasi kejadian :
+                                    <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
+                                    <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Posisi manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
+                                    {!! Form::hidden('lat', null, ['class' => 'form-control', 'id' => 'lat']) !!}
+                                    {!! Form::hidden('long', null, ['class' => 'form-control', 'id' => 'long']) !!}
+                                        <div class="alert alert-warning alert-dismissible">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                           Jangan lupa set lokasi Anda!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                    <div id="map" style="height:300px; padding-right: 10%" class="col-md-12"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="padding: 5%">
+                                {!! Form::textarea('narasi', null, ['class' => 'form-control', 'placeholder' => 'Ceritakan kronologi kejadian, bagikan juga tips untuk mencegah kejadian terulang']) !!}
+                            </div>
+                        </div>
+
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button  class="btn btn-success" id="ajaxSubmit">Save changes</button>
+                </div>
+        </div>
+            </div>
+        </div>
+
+    {!! Form::close() !!}
+</div>
+
 
     @foreach($infos as $info)
-    <div class="col-lg-12 col-md-4 col-sm-3 col-xs-3">
+    <div class="col-lg-12 col-md-4 col-sm-3 col-xs-12">
         <div class="service-block">
             <div class="service-content">
                 <div class="row">
@@ -34,167 +122,8 @@
         </div>
     </div>
     @endforeach
-
-    {{--<table class="table table-responsive" id="infos-table">--}}
-        {{--<thead>--}}
-        {{--<tr>--}}
-            {{--<th>Judul</th>--}}
-            {{--<th>Perkara</th>--}}
-            {{--<th>narasi</th>--}}
-            {{--<th>Tempat Kejadian</th>--}}
-            {{--<th>Status info</th>--}}
-        {{--</tr>--}}
-        {{--</thead>--}}
-        {{--<tbody>--}}
-        {{--@foreach($infos as $info)--}}
-            {{--<tr>--}}
-                {{--<td>{!! substr($info->created_at,0,10) !!}</td>--}}
-                {{--<td>{!! $info->perkaras->nama !!}</td>--}}
-                {{--<td>{!! substr($info->waktu_kejadian,0,10) !!}</td>--}}
-                {{--<td>{!! $info->tempat_kejadian !!}</td>--}}
-                {{--<td>--}}
-
-                    {{--@if( @$info->status_info==0)--}}
-                        {{--<label class="label label-danger" style="color: white"> Belum Baca </label>--}}
-                    {{--@elseif(@$info->status_info==1)--}}
-                        {{--<label class="label label-success" style="color: white"> Diterima </label>--}}
-                    {{--@elseif(@$info->status_info==2)--}}
-                        {{--<label class="label label-default" style="color: white"> Ditolak </label>--}}
-                    {{--@elseif(@$info->status_info==3)--}}
-                        {{--<label class="label label-primary" style="color: white"> Tindak lanjut </label>--}}
-                    {{--@endif--}}
-                {{--</td>--}}
-                {{--<td>--}}
-                    {{--<a class='btn btn-info btn-fill' data-toggle='modal' data-target='#lihat-{{$info->id}}'><i class="glyphicon glyphicon-eye-open"></i></a>--}}
-                {{--</td>--}}
-                {{--<td>--}}
-                    {{--@if($info->status_info == null)--}}
-                        {{--<a class='btn btn-primary btn-fill' href="{{url('/info/edit/'.$info->id)}}"><i class="glyphicon glyphicon-edit"></i></a>--}}
-                    {{--@else--}}
-                        {{--<a class='btn btn-primary btn-fill' disabled="yes" ><i class="glyphicon glyphicon-edit"></i></a>--}}
-                    {{--@endif--}}
-                {{--</td>--}}
-                {{--<td>--}}
-                    {{--{!! Form::open(['route' => ['infos.destroy', $info->id], 'method' => 'delete']) !!}--}}
-                    {{--{!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-fill', 'onclick' => "return confirm('Are you sure?')", 'style' => 'margin-top : -4px']) !!}--}}
-                    {{--{!! Form::close() !!}--}}
-
-                    {{--<------------------------ MODAL _ info------------------->--}}
-                    {{--<div class="modal fade"  id="lihat-{{$info->id}}" data-backdrop="false">--}}
-                        {{--<div class="modal-dialog">--}}
-                            {{--<div class="modal-content">--}}
-
-                                {{--<div class="modal-header">--}}
-                                    {{--<div class="col-md-8">--}}
-                                        {{--<h2> info - {{$info->id}}</h2>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="modal-body">--}}
-                                    {{--<div class="row">--}}
-                                        {{--<div class="col-md-7">--}}
-                                            {{--//info--}}
-                                            {{--<table class="table table-responsive">--}}
-                                                {{--<h4>HAL LAPOR</h4>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>waktu</td>--}}
-                                                    {{--<td>: {!! $info->waktu_kejadian !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Perkara </td>--}}
-                                                    {{--<td>: {!! $info->perkaras->nama!!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Tempat Kejadian </td>--}}
-                                                    {{--<td>: {!! $info->tempat_kejadian !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Korban </td>--}}
-                                                    {{--<td>: {!! $info->korban !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Alamat Korban</td>--}}
-                                                    {{--<td>: {!! $info->alamat_korban !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Kerugian </td>--}}
-                                                    {{--<td>: {!! $info->kerugian !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Terlapor </td>--}}
-                                                    {{--<td>: {!! $info->pelapor !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Saksi </td>--}}
-                                                    {{--<td>: {!! $info->saksi !!}</td>--}}
-                                                {{--</tr>--}}
-                                            {{--</table>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="col-md-5">--}}
-                                            {{--<table class="table table-responsive">--}}
-                                                {{--<h4>DATA PELAPOR</h4>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Nama</td>--}}
-                                                    {{--<td>: {!! $info->profiles->username !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Tempat Lahir </td>--}}
-                                                    {{--<td>: {!! $info->profiles->tempat_lahir !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Tanggal Lahir </td>--}}
-                                                    {{--<td>: {!! substr($info->profiles->tanggal_lahir,0,10)!!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Jenis Kelamin </td>--}}
-                                                    {{--<td>: @if($info->profiles->jekel==1)--}}
-                                                            {{--Laki - Laki--}}
-                                                        {{--@else Perempuan--}}
-                                                        {{--@endif</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Pekerjaan </td>--}}
-                                                    {{--<td>: {!! $info->profiles->pekerjaan !!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>Alamat </td>--}}
-                                                    {{--<td>: {!! $info->profiles->alamat!!}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--<tr>--}}
-                                                    {{--<td>No HP </td>--}}
-                                                    {{--<td>: {!! $info->profiles->no_hp!!}</td>--}}
-                                                {{--</tr>--}}
-                                            {{--</table>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-
-                                    {{--<div class="row">--}}
-                                        {{--<div class="col-md-12" style="background-color: #e6e5e5">--}}
-                                            {{--Uraian Kejadian : <br>--}}
-                                            {{--{{$info->uraian_kejadian}}--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--<br>--}}
+    <ul class="pagination pagination-sm inline pull-right">
+        {!! $infos->links() !!}
+    </ul>
 
 
-
-                                {{--</div>--}}
-                                {{--<div class="modal-footer">--}}
-                                    {{--@if($info->status_info == 1)--}}
-                                        {{--<a type="button" class="btn btn-primary btn-fill" target="_blank" href="{{url('/peinfos/cetak/'.$info->id)}}"><i class="glyphicon glyphicon-print"></i> Cetak Surat</a>--}}
-                                    {{--@endif--}}
-                                    {{--<button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<------------------------ MODAL --------------------}}
-
-
-                {{--</td>--}}
-            {{--</tr>--}}
-
-        {{--@endforeach--}}
-
-        {{--</tbody>--}}
-    {{--</table>--}}
-</div>
