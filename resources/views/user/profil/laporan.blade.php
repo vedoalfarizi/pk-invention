@@ -168,6 +168,10 @@
         @endforeach
 
 
+
         </tbody>
     </table>
+    <ul class="pagination pagination-sm inline pull-right">
+        {!! $laporans->links() !!}
+    </ul>
 </div>
