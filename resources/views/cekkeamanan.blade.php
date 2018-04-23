@@ -300,13 +300,13 @@
                 circles.push(circle);
             }
             cekRadiusStatus = 'on';
-            masjidradius();
+            kriminalradius();
         }
 
-        function tampilsemua(){ //menampilkan semua masjid
+        function tampilsemua(){ //menampilkan semua tindakan kriminal
 
-            $.ajax({ url: server+'carimasjid.php', data: "", dataType: 'json', success: function (rows){
-                cari_masjid(rows);
+            $.ajax({ url: server+'carikriminal.php', data: "", dataType: 'json', success: function (rows){
+                cari_kriminal(rows);
             }});
         }
 
@@ -366,9 +366,8 @@
             hapusInfo();
             clearroute2();
             clearroute();
-            clearangkot();
             $.ajax({
-                url: server+'detailmasjid1.php?cari='+id, data: "", dataType: 'json', success: function(rows)
+                url: server+'detailkriminal1.php?cari='+id, data: "", dataType: 'json', success: function(rows)
                 {
                     console.log("hiaiii");
                     console.log(id);
@@ -387,7 +386,7 @@
                         marker = new google.maps.Marker
                         ({
                             position: centerBaru,
-                            icon:'assets/ico/marker_masjid.png',
+                            icon:'assets/ico/marker_.png',
                             map: map,
                             animation: google.maps.Animation.DROP,
                         });
@@ -426,7 +425,7 @@
             // POSISI MARKER
             centerBaru = new google.maps.LatLng(latitude, longitude);
             var marker = new google.maps.Marker({map: map, position: centerBaru,
-                icon:'assets/ico/marker_masjid.png',
+                icon:'assets/ico/marker_.png',
                 animation: google.maps.Animation.DROP,
                 clickable: true});
         }
