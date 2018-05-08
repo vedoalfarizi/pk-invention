@@ -35,6 +35,13 @@
                     </div>
                     </p>
                     <p class="text-justify">{!! $info->narasi !!}</p>
+                    <p>
+                        <div class="g-plus" data-action="share" data-href="{!! url()->current() !!}"></div>
+                        <a target="_blank" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><br>
+                        <div class="fb-share-button" data-href="{!! url()->current() !!}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpilihkamar.com%2Fpk&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a></div>
+                    </p>
+
+
 
                     <script>
                         a={!! $info->long !!};

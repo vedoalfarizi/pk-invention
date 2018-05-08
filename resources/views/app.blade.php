@@ -24,10 +24,20 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.0&appId=1315489981894110&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 <!-- header-section start -->
 <div class="top-bar">
     <div class="container">
@@ -150,6 +160,8 @@
 <script src="{{asset('js/menumaker.js')}}" type="text/javascript"></script>
 <script type="text/javascript" src="{{asset('js/jquery.sticky.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/sticky-header.js')}}"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
 </html>
