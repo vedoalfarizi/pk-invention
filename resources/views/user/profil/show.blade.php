@@ -32,10 +32,18 @@
                                 <p>{!! $info->narasi !!}</p>
 
 
-                                <div class="tour-details-btn"> <span><a  data-toggle="modal" data-target="#edit-{{$info->id}}" class="btn btn-primary">Ubah</a></span> </div>
-                            {!! Form::open(['route' => ['infos.destroy', $info->id], 'method' => 'delete']) !!}
-                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                            {!! Form::close() !!}
+                                <div class="tour-details-btn">
+                                   <div class="row">
+                                       <div class="col-md-1 pull-right" style="margin-top: 15px">
+                                           <span><a  data-toggle="modal" data-target="#edit-{{$info->id}}" class="btn btn-primary">Ubah</a></span>
+                                       </div>
+                                       <div class="col-md-2 pull-right">
+                                    {!! Form::open(['route' => ['infos.destroy', $info->id], 'method' => 'delete']) !!}
+                                    {!! Form::button('<i class="glyphicon glyphicon-trash"> Delete</i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                    {!! Form::close() !!}
+                                       </div>
+                                   </div>
+                                </div>
                                 <!--comments start-->
                                 <div class="comment-area">
                                     <div class="row">
