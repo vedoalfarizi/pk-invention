@@ -34,173 +34,173 @@
                 "areas": [
                     {
                         "id": "ID-AC",
-                        "title": "Aceh<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(26,88,217,1)"
+                        "title": "Aceh<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(186, 232, 255, 0.6)"
                     },
                     {
                         "id": "ID-BA",
-                        "title": "Bali<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(163,98,89,1)"
+                        "title": "Bali<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(186, 232, 255, 0.6)"
                     },
                     {
                         "id": "ID-BE",
-                        "title": "Bengkulu<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(25,70,165,1)"
+                        "title": "Bengkulu<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(186, 232, 255, 0.6)"
                     },
                     {
                         "id": "ID-BT",
-                        "title": "Banten<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(139,147,165,1)"
+                        "title": "Banten<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-GO",
-                        "title": "Gorontalo<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(155,163,89,1)"
+                        "title": "Gorontalo<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JA",
-                        "title": "Jambi<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(22,36,66,1)"
+                        "title": "Jambi<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JB",
-                        "title": "Jawa Barat<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(126,140,170,1)"
+                        "title": "Jawa Barat<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JI",
-                        "title": "Jawa Timur<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(14,48,118,1)"
+                        "title": "Jawa Timur<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JT",
-                        "title": "Jawa Tengah<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(27,75,173,1)"
+                        "title": "Jawa Tengah<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KB",
-                        "title": "Kalimantan Barat<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(18,43,94,1)"
+                        "title": "Kalimantan Barat<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KI",
-                        "title": "Kalimantan Timur<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(70,208,174,0.8)"
+                        "title": "Kalimantan Timur<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KS",
-                        "title": "Kalimantan Selatan<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(163,89,143,1)"
+                        "title": "Kalimantan Selatan<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KT",
-                        "title": "Kalimantan Tengah<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(70,208,174,0.8)"
+                        "title": "Kalimantan Tengah<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KU",
-                        "title": "Kalimantan Utara<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(54,98,189,1)"
+                        "title": "Kalimantan Utara<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-LA",
-                        "title": "Lampung<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(138,148,168,1)"
+                        "title": "Lampung<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-MA",
-                        "title": "Maluku<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(10,18,35,1)"
+                        "title": "Maluku<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-MU",
-                        "title": "Maluku Utara<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(18,33,62,1)"
+                        "title": "Maluku Utara<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-NB",
-                        "title": "Nusa Tenggara Barat<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(10,24,54,1)"
+                        "title": "Nusa Tenggara Barat<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-NT",
-                        "title": "Nusa Tenggara Timur<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(28,86,210,1)"
+                        "title": "Nusa Tenggara Timur<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-PA",
-                        "title": "Papua<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(4,15,38,1)"
+                        "title": "Papua<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-PB",
-                        "title": "Papua Barat<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(158,89,163,1)"
+                        "title": "Papua Barat<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-RI",
-                        "title": "Riau<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(70,208,174,0.8)"
+                        "title": "Riau<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SA",
-                        "title": "Sulawesi Utara<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(44,87,177,1)"
+                        "title": "Sulawesi Utara<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SB",
-                        "title": "Sumatera Barat<br/><small>Total Kriminalitas:333<small>",
+                        "title": "Sumatera Barat<br/><small>Total Kriminalitas:3<small>",
                         "color": "rgba(27,96,241,1)"
                     },
                     {
                         "id": "ID-SG",
-                        "title": "Sulawesi Tenggara<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(43,80,156,1)"
+                        "title": "Sulawesi Tenggara<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SN",
-                        "title": "Sulawesi Selatan<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(10,21,43,1)"
+                        "title": "Sulawesi Selatan<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SR",
-                        "title": "Sulawesi Barat<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(20,78,201,1)"
+                        "title": "Sulawesi Barat<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SS",
-                        "title": "Sumatera Selatan<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(70,208,174,0.8)"
+                        "title": "Sumatera Selatan<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-ST",
-                        "title": "Sulawesi Tengah<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(9,13,21,1)"
+                        "title": "Sulawesi Tengah<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SU",
-                        "title": "Sumatera Utara<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(17,31,59,1)"
+                        "title": "Sumatera Utara<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-YO",
-                        "title": "Yogyakarta<br/><small>Total Kriminalitas:333<small>",
-                        "color": "rgba(48,61,41,1)"
+                        "title": "Yogyakarta<br/><small>Total Kriminalitas:0<small>",
+                        "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "TL",
                         "title": "Timor-Leste",
-                        "color": "rgba(33,128,40,1)"
+                        "color": "rgba(0,0,0,0)"
                     },
                     {
                         "id": "MY-12",
                         "title": "Sabah",
-                        "color": "rgba(38,91,203,1)"
+                        "color": "rgba(0,0,0,0)"
                     },
                     {
                         "id": "MY-13",
                         "title": "Sarawak",
-                        "color": "rgba(70,208,174,0.8)"
+                        "color": "rgba(0,0,0,0)"
                     }
                 ]
             },
@@ -257,6 +257,126 @@
     <script src="{{asset('code/modules/exporting.js')}}"></script>
     {{--src="{{asset('images/service-img-1.jpg')}}"--}}
 
+    <!-- Testimonials-section start -->
+    <div class="bg-default space-medium">
+        <div class="container">
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-center">
+                        <h1>Informasi dan Tips Tindakan Kriminal</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @php
+                    $infos = \App\Models\info::orderBy('created_at', 'desc')->limit(3)->get();
+                @endphp
+                @foreach($infos as $info)
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="service-block">
+                            <div class="service-img">
+                                <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto" style="height :200px"></a>
+                            </div>
+                            <div class="service-content">
+                                <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
+                                <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span class="tour-meta-text">{!! $info->lat !!}|{!! $info->long !!}</span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
+                                <div class="tour-details-btn"> <span><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn btn-primary">Baca Selengkapnya</a></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row text-center">
+                <a href="{!! route('infos.index') !!}" class="text-center btn btn-primary">Lihat Semua</a>
+            </div>
+        </div>
+    </div>
+    <!-- service-section start -->
+    <div class="space-medium">
+        <div class="container">
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-center">
+                        <h1>Informasi Tindakan Kriminal</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- service start -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                </div>
+
+                <script type="text/javascript">
+
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'bar'
+                        },
+                        title: {
+                            text: 'Daerah Paling Rawan Kriminal'
+                        },
+                        subtitle: {
+                            text: '2018'
+                        },
+                        xAxis: {
+                            categories: ['.','Sumatera Barat', 'Sumatera Utara', 'Sulawesi Selatan', 'Jakarta', 'Jawa Barat'],
+                            title: {
+                                text: null
+                            }
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Population (millions)',
+                                align: 'high'
+                            },
+                            labels: {
+                                overflow: 'justify'
+                            }
+                        },
+                        tooltip: {
+                            valueSuffix: ' millions'
+                        },
+                        plotOptions: {
+                            bar: {
+                                dataLabels: {
+                                    enabled: true
+                                }
+                            }
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'top',
+                            x: -40,
+                            y: 80,
+                            floating: true,
+                            borderWidth: 1,
+                            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                            shadow: true
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        series: [{
+                            name: 'angka krimintalitas',
+                            data: [0,3, 0, 0, 0, 0]
+                        }]
+                    });
+                </script>
+                <!-- service close -->
+                <!-- service start -->
+
+                <!-- service close -->
+                <!-- service start -->
+
+                <!-- service close -->
+            </div>
+        </div>
+    </div>
+    <!-- service-section close -->
+
     <!-- hero-section start -->
     <div class="bg-default space-medium">
         <div class="container">
@@ -309,123 +429,5 @@
         </div>
     </div>
     <!-- hero-section close -->
-    <!-- service-section start -->
-    <div class="space-medium">
-        <div class="container">
-            <div class="row">
-                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-title text-center">
-                        <h1>Informasi Tindakan Kriminal</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- service start -->
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-                </div>
 
-                <script type="text/javascript">
-
-                    Highcharts.chart('container', {
-                        chart: {
-                            type: 'bar'
-                        },
-                        title: {
-                            text: 'Daerah Paling Rawan Kriminal'
-                        },
-                        subtitle: {
-                            text: '2018'
-                        },
-                        xAxis: {
-                            categories: ['.','Jawa Barat', 'Sumatera Utara', 'Sulawesi Selatan', 'Jakarta', 'Sumatera Barat'],
-                            title: {
-                                text: null
-                            }
-                        },
-                        yAxis: {
-                            min: 0,
-                            title: {
-                                text: 'Population (millions)',
-                                align: 'high'
-                            },
-                            labels: {
-                                overflow: 'justify'
-                            }
-                        },
-                        tooltip: {
-                            valueSuffix: ' millions'
-                        },
-                        plotOptions: {
-                            bar: {
-                                dataLabels: {
-                                    enabled: true
-                                }
-                            }
-                        },
-                        legend: {
-                            layout: 'vertical',
-                            align: 'right',
-                            verticalAlign: 'top',
-                            x: -40,
-                            y: 80,
-                            floating: true,
-                            borderWidth: 1,
-                            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-                            shadow: true
-                        },
-                        credits: {
-                            enabled: false
-                        },
-                        series: [{
-                            name: 'angka krimintalitas',
-                            data: [0,924, 800, 635, 203, 96]
-                        }]
-                    });
-                </script>
-                <!-- service close -->
-                <!-- service start -->
-
-                <!-- service close -->
-                <!-- service start -->
-
-                <!-- service close -->
-            </div>
-        </div>
-    </div>
-    <!-- service-section close -->
-
-    <!-- Testimonials-section start -->
-    <div class="bg-default space-medium">
-        <div class="container">
-            <div class="row">
-                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-title text-center">
-                        <h1>Informasi dan Tips Tindakan Kriminal</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                @php
-                    $infos = \App\Models\info::orderBy('created_at', 'desc')->limit(3)->get();
-                @endphp
-                @foreach($infos as $info)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="service-block">
-                            <div class="service-img">
-                                <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto"></a>
-                            </div>
-                            <div class="service-content">
-                                <p>{!! $info->judul !!}</p>
-                                <div class="service-btn-link"><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn-link">Baca Selengkapnya...</a></div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="row text-center">
-                <a href="{!! route('infos.index') !!}" class="text-center btn btn-primary">Lihat Semua</a>
-            </div>
-        </div>
-    </div>
 @endsection
