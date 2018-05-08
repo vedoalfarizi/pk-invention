@@ -5,6 +5,9 @@
     <!-- amCharts javascript sources -->
     <script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
     <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/indonesiaLow.js"></script>
+    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- amCharts javascript code -->
     <script type="text/javascript">
@@ -16,7 +19,7 @@
             "color": "#000000",
             "projection": "mercator",
             "backgroundAlpha": 1,
-            "backgroundColor": "rgba(255,255,255,1)",
+            "backgroundColor": "white",
             "dataProvider": {
                 "map": "indonesiaLow",
                 "getAreasFromMap": true,
@@ -25,10 +28,9 @@
                         "top": 40,
                         "left": 60,
                         "width": 80,
-                        "height": 40,
-                        "pixelMapperLogo": true,
-                        "imageURL": "http://pixelmap.amcharts.com/static/img/logo-black.svg",
-                        "url": "http://www.amcharts.com"
+                        "height": 10,
+                        "pixelMapperLogo": false,
+
                     }
                 ],
                 "areas": [
@@ -258,41 +260,121 @@
     {{--src="{{asset('images/service-img-1.jpg')}}"--}}
 
     <!-- Testimonials-section start -->
-    <div class="bg-default space-medium">
-        <div class="container">
-            <div class="row">
-                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-title text-center">
-                        <h1>Informasi dan Tips Tindakan Kriminal</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
+    <div class="row" style="background-color: white">
+    <div class="col-md-12">
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <div class="pull-right" style="background-color: white; margin-left: 60%"> <small>Rendah</small>  <img style="width: 60%; " src="{{asset('images/bar.png')}}"/><small> Tinggi</small></div>
+        <br>
+    </div>
+        <div class="col-md-12">
+
+            <br>
+            <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 @php
-                    $infos = \App\Models\info::orderBy('created_at', 'desc')->limit(3)->get();
+                    $laporanSelesai = \App\Models\laporan::where('status_laporan', '=', 3)->count();
+                    $laporanMasuk = \App\Models\laporan::get()->count();
+                    $infoMasuk = \App\Models\info::get()->count();
                 @endphp
-                @foreach($infos as $info)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="service-block">
-                            <div class="service-img">
-                                <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto" style="height :200px"></a>
-                            </div>
-                            <div class="service-content">
-                                <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
-                                <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span class="tour-meta-text">{!! $info->lat !!}|{!! $info->long !!}</span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
-                                <div class="tour-details-btn"> <span><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn btn-primary">Baca Selengkapnya</a></span> </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="service-block" style="background-color: #dff0d8;">
+                            <div class="service-content" >
+                                <h1 class="text-center" style="font-size: xx-large">{!! $laporanSelesai !!}</h1>
+                                <div class="small col-lg-12 text-center">Tindakan Kriminal Yang Terselesaikan</div>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
-            <div class="row text-center">
-                <a href="{!! route('infos.index') !!}" class="text-center btn btn-primary">Lihat Semua</a>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="service-block" style="background-color:#dff0d8;">
+                            <div class="service-content">
+                                <h1 class="text-center" style="font-size: xx-large">{!! $laporanMasuk !!}</h1>
+                                <div class="small col-lg-12 text-center">Laporan Masuk</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="service-block" style="background-color:#dff0d8;">
+                            <div class="service-content">
+                                <h1 class="text-center" style="font-size: xx-large">{!! $infoMasuk !!}</h1>
+                                <div class="small col-lg-12 text-center">Informasi Tindakan Kriminal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
     <!-- service-section start -->
+    <div class="bg-default space-medium" >
+        <div class="container" >
+
+            <div class="row" >
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                    <br> <br> <br>
+                    <h2>Mari Berantas Tindakan Kriminal !</h2>
+                    <h3>#PantauKriminal</h3>
+                    <p>Simak Berita Tindakan Kriminal di Pantau Kriminal</p>
+                   <div style="padding-left: 25%"><a href="" class="text-center btn btn-default">Lihat Semua...</a></div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" >
+
+                        <div id="myCarousel" class="carousel slide col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="{{asset('/images/pk.png')}}" alt="Los Angeles" style="width:80%; height: 250px;">
+                                    <label style="font-size: medium"> BERITA INI JUDUL BERITA YANG AKAN DITAMPILKAN</label>
+                                    <p style="background-color: white;">MALANG - Buser Satreskrim Polres Malang membekuk Udik Cahyono, warga Desa Blayu, Kecamatan Wajak. Pria 38 tahun itu, ...</p>
+                                </div>
+
+                                <div class="item">
+                                    <img src="{{asset('/images/pk.png')}}" alt="Los Angeles" style="width:80%; height: 250px;">
+                                    <label style="font-size: medium"> BERITA INI JUDUL BERITA YANG AKAN DITAMPILKAN</label>
+                                    <p style="background-color: white;">MALANG - Buser Satreskrim Polres Malang membekuk Udik Cahyono, warga Desa Blayu, Kecamatan Wajak. Pria 38 tahun itu, ...</p>
+
+                                </div>
+
+                                <div class="item">
+                                    <img src="{{asset('/images/pk.png')}}" alt="Los Angeles" style="width:80%; height: 250px;">
+                                    <label style="font-size: medium"> BERITA INI JUDUL BERITA YANG AKAN DITAMPILKAN</label>
+                                    <p style="background-color: white;">MALANG - Buser Satreskrim Polres Malang membekuk Udik Cahyono, warga Desa Blayu, Kecamatan Wajak. Pria 38 tahun itu, ...</p>
+
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    <!-- service-section close -->
+
+
+    <!-- hero-section close -->
     <div class="space-medium">
+
         <div class="container">
             <div class="row">
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -302,132 +384,67 @@
                 </div>
             </div>
             <div class="row">
-                <!-- service start -->
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-                </div>
-
-                <script type="text/javascript">
-
-                    Highcharts.chart('container', {
-                        chart: {
-                            type: 'bar'
-                        },
-                        title: {
-                            text: 'Daerah Paling Rawan Kriminal'
-                        },
-                        subtitle: {
-                            text: '2018'
-                        },
-                        xAxis: {
-                            categories: ['.','Sumatera Barat', 'Sumatera Utara', 'Sulawesi Selatan', 'Jakarta', 'Jawa Barat'],
-                            title: {
-                                text: null
-                            }
-                        },
-                        yAxis: {
-                            min: 0,
-                            title: {
-                                text: 'Population (millions)',
-                                align: 'high'
-                            },
-                            labels: {
-                                overflow: 'justify'
-                            }
-                        },
-                        tooltip: {
-                            valueSuffix: ' millions'
-                        },
-                        plotOptions: {
-                            bar: {
-                                dataLabels: {
-                                    enabled: true
-                                }
-                            }
-                        },
-                        legend: {
-                            layout: 'vertical',
-                            align: 'right',
-                            verticalAlign: 'top',
-                            x: -40,
-                            y: 80,
-                            floating: true,
-                            borderWidth: 1,
-                            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-                            shadow: true
-                        },
-                        credits: {
-                            enabled: false
-                        },
-                        series: [{
-                            name: 'angka krimintalitas',
-                            data: [0,3, 0, 0, 0, 0]
-                        }]
-                    });
-                </script>
-                <!-- service close -->
-                <!-- service start -->
-
-                <!-- service close -->
-                <!-- service start -->
-
-                <!-- service close -->
+                @php
+                    $infos = \App\Models\info::orderBy('created_at', 'desc')->limit(3)->get();
+                @endphp
+                @foreach($infos as $info)
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="service-block" style="height: 500px">
+                            <div class="service-img">
+                                <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto" style="height :200px"></a>
+                            </div>
+                            <div class="service-content">
+                                <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
+                                <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span class="tour-meta-text">{!! $info->lat !!}|{!! $info->long !!}</span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
+                                <div class="tour-details-btn" > <span><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn btn-primary" style="position:absolute; bottom: 50px;right: 50px;">Baca Selengkapnya</a></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row pull-right">
+                <a href="{!! route('infos.index') !!}" class="text-center btn btn-primary">Lihat Semua . . .</a>
             </div>
         </div>
     </div>
-    <!-- service-section close -->
 
-    <!-- hero-section start -->
-    <div class="bg-default space-medium">
+    <!-- hero-section close -->
+    <div class="bg-success space-medium">
+
         <div class="container">
-            <div class="row">
-                <div id="map" style="width: 100%; height: 613px;"></div>
-            </div>
             <div class="row">
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title text-center">
-                        <h1 class="hero-title text-center"> Tingkatan Kriminalitas</h1>
-                        <a style="float: left">Rendah</a> <a style="float: right">Tinggi</a> <img src="{{asset('images/bar.png')}}"/><br/>.
+                        <h1>Kenapa berbagi Informasi dengan Pantau Kriminal?</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    @php
-                        $laporanSelesai = \App\Models\laporan::where('status_laporan', '=', 3)->count();
-                        $laporanMasuk = \App\Models\laporan::get()->count();
-                        $infoMasuk = \App\Models\info::get()->count();
-                    @endphp
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="service-block">
-                                <div class="service-content">
-                                    <h3 class="text-center"><a class="title">{!! $laporanSelesai !!}</a></h3>
-                                    <div class="service-btn-link text-center"><a class="btn-link">Tindakan Kriminal Yang Terselesaikan</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="service-block">
-                                <div class="service-content">
-                                    <h3 class="text-center"><a class="title">{!! $laporanMasuk !!}</a></h3>
-                                    <div class="service-btn-link text-center"><a class="btn-link">Laporan Masuk</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <div class="service-block">
-                                <div class="service-content">
-                                    <h3 class="text-center"><a class="title">{!! $infoMasuk !!}</a></h3>
-                                    <div class="service-btn-link text-center"><a class="btn-link">Informasi Tindakan Kriminal</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <img src="{{asset('/images/pk.png')}}" style="width: 80%">
                 </div>
+                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <br><br>
+                     <ul class="text-18 ulist-bullet ulist-bullet--blue">
+                            <li>
+                                .<strong>Cepat,</strong> buat halaman campaign dalam 5 menit
+                            </li>
+                         <br>
+                            <li>
+                                .<strong>Transparan,</strong> donasi tercatat real-time dan bisa dilihat siapa saja
+                            </li>
+                         <br>
+                            <li>
+                                .<strong>Mudah,</strong> terima donasi via transfer bank dan kartu kredit
+                            </li>
+                         <br>
+                            <li>
+                                .<strong>Fleksibel,</strong> cairkan donasi kapan saja
+                            </li>
+                        </ul>
+                 </div>
             </div>
         </div>
-    </div>
-    <!-- hero-section close -->
 
+    </div>
 @endsection

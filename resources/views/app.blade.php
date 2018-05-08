@@ -24,10 +24,20 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.0&appId=1315489981894110&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 <!-- header-section start -->
 <div class="top-bar">
     <div class="container">
@@ -44,13 +54,29 @@
     <div class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12">
-                    <a href="{!! url('/')!!}" alt="PK"><img src="{{asset('images/pk.png')}}" style="width: 20%"/> </a>
-                </div>
-                <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="{!! url('/')!!}" alt="PK"><img src="{{asset('images/pk.png')}}"/> </a>
+                        </div>
+                            <form action="{{url('/cari')}}" >
+                                <div class="col-md-8">
+                                    <input class="form-control col-md-2" type="text" placeholder="Search.." name="cari">
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="submit" class="btn btn-default" style="margin-top: -3px"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                     <div class="navigation">
                         <div id="navigation">
+
                             <ul>
+
                                 <li class="active"><a href="{!! url('/') !!}" title="Home">Beranda</a></li>
                                 {{--<li><a href="about.html" title="About us">Informasi</a> </li>--}}
                                 <li class="has-sub"><a href="{!!route('infos.index') !!}" title="Tours">Info & Tips</a>
@@ -150,6 +176,8 @@
 <script src="{{asset('js/menumaker.js')}}" type="text/javascript"></script>
 <script type="text/javascript" src="{{asset('js/jquery.sticky.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/sticky-header.js')}}"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
 </html>
