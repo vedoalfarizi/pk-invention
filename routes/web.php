@@ -76,3 +76,4 @@ Route::get('/info/{id}', 'profilUserController@showInfo');
 Route::get('/laporan/tindak/{id}', 'profilUserController@showTindak');
 
 Route::get('/cari', 'cariInfoController@index');
+

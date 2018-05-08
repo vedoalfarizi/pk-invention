@@ -114,13 +114,20 @@ class infoController extends AppBaseController
     {
         $info = $this->infoRepository->findWithoutFail($id);
 
+        $user = auth::user();
         if (empty($info)) {
             Flash::error('Info not found');
 
             return redirect(route('infos.index'));
         }
 
-        return view('user.infos.show')->with('info', $info);
+        if($user->role==0){
+            return view('infos.show', compact('info'));
+        }
+        elseif($user->role==1){
+            return view('user.infos.show')->with('info', $info);
+        }
+
     }
 
     public function showWithFilter(Request $request)
