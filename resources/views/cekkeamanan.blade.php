@@ -287,7 +287,7 @@
                     center: pos,
                     radius: parseFloat(inputradiusmes*100),
                     map: map,
-                    strokeColor: "blue",
+                    strokeColor: "yellow",
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
                     fillColor: "blue",
