@@ -74,3 +74,5 @@ Route::get('/laporan/edit/{id}', function ($id) {
 
 Route::get('/info/{id}', 'profilUserController@showInfo');
 Route::get('/laporan/tindak/{id}', 'profilUserController@showTindak');
+
+Route::get('/cari', 'cariInfoController@index');

@@ -54,13 +54,29 @@
     <div class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-2 col-sm-12 col-xs-12">
-                    <a href="{!! url('/')!!}" alt="PK"><img src="{{asset('images/pk.png')}}" style="width: 20%"/> </a>
-                </div>
-                <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="{!! url('/')!!}" alt="PK"><img src="{{asset('images/pk.png')}}"/> </a>
+                        </div>
+                            <form action="{{url('/cari')}}" >
+                                <div class="col-md-8">
+                                    <input class="form-control col-md-2" type="text" placeholder="Search.." name="cari">
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="submit" class="btn btn-default" style="margin-top: -3px"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                     <div class="navigation">
                         <div id="navigation">
+
                             <ul>
+
                                 <li class="active"><a href="{!! url('/') !!}" title="Home">Beranda</a></li>
                                 {{--<li><a href="about.html" title="About us">Informasi</a> </li>--}}
                                 <li class="has-sub"><a href="{!!route('infos.index') !!}" title="Tours">Info & Tips</a>

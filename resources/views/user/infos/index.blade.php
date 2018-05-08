@@ -129,7 +129,7 @@
                 @forelse($infos as $info)
                     @php $h++; @endphp
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="tour-block">
+                        <div class="tour-block" style="height: 650px">
                             <div class="tour-img">
                                 <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="{!! $info->judul !!}" style="height: 250px"></a>
                             </div>
@@ -137,7 +137,7 @@
                                 <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
                                 <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span id="lokasi-{{$h}}"></span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
                                 <div class="tour-text mb40">
-                                    <p>{!! substr($info->narasi, 0, 100) !!} ...</p>
+                                    <p>{!! substr($info->narasi, 0, 50) !!} ...</p>
                                 </div>
                                 <script>
                                     a={{$info->long}};
@@ -167,8 +167,10 @@
 
                                 @endphp
 
-                                <div class="tour-details">
-                                    <div class="tour-details-text">
+                                <div>
+                                    <div class="tour-details-text" style="position:absolute; bottom: 50px;">
+                                        <hr width="300px" style="border-color: yellow">
+                                        <br>
                                         <span class="tour-meta-icon"><i class="fa fa-comment"></i>{!! $jumlahKomentar !!}</span>
                                         <span class="tour-meta-icon"><i class="fa fa-thumbs-up"></i>{!! $jumlahLike !!}</span>
                                         <span class="tour-meta-icon"><i class="fa fa-thumbs-down"></i>{!! $jumlahDislike !!}</span>
@@ -176,7 +178,7 @@
                                             <span class="tour-meta-icon"><i class="fa fa-check-circle">Verified</i></span>
                                         @endif
                                     </div>
-                                    <div class="tour-details-btn"> <span><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn btn-primary">Baca Selengkapnya</a></span> </div>
+                                    <div style="position:absolute; bottom: 50px;right: 50px;" class="tour-details-btn" > <span><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn btn-primary" >Baca Selengkapnya</a></span> </div>
                                 </div>
                             </div>
                         </div>
