@@ -23,11 +23,11 @@
                                 <label style="color: black">Cek Keamanan Lokasi</label>
                                 <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi Sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
                                 <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Atur Posisi Secara Manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
-                                <a class="btn btn-warning" role="button" data-toggle="collapse" onclick="tampilsemua();resultt()" title="Tampilkan Semua Kriminalitas" aria-controls="terdekat"><i class="fa fa-map-pin" style="color:k;"></i></a>
 
                                 <div class="well">
                                     <label><b>Radius&nbsp</b></label><label style="color:black" id="km"><b>0</b></label>&nbsp<label><b>m</b></label><br>
                                     <input  type="range" onclick="cek();aktifkanRadius();resultt()" id="inputradiusmes" name="inputradiusmes" data-highlight="true" min="1" max="50" value="1" >
+                                    <small>Klik dahulu tombol posisi sekarang atau atur posisi manual, kemudian baru atur radius</small>
                                 </div>
 
 
@@ -42,7 +42,7 @@
                     <div class="col-sm-4" id="result">
                         <section class="panel">
                             <div class="panel-body">
-                                <a class="btn btn-compose">Result</a>
+
                                 <div class="box-body" style="max-height:400px;overflow:auto;">
 
                                     <div class="form-group" id="hasilcari1" style="display:none;">
@@ -172,8 +172,6 @@
         var cekRadiusStatus = "off";
         function init(){
             basemap();
-            tempatibadah();
-            kecamatanTampil();
         }
 
         function basemap() //google maps
@@ -182,18 +180,18 @@
             map = new google.maps.Map(document.getElementById('map'),
                 {
                     zoom: 5,
-                    center: new google.maps.LatLng(-0.456972, 118.433241),
+                    center: new google.maps.LatLng(-0.983569, 115.628898),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                 });
             var locations = [
             <?php
 
-            $sql="select * from laporans";
+            $sql="select * from infos";
             if(!$result = $db->query($sql)){
             die(' query error [' . $db->error . ']');
             }
-            while($kriminal = $result->fetch_object()){
-            echo "['".$kriminal->no_surat."', ".$kriminal->lat.", ".$kriminal->long.", ".$kriminal->id."],";
+            while($infos = $result->fetch_object()){
+            echo "['".$infos->judul."', ".$infos->lat.", ".$infos->long.", ".$infos->id."],";
             }
             ?>
             ];
@@ -213,7 +211,7 @@
                   marker yang di klik */
 
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    var ContenString='<a href="#'+locations[i][3]+'">No. Surat:'+locations[i][0]+'</a>"'
+                    var ContenString='<a href="../infos/'+locations[i][3]+'" target="_blank">'+locations[i][0]+'</a>"'
                     return function() {
                         infowindow.setContent(ContenString);
                         infowindow.open(map, marker);
@@ -295,7 +293,7 @@
                     fillColor: "blue",
                     fillOpacity: 0.35
                 });
-                map.setZoom(14);
+                map.setZoom(13);
                 map.setCenter(pos);
                 circles.push(circle);
             }
