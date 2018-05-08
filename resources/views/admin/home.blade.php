@@ -8,7 +8,7 @@
     define('db_host','localhost');
     define('db_user','root');
     define('db_pass','');
-    define('db_name','pantaukriminal');
+    define('db_name','pk');
     $db = new mysqli(db_host,db_user,db_pass,db_name);
     if($db->connect_errno > 0){
         die('Unable to connect to database [' . $db->connect_error . ']');
@@ -71,6 +71,52 @@
 //    $('#lokasi').after(simpan+'<br/>');
     ?>
 
+    @php
+        $infos = \App\Models\info::all(['lat', 'long']);
+
+        $aceh = \App\Models\info::where('provinsi', 'Aceh')->count();
+        $sumut = \App\Models\info::where('provinsi', 'Sumatera Utara')->count();
+        $riau = \App\Models\info::where('provinsi', 'Riau')->count();
+        $kepri = \App\Models\info::where('provinsi', 'Kepulauan Riau')->count();
+        $sumbar = \App\Models\info::where('provinsi', 'Sumatera Barat')->count();
+        $bengkulu = \App\Models\info::where('provinsi', 'Bengkulu')->count();
+        $jambi = \App\Models\info::where('provinsi', 'Jambi')->count();
+        $babel = \App\Models\info::where('provinsi', 'Bangka Belitung')->count();
+        $sumsel = \App\Models\info::where('provinsi', 'Sumatera Selatan')->count();
+        $lampung = \App\Models\info::where('provinsi', 'Lampung')->count();
+
+        $banten = \App\Models\info::where('provinsi', 'Banten')->count();
+        $jakarta = \App\Models\info::where('provinsi', 'Daerah Khusus Ibukota Jakarta')->count();
+        $jabar = \App\Models\info::where('provinsi', 'Jawa Barat')->count();
+        $jateng = \App\Models\info::where('provinsi', 'Jawa Tengah')->count();
+        $jatim = \App\Models\info::where('provinsi', 'Jawa Timur')->count();
+        $yogya = \App\Models\info::where('provinsi', 'Daerah Istimewa Yogyakarta')->count();
+
+        $kalbar = \App\Models\info::where('provinsi', 'Kalimantan Barat')->count();
+        $kalteng = \App\Models\info::where('provinsi', 'Kalimantan Tengah')->count();
+        $kalsel = \App\Models\info::where('provinsi', 'Kalimantan Selatan')->count();
+        $kaltim = \App\Models\info::where('provinsi', 'Kalimantan Timur')->count();
+        $kalut = \App\Models\info::where('provinsi', 'Kalimantan Utara')->count();
+
+        $sulbar = \App\Models\info::where('provinsi', 'Sulawesi Barat')->count();
+        $sulsel = \App\Models\info::where('provinsi', 'Sulawesi Selatan')->count();
+        $sulteng = \App\Models\info::where('provinsi', 'Sulawesi Tengah')->count();
+        $sultra = \App\Models\info::where('provinsi', 'Sulawesi Tenggara')->count();
+        $sulut = \App\Models\info::where('provinsi', 'Sulawesi Utara')->count();
+        $gorontalo = \App\Models\info::where('provinsi', 'Gorontalo')->count();
+
+        $bali = \App\Models\info::where('provinsi', 'Bali')->count();
+        $ntb = \App\Models\info::where('provinsi', 'Nusa Tenggara Barat')->count();
+        $ntt = \App\Models\info::where('provinsi', 'Nusa Tenggara Timur')->count();
+
+        $maluku = \App\Models\info::where('provinsi', 'Maluku')->count();
+        $malut = \App\Models\info::where('provinsi', 'Maluku Utara')->count();
+
+        $papua = \App\Models\info::where('provinsi', 'Papua')->count();
+        $pabar = \App\Models\info::where('provinsi', 'Papua Barat')->count();
+
+    @endphp
+
     <div id="lokasi"></div>
     <div class="container">
         <div class="row">
@@ -117,7 +163,7 @@
                             'Sulawesi Utara',
                             'Sulawesi Timur',
                             'Sulawesi Selatan',
-                            'Sulawesi Tenggara',
+                            'Sulawesi Tengah',
                             'Gorontalo',
                             'Bali',
                             'Nusa Tenggara Barat',
@@ -146,13 +192,46 @@
                     plotOptions: {
                         column: {
                             pointPadding: 0.2,
-                            borderWidth: 0
+                            borderWidth: 2
                         }
                     },
                     series: [{
                         name: 'Total kriminalitas',
-                        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4, 55, 25,
-                            33, 45, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7]
+                        data: [
+                            {!! $aceh  !!},
+                            {!! $sumut !!},
+                            {!! $riau !!},
+                            {!! $kepri !!},
+                            {!! $sumbar !!},
+                            {!! $bengkulu !!},
+                            {!! $jambi  !!},
+                            {!! $babel !!},
+                            {!! $sumsel !!},
+                            {!! $lampung !!},
+                            {!! $banten !!},
+                            {!! $jakarta !!},
+                            {!! $jabar  !!},
+                            {!! $jateng !!},
+                            {!! $yogya !!},
+                            {!! $jatim !!},
+                            {!! $kalbar !!},
+                            {!! $kalut !!},
+                            {!! $kaltim  !!},
+                            {!! $kalteng !!},
+                            {!! $kalsel !!},
+                            {!! $sulbar !!},
+                            {!! $sulut !!},
+                            {!! $sulteng !!},
+                            {!! $sultra !!},
+                            {!! $gorontalo !!},
+                            {!! $bali !!},
+                            {!! $ntb !!},
+                            {!! $ntt  !!},
+                            {!! $maluku !!},
+                            {!! $malut !!},
+                            {!! $pabar !!},
+                            {!! $papua !!}
+                                ]
 
                     }]
                 });

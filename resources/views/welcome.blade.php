@@ -9,6 +9,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    @php
+        $infos = \App\Models\info::all(['lat', 'long']);
+
+        $aceh = \App\Models\info::where('provinsi', 'Aceh')->count();
+        $sumut = \App\Models\info::where('provinsi', 'Sumatera Utara')->count();
+        $riau = \App\Models\info::where('provinsi', 'Riau')->count();
+        $kepri = \App\Models\info::where('provinsi', 'Kepulauan Riau')->count();
+        $sumbar = \App\Models\info::where('provinsi', 'Sumatera Barat')->count();
+        $bengkulu = \App\Models\info::where('provinsi', 'Bengkulu')->count();
+        $jambi = \App\Models\info::where('provinsi', 'Jambi')->count();
+        $babel = \App\Models\info::where('provinsi', 'Bangka Belitung')->count();
+        $sumsel = \App\Models\info::where('provinsi', 'Sumatera Selatan')->count();
+        $lampung = \App\Models\info::where('provinsi', 'Lampung')->count();
+
+        $banten = \App\Models\info::where('provinsi', 'Banten')->count();
+        $jakarta = \App\Models\info::where('provinsi', 'Daerah Khusus Ibukota Jakarta')->count();
+        $jabar = \App\Models\info::where('provinsi', 'Jawa Barat')->count();
+        $jateng = \App\Models\info::where('provinsi', 'Jawa Tengah')->count();
+        $jatim = \App\Models\info::where('provinsi', 'Jawa Timur')->count();
+        $yogya = \App\Models\info::where('provinsi', 'Daerah Istimewa Yogyakarta')->count();
+
+        $kalbar = \App\Models\info::where('provinsi', 'Kalimantan Barat')->count();
+        $kalteng = \App\Models\info::where('provinsi', 'Kalimantan Tengah')->count();
+        $kalsel = \App\Models\info::where('provinsi', 'Kalimantan Selatan')->count();
+        $kaltim = \App\Models\info::where('provinsi', 'Kalimantan Timur')->count();
+        $kalut = \App\Models\info::where('provinsi', 'Kalimantan Utara')->count();
+
+        $sulbar = \App\Models\info::where('provinsi', 'Sulawesi Barat')->count();
+        $sulsel = \App\Models\info::where('provinsi', 'Sulawesi Selatan')->count();
+        $sulbar = \App\Models\info::where('provinsi', 'Sulawesi Barat')->count();
+        $sulteng = \App\Models\info::where('provinsi', 'Sulawesi Tengah')->count();
+        $sultra = \App\Models\info::where('provinsi', 'Sulawesi Tenggara')->count();
+        $sulut = \App\Models\info::where('provinsi', 'Sulawesi Utara')->count();
+        $gorontalo = \App\Models\info::where('provinsi', 'Gorontalo')->count();
+
+        $bali = \App\Models\info::where('provinsi', 'Bali')->count();
+        $ntb = \App\Models\info::where('provinsi', 'Nusa Tenggara Barat')->count();
+        $ntt = \App\Models\info::where('provinsi', 'Nusa Tenggara Timur')->count();
+
+        $maluku = \App\Models\info::where('provinsi', 'Maluku')->count();
+        $malut = \App\Models\info::where('provinsi', 'Maluku Utara')->count();
+
+        $papua = \App\Models\info::where('provinsi', 'Papua')->count();
+        $pabar = \App\Models\info::where('provinsi', 'Papua Barat')->count();
+
+    @endphp
+
     <!-- amCharts javascript code -->
     <script type="text/javascript">
         AmCharts.makeChart("map",{
@@ -36,157 +83,157 @@
                 "areas": [
                     {
                         "id": "ID-AC",
-                        "title": "Aceh<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Aceh<br/><small>Total Kriminalitas:{!! $aceh !!}<small>",
                         "color": "rgba(186, 232, 255, 0.6)"
                     },
                     {
                         "id": "ID-BA",
-                        "title": "Bali<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Bali<br/><small>Total Kriminalitas:{!! $bali !!}<small>",
                         "color": "rgba(186, 232, 255, 0.6)"
                     },
                     {
                         "id": "ID-BE",
-                        "title": "Bengkulu<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Bengkulu<br/><small>Total Kriminalitas:{!! $bengkulu !!}<small>",
                         "color": "rgba(186, 232, 255, 0.6)"
                     },
                     {
                         "id": "ID-BT",
-                        "title": "Banten<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Banten<br/><small>Total Kriminalitas:{!! $banten !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-GO",
-                        "title": "Gorontalo<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Gorontalo<br/><small>Total Kriminalitas:{!! $gorontalo !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JA",
-                        "title": "Jambi<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Jambi<br/><small>Total Kriminalitas:{!! $jambi !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JB",
-                        "title": "Jawa Barat<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Jawa Barat<br/><small>Total Kriminalitas:{!! $jabar !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JI",
-                        "title": "Jawa Timur<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Jawa Timur<br/><small>Total Kriminalitas:{!! $jatim !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-JT",
-                        "title": "Jawa Tengah<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Jawa Tengah<br/><small>Total Kriminalitas:{!! $jateng !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KB",
-                        "title": "Kalimantan Barat<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Kalimantan Barat<br/><small>Total Kriminalitas:{!! $kalbar !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KI",
-                        "title": "Kalimantan Timur<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Kalimantan Timur<br/><small>Total Kriminalitas:{!! $kaltim !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KS",
-                        "title": "Kalimantan Selatan<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Kalimantan Selatan<br/><small>Total Kriminalitas:{!! $kalsel !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KT",
-                        "title": "Kalimantan Tengah<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Kalimantan Tengah<br/><small>Total Kriminalitas:{!! $kalteng !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-KU",
-                        "title": "Kalimantan Utara<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Kalimantan Utara<br/><small>Total Kriminalitas:{!! $kalut !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-LA",
-                        "title": "Lampung<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Lampung<br/><small>Total Kriminalitas:{!! $lampung !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-MA",
-                        "title": "Maluku<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Maluku<br/><small>Total Kriminalitas:{!! $maluku !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-MU",
-                        "title": "Maluku Utara<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Maluku Utara<br/><small>Total Kriminalitas:{!! $malut !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-NB",
-                        "title": "Nusa Tenggara Barat<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Nusa Tenggara Barat<br/><small>Total Kriminalitas:{!! $ntb !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-NT",
-                        "title": "Nusa Tenggara Timur<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Nusa Tenggara Timur<br/><small>Total Kriminalitas:{!! $ntt !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-PA",
-                        "title": "Papua<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Papua<br/><small>Total Kriminalitas:{!! $papua !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-PB",
-                        "title": "Papua Barat<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Papua Barat<br/><small>Total Kriminalitas:{!! $pabar !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-RI",
-                        "title": "Riau<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Riau<br/><small>Total Kriminalitas:{!! $riau !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SA",
-                        "title": "Sulawesi Utara<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Sulawesi Utara<br/><small>Total Kriminalitas:{!! $sulut !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SB",
-                        "title": "Sumatera Barat<br/><small>Total Kriminalitas:3<small>",
+                        "title": "Sumatera Barat<br/><small>Total Kriminalitas:{!! $sumbar !!}<small>",
                         "color": "rgba(27,96,241,1)"
                     },
                     {
                         "id": "ID-SG",
-                        "title": "Sulawesi Tenggara<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Sulawesi Tenggara<br/><small>Total Kriminalitas:{!! $sultra !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SN",
-                        "title": "Sulawesi Selatan<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Sulawesi Selatan<br/><small>Total Kriminalitas:{!! $sulsel !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SR",
-                        "title": "Sulawesi Barat<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Sulawesi Barat<br/><small>Total Kriminalitas:{!! $sulbar !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SS",
-                        "title": "Sumatera Selatan<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Sumatera Selatan<br/><small>Total Kriminalitas:{!! $sumsel !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-ST",
-                        "title": "Sulawesi Tengah<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Sulawesi Tengah<br/><small>Total Kriminalitas:{!! $sulteng !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-SU",
-                        "title": "Sumatera Utara<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Sumatera Utara<br/><small>Total Kriminalitas:{!! $sumut !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {
                         "id": "ID-YO",
-                        "title": "Yogyakarta<br/><small>Total Kriminalitas:0<small>",
+                        "title": "Yogyakarta<br/><small>Total Kriminalitas:{!! $yogya !!}<small>",
                         "color": "rgba(198, 227, 255, 0.6)"
                     },
                     {

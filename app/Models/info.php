@@ -37,6 +37,7 @@ class info extends Model
         'narasi',
         'lat',
         'long',
+        'provinsi',
         'user_id'
     ];
 
