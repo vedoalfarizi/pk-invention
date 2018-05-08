@@ -77,8 +77,6 @@ class infoController extends AppBaseController
     {
         $input = $request->all();
 
-
-
         if(!isset($request->file_foto)){
             $input['file_foto'] = 'info/default.jpg';
         }else{
