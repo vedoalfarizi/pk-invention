@@ -3,8 +3,7 @@
     <meta name="description" content="map created using amCharts pixel map generator" />
 
     <!-- amCharts javascript sources -->
-    <script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
-    <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/indonesiaLow.js"></script>
+
     {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -57,259 +56,110 @@
     @endphp
 
     <!-- amCharts javascript code -->
-    <script type="text/javascript">
-        AmCharts.makeChart("map",{
-            "type": "map",
-            "pathToImages": "http://www.amcharts.com/lib/3/images/",
-            "addClassNames": true,
-            "fontSize": 15,
-            "color": "#000000",
-            "projection": "mercator",
-            "backgroundAlpha": 1,
-            "backgroundColor": "white",
-            "dataProvider": {
-                "map": "indonesiaLow",
-                "getAreasFromMap": true,
-                "images": [
-                    {
-                        "top": 40,
-                        "left": 60,
-                        "width": 80,
-                        "height": 10,
-                        "pixelMapperLogo": false,
 
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/maps/highmaps.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/mapdata/countries/id/id-all.js"></script>
+    <style type="text/css">
+        .container2 { margin: auto; padding: 5px; border: 2px solid #DBDBDB; }
+    </style>
+
+
+
+    <div class="container2">
+        <div class="grafik" style="width:100%; "></div>
+    </div>
+    <?php
+    $array_kode_iso = array(
+        array('iso'=>'ID-AC','name'=>'Aceh', 'code'=>11, 'data'=>$aceh),
+        array('iso'=>'ID-SU','name'=>'Sumatera Utara', 'code'=>12, 'data'=>$sumut),
+        array('iso'=>'ID-SB','name'=>'Sumatera Barat', 'code'=>13, 'data'=>$sumbar),
+        array('iso'=>'ID-RI','name'=>'Riau', 'code'=>14, 'data'=>$riau),
+        array('iso'=>'ID-JA','name'=>'Jambi', 'code'=>15, 'data'=>$jambi),
+        array('iso'=>'ID-SL','name'=>'Sumatera Selatan', 'code'=>16, 'data'=>$sumsel),
+        array('iso'=>'ID-BE','name'=>'Bengkulu', 'code'=>17, 'data'=>$bengkulu),
+        array('iso'=>'ID-1024','name'=>'Lampung', 'code'=>18, 'data'=>$lampung),
+        array('iso'=>'ID-BB','name'=>'Kepulauan Bangka Belitung', 'code'=>19, 'data'=>$babel),
+        array('iso'=>'ID-KR','name'=>'Kepulauan Riau', 'code'=>21, 'data'=>$kepri),
+        array('iso'=>'ID-JK','name'=>'Daerah Khusus Ibukota Jakarta', 'code'=>31, 'data'=>$jakarta),
+        array('iso'=>'ID-JR','name'=>'Jawa Barat', 'code'=>32, 'data'=>$jabar),
+        array('iso'=>'ID-JT','name'=>'Jawa Tengah', 'code'=>33, 'data'=>$jateng),
+        array('iso'=>'ID-YO','name'=>'Daerah Istimewa Yogyakarta', 'code'=>34, 'data'=>$yogya),
+        array('iso'=>'ID-JI','name'=>'Jawa Timur', 'code'=>35, 'data'=>$jatim),
+        array('iso'=>'ID-BT','name'=>'Banten', 'code'=>36, 'data'=>$banten),
+        array('iso'=>'ID-BA','name'=>'Bali', 'code'=>51, 'data'=>$bali),
+        array('iso'=>'ID-NB','name'=>'Nusa Tenggara Barat', 'code'=>52, 'data'=>$ntb),
+        array('iso'=>'ID-NT','name'=>'Nusa Tenggara Timur', 'code'=>53, 'data'=>$ntt),
+        array('iso'=>'ID-KB','name'=>'Kalimantan Barat', 'code'=>61, 'data'=>$kalbar),
+        array('iso'=>'ID-KT','name'=>'Kalimantan Tengah', 'code'=>62, 'data'=>$kalteng),
+        array('iso'=>'ID-KS','name'=>'Kalimantan Selatan', 'code'=>63, 'data'=>$kalsel),
+        array('iso'=>'ID-KI','name'=>'Kalimantan Timur', 'code'=>64, 'data'=>$kaltim),
+        array('iso'=>'ID-KI','name'=>'Kalimantan Utara', 'code'=>65, 'data'=>$kalut),
+        array('iso'=>'ID-SW','name'=>'Sulawesi Utara', 'code'=>71, 'data'=>$sulut),
+        array('iso'=>'ID-ST','name'=>'Sulawesi Tengah', 'code'=>72, 'data'=>$sulteng),
+        array('iso'=>'ID-SE','name'=>'Sulawesi Selatan', 'code'=>73, 'data'=>$sulsel),
+        array('iso'=>'ID-SG','name'=>'Sulawesi Tenggara', 'code'=>74, 'data'=>$sultra),
+        array('iso'=>'ID-GO','name'=>'Gorontalo', 'code'=>75, 'data'=>$gorontalo),
+        array('iso'=>'ID-SR','name'=>'Sulawesi Barat', 'code'=>76, 'data'=>$sulbar),
+        array('iso'=>'ID-MA','name'=>'Maluku', 'code'=>81, 'data'=>$maluku),
+        array('iso'=>'ID-LA','name'=>'Maluku Utara', 'code'=>82, 'data'=>$malut),
+        array('iso'=>'ID-IB','name'=>'Papua Barat', 'code'=>91, 'data'=>$pabar),
+        array('iso'=>'ID-PA','name'=>'Papua', 'code'=>94, 'data'=>$papua)
+    );
+
+    $array_datas = array();
+    foreach($array_kode_iso as $key=>$val){
+        array_push($array_datas, array('hc-key'=>strtolower($val['iso']), 'name'=>$val['name'], 'value'=>$val['data']));
+    }
+    ?>
+    <script type="text/javascript">
+        $('.grafik').highcharts('Map', {
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'judul'
+            },
+            subtitle: {
+                text: 'sub judul'
+            },
+            mapNavigation: {
+                enabled: true,
+            },
+            colorAxis: {
+                minColor: '#edf4ff',
+                maxColor: '#0a4199'
+            },
+            series: [{
+                data: <?php echo json_encode($array_datas); ?>,
+                mapData: Highcharts.maps['countries/id/id-all'],
+                joinBy: 'hc-key',
+                name: 'Total Kriminalitas',
+                animation: true,
+                states: {
+                    hover: {
+                        color: '#3f7c5c'
                     }
-                ],
-                "areas": [
-                    {
-                        "id": "ID-AC",
-                        "title": "Aceh<br/><small>Total Kriminalitas:{!! $aceh !!}<small>",
-                        "color": "rgba(186, 232, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-BA",
-                        "title": "Bali<br/><small>Total Kriminalitas:{!! $bali !!}<small>",
-                        "color": "rgba(186, 232, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-BE",
-                        "title": "Bengkulu<br/><small>Total Kriminalitas:{!! $bengkulu !!}<small>",
-                        "color": "rgba(186, 232, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-BT",
-                        "title": "Banten<br/><small>Total Kriminalitas:{!! $banten !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-GO",
-                        "title": "Gorontalo<br/><small>Total Kriminalitas:{!! $gorontalo !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-JA",
-                        "title": "Jambi<br/><small>Total Kriminalitas:{!! $jambi !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-JB",
-                        "title": "Jawa Barat<br/><small>Total Kriminalitas:{!! $jabar !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-JI",
-                        "title": "Jawa Timur<br/><small>Total Kriminalitas:{!! $jatim !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-JT",
-                        "title": "Jawa Tengah<br/><small>Total Kriminalitas:{!! $jateng !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-KB",
-                        "title": "Kalimantan Barat<br/><small>Total Kriminalitas:{!! $kalbar !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-KI",
-                        "title": "Kalimantan Timur<br/><small>Total Kriminalitas:{!! $kaltim !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-KS",
-                        "title": "Kalimantan Selatan<br/><small>Total Kriminalitas:{!! $kalsel !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-KT",
-                        "title": "Kalimantan Tengah<br/><small>Total Kriminalitas:{!! $kalteng !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-KU",
-                        "title": "Kalimantan Utara<br/><small>Total Kriminalitas:{!! $kalut !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-LA",
-                        "title": "Lampung<br/><small>Total Kriminalitas:{!! $lampung !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-MA",
-                        "title": "Maluku<br/><small>Total Kriminalitas:{!! $maluku !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-MU",
-                        "title": "Maluku Utara<br/><small>Total Kriminalitas:{!! $malut !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-NB",
-                        "title": "Nusa Tenggara Barat<br/><small>Total Kriminalitas:{!! $ntb !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-NT",
-                        "title": "Nusa Tenggara Timur<br/><small>Total Kriminalitas:{!! $ntt !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-PA",
-                        "title": "Papua<br/><small>Total Kriminalitas:{!! $papua !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-PB",
-                        "title": "Papua Barat<br/><small>Total Kriminalitas:{!! $pabar !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-RI",
-                        "title": "Riau<br/><small>Total Kriminalitas:{!! $riau !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-SA",
-                        "title": "Sulawesi Utara<br/><small>Total Kriminalitas:{!! $sulut !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-SB",
-                        "title": "Sumatera Barat<br/><small>Total Kriminalitas:{!! $sumbar !!}<small>",
-                        "color": "rgba(27,96,241,1)"
-                    },
-                    {
-                        "id": "ID-SG",
-                        "title": "Sulawesi Tenggara<br/><small>Total Kriminalitas:{!! $sultra !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-SN",
-                        "title": "Sulawesi Selatan<br/><small>Total Kriminalitas:{!! $sulsel !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-SR",
-                        "title": "Sulawesi Barat<br/><small>Total Kriminalitas:{!! $sulbar !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-SS",
-                        "title": "Sumatera Selatan<br/><small>Total Kriminalitas:{!! $sumsel !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-ST",
-                        "title": "Sulawesi Tengah<br/><small>Total Kriminalitas:{!! $sulteng !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-SU",
-                        "title": "Sumatera Utara<br/><small>Total Kriminalitas:{!! $sumut !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "ID-YO",
-                        "title": "Yogyakarta<br/><small>Total Kriminalitas:{!! $yogya !!}<small>",
-                        "color": "rgba(198, 227, 255, 0.6)"
-                    },
-                    {
-                        "id": "TL",
-                        "title": "Timor-Leste",
-                        "color": "rgba(0,0,0,0)"
-                    },
-                    {
-                        "id": "MY-12",
-                        "title": "Sabah",
-                        "color": "rgba(0,0,0,0)"
-                    },
-                    {
-                        "id": "MY-13",
-                        "title": "Sarawak",
-                        "color": "rgba(0,0,0,0)"
-                    }
-                ]
-            },
-            "balloon": {
-                "horizontalPadding": 15,
-                "borderAlpha": 0,
-                "borderThickness": 1,
-                "verticalPadding": 15
-            },
-            "areasSettings": {
-                "color": "rgba(89,113,163,1)",
-                "outlineColor": "rgba(255,255,255,1)",
-                "rollOverOutlineColor": "rgba(255,255,255,1)",
-                "rollOverBrightness": 20,
-                "selectedBrightness": 20,
-                "selectable": true,
-                "unlistedAreasAlpha": 0,
-                "unlistedAreasOutlineAlpha": 0
-            },
-            "imagesSettings": {
-                "alpha": 1,
-                "color": "rgba(89,113,163,1)",
-                "outlineAlpha": 0,
-                "rollOverOutlineAlpha": 0,
-                "outlineColor": "rgba(255,255,255,1)",
-                "rollOverBrightness": 20,
-                "selectedBrightness": 20,
-                "selectable": true
-            },
-            "linesSettings": {
-                "color": "rgba(89,113,163,1)",
-                "selectable": true,
-                "rollOverBrightness": 20,
-                "selectedBrightness": 20
-            },
-            "zoomControl": {
-                "zoomControlEnabled": true,
-                "homeButtonEnabled": false,
-                "panControlEnabled": false,
-                "right": 38,
-                "bottom": 30,
-                "minZoomLevel": 0.25,
-                "gridHeight": 100,
-                "gridAlpha": 0.1,
-                "gridBackgroundAlpha": 0,
-                "gridColor": "#FFFFFF",
-                "draggerAlpha": 1,
-                "buttonCornerRadius": 2
-            }
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }]
         });
     </script>
 
-    <script src="{{asset('code/highcharts.js')}}"></script>
-    <script src="{{asset('code/modules/exporting.js')}}"></script>
-    {{--src="{{asset('images/service-img-1.jpg')}}"--}}
+
+
+
+
+
 
     <!-- Testimonials-section start -->
     <div class="row" style="background-color: white">
     <div class="col-md-12">
-        <div id="map" style="width: 100%; height: 400px;"></div>
         <div class="pull-right" style="background-color: white; margin-left: 60%"> <small>Rendah</small>  <img style="width: 60%; " src="{{asset('images/bar.png')}}"/><small> Tinggi</small></div>
         <br>
     </div>
