@@ -82,7 +82,7 @@
 
                 Highcharts.chart('container', {
                     chart: {
-                        type: 'column'
+                        type: 'bar'
                     },
                     title: {
                         text: 'Peringkat Kejadian Kriminal'
@@ -107,7 +107,25 @@
                             'Jawa Barat',
                             'Jawa Tengah',
                             'D.I. Yogyakarta',
-                            'Jawa Timur'
+                            'Jawa Timur',
+                            'Kalimantan Barat',
+                            'Kalimantan Utara',
+                            'Kalimantan Timur',
+                            'Kalimantan Tengah',
+                            'Kalimantan Selatan',
+                            'Sulawesi Barat',
+                            'Sulawesi Utara',
+                            'Sulawesi Timur',
+                            'Sulawesi Selatan',
+                            'Sulawesi Tenggara',
+                            'Gorontalo',
+                            'Bali',
+                            'Nusa Tenggara Barat',
+                            'Nusa Tenggara Timur',
+                            'Maluku',
+                            'Maluku Utara',
+                            'Papua Barat',
+                            'Papua'
                         ],
                         crosshair: true
                     },
@@ -120,7 +138,7 @@
                     tooltip: {
                         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                        '<td style="padding:0"><b>{point.y:.1f} </b>tindak kejahatan</td></tr>',
                         footerFormat: '</table>',
                         shared: true,
                         useHTML: true
@@ -133,7 +151,8 @@
                     },
                     series: [{
                         name: 'Total kriminalitas',
-                        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4, 55, 25, 33, 45]
+                        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4, 55, 25,
+                            33, 45, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7]
 
                     }]
                 });
@@ -179,12 +198,12 @@
                 var locations = [
                   <?php
 
-                    $sql="select * from laporans";
+                    $sql="select * from infos";
                     if(!$result = $db->query($sql)){
                         die(' query error [' . $db->error . ']');
                     }
                     while($kriminal = $result->fetch_object()){
-                        echo "['".$kriminal->no_surat."', ".$kriminal->lat.", ".$kriminal->long.", ".$kriminal->id."],";
+                        echo "['".$kriminal->judul."', ".$kriminal->lat.", ".$kriminal->long.", ".$kriminal->id."],";
                     }
                     ?>
 
@@ -205,7 +224,7 @@
                       marker yang di klik */
 
                     google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                        var ContenString='<a href="#'+locations[i][3]+'">No. Surat:'+locations[i][0]+'</a>"'
+                        var ContenString='<a href="../infos/'+locations[i][3]+'" target="_blank">'+locations[i][0]+'</a>"'
                         return function() {
                             infowindow.setContent(ContenString);
                             infowindow.open(map, marker);

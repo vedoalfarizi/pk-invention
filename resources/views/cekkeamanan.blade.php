@@ -275,7 +275,7 @@
 
         }
 
-        function aktifkanRadius(){ //fungsi radius mesjid
+        function aktifkanRadius(){
             if (pos == 'null'){
                 alert ('Silahkan klik posisi sekarang atau atur posisi secara manual terlebih dahulu !');
             }
@@ -652,11 +652,39 @@
             markers = [];
         }
 
-        function clearroute(){
-            for (i in rute){
-                rute[i].setMap(null);
-            }
-            rute=[];
+        function kriminalradius(){
+
+            $('#hasilcari1').show();
+            $('#hasilcari').empty();
+            console.log(pos.lat);
+            console.log(pos.lng);
+            var inputradius1=document.getElementById('inputradiusmes').value;
+            console.log(inputradius1)
+            var rad = parseFloat(inputradius1*100);
+            $.ajax({
+                url: '../kriminalradius.php?lat='+pos.lat+'&lng='+pos.lng+'&rad='+rad, data: "", dataType: 'json', success: function(rows)
+                {
+                    console.log("hy");
+                    for (var i in rows)
+                    {
+                        var row     = rows[i];
+                        var id   = row.id;
+                        var nama   = row.name;
+                        var latitude  = row.latitude ;
+                        var longitude = row.longitude ;
+                        console.log(latitude);
+                        console.log(longitude);
+                        markersDua.push(marker);
+                        map.setCenter(centerBaru);
+                        klikInfoWindow(id);
+                        map.setZoom(14);
+                        console.log(nama);
+                        $('#result').append("oke");
+                    }
+                }
+            });
         }
+
+
     </script>
 @endsection
