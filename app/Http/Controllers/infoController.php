@@ -90,10 +90,17 @@ class infoController extends AppBaseController
 
 
         $info = $this->infoRepository->create($input);
-
+        $user=auth::user();
         Flash::success('Info saved successfully.');
+        if($user->role==0){
+            return redirect(route('infos.index'));
+        }
+        elseif($user->role==1){
+            $info= info::where('user_id',$user->id)->first();
+//            dd($info);
+            return view('user.profil.show',compact('info'));
+        }
 
-        return redirect(route('infos.index'));
     }
 
     /**
@@ -178,6 +185,7 @@ class infoController extends AppBaseController
      */
     public function destroy($id)
     {
+        $user=auth::user();
         $info = $this->infoRepository->findWithoutFail($id);
 
         if (empty($info)) {
@@ -189,7 +197,15 @@ class infoController extends AppBaseController
         $this->infoRepository->delete($id);
 
         Flash::success('Info deleted successfully.');
+        if($user->role==0){
+            return redirect(route('infos.index'));
+        }
+        elseif($user->role==1){
+            $info= info::where('user_id',$user->id)->first();
+//            dd($info);
+            return redirect(action('profilUserController@index'));
+        }
 
-        return redirect(route('infos.index'));
+
     }
 }
