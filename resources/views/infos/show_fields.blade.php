@@ -1,54 +1,61 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $info->id !!}</p>
-</div>
+<div class="row">
+    <div class="col-md-6">
+        <img src="{{asset('storage/'.$info->file_foto)}}" width="500px"></p>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-responsive">
+            <!-- Id Field -->
 
-<!-- Judul Field -->
-<div class="form-group">
-    {!! Form::label('judul', 'Judul:') !!}
-    <p>{!! $info->judul !!}</p>
-</div>
+            <tr>
+                <td>
+                    {!! Form::label('judul', 'Judul:') !!}
+                </td>
+                <td>
+                    <p>{!! $info->judul !!}</p>
+                </td>
+            </tr>
 
-<!-- Perkara Id Field -->
-<div class="form-group">
-    {!! Form::label('perkara_id', 'Perkara Id:') !!}
-    <p>{!! $info->perkara_id !!}</p>
-</div>
+            <tr>
+                <td>
+                    {!! Form::label('perkara_id', 'Perkara Id:') !!}
 
-<!-- Status Verifikasi Field -->
-<div class="form-group">
-    {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
-    <p>{!! $info->status_verifikasi !!}</p>
-</div>
+                </td>
+                <td>
+                    <p>{!! $info->perkara_id !!}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
+                </td>
+                <td>
+                   <p>{!! $info->status_verifikasi !!}</p>
+                </td>
+            </tr>
 
-<!-- File Field -->
-<div class="form-group">
-    {!! Form::label('file', 'File:') !!}
-    <p>{!! $info->file !!}</p>
-</div>
 
-<!-- Narasi Field -->
-<div class="form-group">
-    {!! Form::label('narasi', 'Narasi:') !!}
-    <p>{!! $info->narasi !!}</p>
-</div>
 
-<!-- Lat Field -->
-<div class="form-group">
-    {!! Form::label('lat', 'Lat:') !!}
-    <p>{!! $info->lat !!}</p>
-</div>
+            <tr>
+                <td>
+                    {!! Form::label('lat', 'Lat:') !!}
+                </td>
+                <td>
+                    <p>{!! $info->lat !!}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {!! Form::label('created_at', 'Created At:') !!}
+                </td>
+                <td>
+                    <p>{!! $info->created_at !!}</p>
+                </td>
+            </tr>
 
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $info->created_at !!}</p>
-</div>
 
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $info->updated_at !!}</p>
-</div>
+        </table>
 
+    </div>
+</div>
+        {!! Form::label('narasi', 'Narasi:') !!}
+        <p>{!! $info->narasi !!}</p>

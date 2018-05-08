@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $infos = \App\Models\info::all();
+    return view('welcome',compact('infos'));
 });
 
 Route::get('/lapor' ,function () {
@@ -76,3 +77,4 @@ Route::get('/info/{id}', 'profilUserController@showInfo');
 Route::get('/laporan/tindak/{id}', 'profilUserController@showTindak');
 
 Route::get('/cari', 'cariInfoController@index');
+
