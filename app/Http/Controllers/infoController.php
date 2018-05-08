@@ -153,6 +153,7 @@ class infoController extends AppBaseController
      */
     public function update($id, UpdateinfoRequest $request)
     {
+//        dd('sas');
         $info = $this->infoRepository->findWithoutFail($id);
 
         if (empty($info)) {

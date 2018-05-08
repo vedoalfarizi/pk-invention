@@ -19,7 +19,8 @@
                 <td> <a class='btn btn-info btn-fill' data-toggle='modal' data-target='#verifikasi-{{$profile->user_id}}'><i class="glyphicon glyphicon-eye-open"></i></a>
                 </td>
                 @else
-                <td></td>
+                <td> <a class='btn btn-default btn-fill' disabled="yes">x</a>
+                </td>
                 @endif
             <td>
                 {{--{!! Form::open(['route' => ['penggunas.destroy', $pengguna->id], 'method' => 'delete']) !!}--}}
@@ -29,6 +30,7 @@
                     {{--{!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}--}}
                 {{--</div>--}}
                 {{--{!! Form::close() !!}--}}
+                @if($profile!=null)
                 {{--<------------------------ MODAL _ TRANSAKSI------------------->--}}
                 <div class="modal fade" id="verifikasi-{{$profile->user_id}}" data-backdrop="false">
                     <div class="modal-dialog">
@@ -41,7 +43,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <table class="table table-responsive">
                                             <tr><td>Nama </td><td>: {!! $pengguna->name !!}</td></tr>
                                             <tr><td>Jenis Kelamin </td><td>: {!! $profile->jekel !!}</td></tr>
@@ -53,24 +55,26 @@
                                         </table>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="service-block">
-                                            <img src="{{url('storage/'.$profile->file_ktp)}}">
+                                            <img src="{{url('storage/'.$profile->file_ktp)}}" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <a type="button" class="btn btn-info btn-fill pull-right" href="{{url('/pengguna/verifikasi/'.$pengguna->id)}}">Verifikasi Data Pengguna </a>
-                                     </div>
+                                         </div>
                                 </div>
                              </div>
                             <div class="modal-footer">
-                               <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>
+                                <a type="button" class="btn btn-info btn-fill" href="{{url('/pengguna/verifikasi/'.$pengguna->id)}}">Verifikasi Data Pengguna </a>
+
+                                <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
                 {{--<------------------------ MODAL --------------------}}
             </td>
         </tr>

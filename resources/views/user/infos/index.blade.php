@@ -14,15 +14,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-left">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pull-left">
                     {!! Form::open(['route' => 'infos.filter']) !!}
 
                     {!! Form::selectYear('year', 2017, date(now()), null, ['class' => 'form-control']) !!}
+                </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pull-left">
                     {!! Form::submit('Filter', ['class' => 'btn btn-default btn-xs mb30']) !!}
+                    </div>
 
                     {!! Form::close() !!}
-                </div>
             </div>
+
             <div class="row">
                 {!! Form::open(['route' => 'infos.store', 'id' => 'form', 'files' => true]) !!}
                 @if(Auth::check())
@@ -105,10 +108,11 @@
             <div class="row">
                 <!-- service start -->
                 @forelse($infos as $info)
+                    <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="tour-block">
+                    <div class="tour-block" >
                         <div class="tour-img">
-                            <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="{!! $info->judul !!}"></a>
+                            <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="{!! $info->judul !!}" style="height: 200px"></a>
                         </div>
                         <div class="tour-content">
                             <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
@@ -331,5 +335,6 @@
             rute=[];
         }
     </script>
+</div>
 @endsection
 
