@@ -148,7 +148,7 @@
                     <h3 class="footer-title">Kontak Kami</h3>
                     <div class="contact-info">
                         <ul>
-                            <li><a target="_blank" href="https://www.linkedin.com/in/vedo-alfarizi-56a04b145/">Vedo Alfarizi</a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/vedo-alfarizi-56a04b145/">vedoalfarizi@gmail.com</a></li>
                             <li><a>ridhodarman@gmail.com</a></li>
                             <li><a>dartikaanie@gmail.com</a></li>
                         </ul>

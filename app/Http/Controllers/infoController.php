@@ -119,10 +119,10 @@ class infoController extends AppBaseController
             return redirect(route('infos.index'));
         }
 
-        if($user->role==0){
+        if(($user!=null)&&($user->role==0)){
             return view('infos.show', compact('info'));
         }
-        elseif($user->role==1){
+        else{
             return view('user.infos.show')->with('info', $info);
         }
 

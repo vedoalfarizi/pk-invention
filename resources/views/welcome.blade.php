@@ -63,14 +63,54 @@
     <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
     <script type="text/javascript" src="http://code.highcharts.com/mapdata/countries/id/id-all.js"></script>
     <style type="text/css">
-        .container2 { margin: auto; padding: 5px; border: 2px solid #DBDBDB; }
+        .container2 { margin: auto; padding: 1%; border: 2px solid #DBDBDB; }
     </style>
 
 
 
+
     <div class="container2">
-        <div class="grafik" style="width:100%; "></div>
+        <div class="grafik"></div>
+        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <h3 ><strong style="color: #4d8638; font-size: xx-large">Pantau Kriminalitas </strong> </h3>
+            <h2>Ceritakan dan lapor informasi tindakan kriminal atasi tindakan  berulang </h2>
+        </div>
     </div>
+                @php
+                    $laporanSelesai = \App\Models\laporan::where('status_laporan', '=', 3)->count();
+                    $laporanMasuk = \App\Models\laporan::get()->count();
+                    $infoMasuk = \App\Models\info::get()->count();
+                @endphp
+                <div class="row" style="margin-left: 4%; margin-right: 0%">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="service-block" style="background-color: #dff0d8; margin-left: -50px">
+                            <div class="service-content" >
+                                <h1 class="text-center" style="font-size: xx-large">{!! $laporanSelesai !!}</h1>
+                                <div class="small col-lg-12 text-center" style="margin-bottom: -22px">Tindakan Kriminal Yang Terselesaikan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="service-block" style="background-color:#dff0d8; margin-left: -50px">
+                            <div class="service-content">
+                                <h1 class="text-center" style="font-size: xx-large;">{!! $laporanMasuk !!}</h1>
+                                <div class="small col-lg-12 text-center" style="margin-bottom: 20px">Laporan Masuk</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="service-block" style="background-color:#dff0d8; margin-left: -50px">
+                            <div class="service-content">
+                                <h1 class="text-center" style="font-size: xx-large">{!! $infoMasuk !!}</h1>
+                                <div class="small col-lg-12 text-center">Informasi Tindakan Kriminal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     <?php
     $array_kode_iso = array(
         array('iso'=>'ID-AC','name'=>'Aceh', 'code'=>11, 'data'=>$aceh),
@@ -120,17 +160,17 @@
                 enabled: false
             },
             title: {
-                text: 'judul'
+                text: 'Tindakan Kriminal di Indonsia'
             },
             subtitle: {
-                text: 'sub judul'
+                text: 'berdasarkan data dari pantau kriminal'
             },
             mapNavigation: {
                 enabled: true,
             },
             colorAxis: {
-                minColor: '#edf4ff',
-                maxColor: '#0a4199'
+                minColor: '#bfedae',
+                maxColor: '#4d8638'
             },
             series: [{
                 data: <?php echo json_encode($array_datas); ?>,
@@ -140,7 +180,7 @@
                 animation: true,
                 states: {
                     hover: {
-                        color: '#3f7c5c'
+                        color: '#f0ad4e'
                     }
                 },
                 dataLabels: {
@@ -159,47 +199,11 @@
 
     <!-- Testimonials-section start -->
     <div class="row" style="background-color: white">
-    <div class="col-md-12">
-        <div class="pull-right" style="background-color: white; margin-left: 60%"> <small>Rendah</small>  <img style="width: 60%; " src="{{asset('images/bar.png')}}"/><small> Tinggi</small></div>
-        <br>
-    </div>
-        <div class="col-md-12">
+    {{--<div class="col-md-12">--}}
+        {{--<div class="pull-right" style="background-color: white; margin-left: 60%"> <small>Rendah</small>  <img style="width: 60%; " src="{{asset('images/bar.png')}}"/><small> Tinggi</small></div>--}}
+        {{--<br>--}}
+    {{--</div>--}}
 
-            <br>
-            <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                @php
-                    $laporanSelesai = \App\Models\laporan::where('status_laporan', '=', 3)->count();
-                    $laporanMasuk = \App\Models\laporan::get()->count();
-                    $infoMasuk = \App\Models\info::get()->count();
-                @endphp
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="service-block" style="background-color: #dff0d8;">
-                            <div class="service-content" >
-                                <h1 class="text-center" style="font-size: xx-large">{!! $laporanSelesai !!}</h1>
-                                <div class="small col-lg-12 text-center">Tindakan Kriminal Yang Terselesaikan</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="service-block" style="background-color:#dff0d8;">
-                            <div class="service-content">
-                                <h1 class="text-center" style="font-size: xx-large">{!! $laporanMasuk !!}</h1>
-                                <div class="small col-lg-12 text-center">Laporan Masuk</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="service-block" style="background-color:#dff0d8;">
-                            <div class="service-content">
-                                <h1 class="text-center" style="font-size: xx-large">{!! $infoMasuk !!}</h1>
-                                <div class="small col-lg-12 text-center">Informasi Tindakan Kriminal</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -209,14 +213,7 @@
 
             <div class="row" >
 
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                    <br> <br> <br>
-                    <h2>Mari Berantas Tindakan Kriminal !</h2>
-                    <h3>#PantauKriminal</h3>
-                    <p>Simak Berita Tindakan Kriminal di Pantau Kriminal</p>
-                   <div style="padding-left: 25%"><a href="" class="text-center btn btn-default">Lihat Semua...</a></div>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" >
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" >
 
                         <div id="myCarousel" class="carousel slide col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-ride="carousel">
                             <!-- Indicators -->
@@ -260,6 +257,13 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+                        <br> <br> <br>
+                        <h2>Mari Berantas Tindakan Kriminal !</h2>
+                        <h3>#PantauKriminal</h3>
+                        <p>Simak Berita Tindakan Kriminal di Pantau Kriminal</p>
+                        <div style="padding-left: 25%"><a href="" class="text-center btn btn-default">Lihat Semua...</a></div>
+                    </div>
                 </div>
 
 
@@ -285,7 +289,7 @@
                     $infos = \App\Models\info::orderBy('created_at', 'desc')->limit(3)->get();
                 @endphp
                 @foreach($infos as $info)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="service-block" style="height: 500px">
                             <div class="service-img">
                                 <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto" style="height :200px"></a>
@@ -317,7 +321,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-1">
                     <img src="{{asset('/images/pk.png')}}" style="width: 80%">
                 </div>
                 <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
