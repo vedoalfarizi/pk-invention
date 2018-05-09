@@ -30,7 +30,7 @@
                     @if(Auth::check())
                         <button type="button" class="btn btn-default btn-xs mb30 pull-right" data-toggle="modal" data-target="#myModal" id="open">Berbagi Informasi</button>
                     @else
-                        <a type="button" class="btn btn-default btn-xs mb30 pull-right" href="{!! url('/login') !!}">Berbagi Informasi</a>
+                        <a type="button" class="btn btn-primary btn-xs mb30 pull-right" href="{!! url('/login') !!}">Buat Informasi</a>
                     @endif
                 </div>
             </div>

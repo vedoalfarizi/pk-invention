@@ -73,7 +73,7 @@
         <div class="grafik" style="height: 450px"></div>
         <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
             <h3 ><strong style="color: #4d8638; font-size: xx-large">Pantau Kriminalitas </strong> </h3>
-            <h2>Ceritakan dan lapor informasi tindakan kriminal atasi tindakan  berulang </h2>
+            <h2>Ceritakan dan laporkan untuk atasi tindakan kriminal di masyarakat</h2>
         </div>
     </div>
                 @php
@@ -263,7 +263,8 @@
                         <h2>Mari Berantas Tindakan Kriminal !</h2>
                         <h3>#PantauKriminal</h3>
                         <p>Simak Berita Tindakan Kriminal di Pantau Kriminal</p>
-                        <a href="{!! route('beritas.index') !!}" class="text-center btn btn-default">Lihat Semua . . .</a>
+                        <a href="{!! route('infos.index') !!}" class="text-center btn btn-primary">Buat Informasi</a>
+                        <a href="{!! route('beritas.index') !!}" class="text-center btn btn-default">Lihat berita</a>
                     </div>
                 </div>
 
