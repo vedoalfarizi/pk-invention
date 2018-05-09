@@ -70,8 +70,8 @@
 
 
     <div class="container2">
-        <div class="grafik"></div>
-        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+        <div class="grafik" style="height: 450px"></div>
+        <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
             <h3 ><strong style="color: #4d8638; font-size: xx-large">Pantau Kriminalitas </strong> </h3>
             <h2>Ceritakan dan lapor informasi tindakan kriminal atasi tindakan  berulang </h2>
         </div>
@@ -81,35 +81,32 @@
                     $laporanMasuk = \App\Models\laporan::get()->count();
                     $infoMasuk = \App\Models\info::get()->count();
                 @endphp
-                <div class="row" style="margin-left: 4%; margin-right: 0%">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="service-block" style="background-color: #dff0d8; margin-left: -50px">
-                            <div class="service-content" >
-                                <h1 class="text-center" style="font-size: xx-large">{!! $laporanSelesai !!}</h1>
-                                <div class="small col-lg-12 text-center" style="margin-bottom: -22px">Tindakan Kriminal Yang Terselesaikan</div>
-                            </div>
+            <div class="row" style="margin-left: 4%; margin-right: 0%">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="service-block" style="background-color: #dff0d8; margin-left: -50px">
+                        <div class="service-content" >
+                            <h1 class="text-center" style="font-size: xx-large">{!! $laporanSelesai !!}</h1>
+                            <div class="small col-lg-12 text-center" style="margin-bottom: -22px">Tindakan Kriminal Yang Terselesaikan</div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="service-block" style="background-color:#dff0d8; margin-left: -50px">
-                            <div class="service-content">
-                                <h1 class="text-center" style="font-size: xx-large;">{!! $laporanMasuk !!}</h1>
-                                <div class="small col-lg-12 text-center" style="margin-bottom: 20px">Laporan Masuk</div>
-                            </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="service-block" style="background-color:#dff0d8; margin-left: -50px">
+                        <div class="service-content">
+                            <h1 class="text-center" style="font-size: xx-large;">{!! $laporanMasuk !!}</h1>
+                            <div class="small col-lg-12 text-center" style="margin-bottom: 20px">Laporan Masuk</div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <div class="service-block" style="background-color:#dff0d8; margin-left: -50px">
-                            <div class="service-content">
-                                <h1 class="text-center" style="font-size: xx-large">{!! $infoMasuk !!}</h1>
-                                <div class="small col-lg-12 text-center">Informasi Tindakan Kriminal</div>
-                            </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="service-block" style="background-color:#dff0d8; margin-left: -50px">
+                        <div class="service-content">
+                            <h1 class="text-center" style="font-size: xx-large">{!! $infoMasuk !!}</h1>
+                            <div class="small col-lg-12 text-center">Informasi Tindakan Kriminal</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
 
     <?php
     $array_kode_iso = array(
@@ -163,7 +160,7 @@
                 text: 'Tindakan Kriminal di Indonsia'
             },
             subtitle: {
-                text: 'berdasarkan data dari pantau kriminal'
+                text: 'Berdasarkan data dari pantau kriminal'
             },
             mapNavigation: {
                 enabled: true,
@@ -191,20 +188,14 @@
         });
     </script>
 
-
-
-
-
-
-
-    <!-- Testimonials-section start -->
-    <div class="row" style="background-color: white">
+    {{--<!-- Testimonials-section start -->--}}
+    {{--<div class="row" style="background-color: white">--}}
     {{--<div class="col-md-12">--}}
         {{--<div class="pull-right" style="background-color: white; margin-left: 60%"> <small>Rendah</small>  <img style="width: 60%; " src="{{asset('images/bar.png')}}"/><small> Tinggi</small></div>--}}
         {{--<br>--}}
     {{--</div>--}}
 
-    </div>
+    {{--</div>--}}
 
 
     <!-- service-section start -->

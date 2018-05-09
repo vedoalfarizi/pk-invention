@@ -54,24 +54,23 @@
     <div class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                    <div class="row">
-                        <div class="col-md-3">
+
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
                             <a href="{!! url('/')!!}" alt="PK"><img src="{{asset('images/pk.png')}}"/> </a>
                         </div>
+
                             <form action="{{url('/cari')}}" >
-                                <div class="col-md-8">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
                                     <input class="form-control col-md-2" type="text" placeholder="Search.." name="cari">
                                 </div>
-                                <div class="col-md-1">
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
                                     <button type="submit" class="btn btn-default" style="margin-top: -3px"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
 
 
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+
+                <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
                     <div class="navigation">
                         <div id="navigation">
 
