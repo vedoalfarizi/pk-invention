@@ -33,8 +33,16 @@ class beritasController extends AppBaseController
         $this->beritasRepository->pushCriteria(new RequestCriteria($request));
         $beritas = $this->beritasRepository->paginate(12);
 
-        return view('admin.beritas.index')
-            ->with('beritas', $beritas);
+        $user=auth::user();
+        if(($user!=null)&&($user->role==0)){
+
+            return view('admin.beritas.index')
+                ->with('beritas', $beritas);
+        }
+        else{
+            return view('user.beritas.index')
+                ->with('beritas', $beritas);
+        }
     }
 
     /**
@@ -89,8 +97,17 @@ class beritasController extends AppBaseController
 
             return redirect(route('beritas.index'));
         }
+        $user=auth::user();
+        if(($user!=null)&&($user->role==0)){
 
-        return view('admin.beritas.show')->with('beritas', $beritas);
+            return view('admin.beritas.show')->with('beritas', $beritas);
+        }
+        else{
+            return view('user.beritas.show')
+                ->with('beritas', $beritas);
+        }
+
+
     }
 
     /**

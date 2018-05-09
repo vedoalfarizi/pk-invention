@@ -66,6 +66,6 @@ class beritas extends Model
      **/
     public function laporans()
     {
-        return $this->hasMany(\App\Models\laporans::class, 'id', 'laporan_id');
+        return $this->belongsTo(\App\Models\laporan::class, 'laporan_id', 'id');
     }
 }

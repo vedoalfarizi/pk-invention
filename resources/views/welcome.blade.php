@@ -217,6 +217,12 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" style="border-radius: 20px;">
                                 @if($c==0)
+                                    <div class="item active">
+                                        {{--                                    <img src="{{url('storage/'.$beritas->foto_berita)}}" class="img-responsive">--}}
+                                        <img src="{{url('images/pk.png')}}" class="img-responsive">
+                                        <label style="font-size: medium"> </label>
+                                        <p style="background-color: white;"></p>
+                                    </div>
                                     @else
                                 <div class="item active">
 {{--                                    <img src="{{url('storage/'.$beritas->foto_berita)}}" class="img-responsive">--}}
@@ -226,13 +232,16 @@
                                 </div>
                                 @endif
                                 @if($c>1)
-                                    @for($n=0;$n>3;$n++)
-                                    <div class="item" >
-                                        <img src="{{url('storage/'.$beritas[$c-2]->foto_berita)}}" class="img-responsive">
-                                        <label style="font-size: medium"> {!! $beritas[$c-2]->judul !!}</label>
-                                        <p style="background-color: white;">{!! substr($beritas[$c-2]->narasi,0,180) !!}...</p>
-                                        @php $c--@endphp
-                                    </div>
+                                    @php $i=0;@endphp
+                                    @for($n=$c-2;$n>=0;$n--)
+                                        @if($i<3)
+                                            <div class="item" >
+                                                <img src="{{url('storage/'.$beritas[$n]->foto_berita)}}" class="img-responsive">
+                                                <label style="font-size: medium"> {!! $beritas[$n]->judul !!}</label>
+                                                <p style="background-color: white;">{!! substr($beritas[$n]->narasi,0,180) !!}...</p>
+                                            </div>
+                                            @php $i++ @endphp
+                                            @endif
                                     @endfor
                                     @endif
 
@@ -254,7 +263,7 @@
                         <h2>Mari Berantas Tindakan Kriminal !</h2>
                         <h3>#PantauKriminal</h3>
                         <p>Simak Berita Tindakan Kriminal di Pantau Kriminal</p>
-                        <div style="padding-left: 25%"><a href="" class="text-center btn btn-default">Lihat Semua...</a></div>
+                        <a href="{!! route('beritas.index') !!}" class="text-center btn btn-default">Lihat Semua . . .</a>
                     </div>
                 </div>
 
