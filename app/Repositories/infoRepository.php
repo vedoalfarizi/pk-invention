@@ -20,6 +20,7 @@ class infoRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'id',
         'judul',
         'perkara_id',
         'status_verifikasi',

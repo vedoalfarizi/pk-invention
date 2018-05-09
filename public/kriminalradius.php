@@ -23,8 +23,7 @@ $sql="SELECT id, judul, lat, long,
 - radians(".$longi.")) + sin(radians(".$latit."))
 * sin(radians(lat)))) AS jarak
 FROM infos
-HAVING jarak <= ".$rad." ORDER BY jarak;
-			 ";
+HAVING jarak <= ".$rad." ORDER BY jarak";
 if(!$result = $db->query($sql)){
     die(' query error [' . $db->error . ']');
 }

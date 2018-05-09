@@ -78,3 +78,5 @@ Route::get('/laporan/tindak/{id}', 'profilUserController@showTindak');
 
 Route::get('/cari', 'cariInfoController@index');
 
+Route::get('/kriminalradius', 'infoController@radiusKriminal');
+
