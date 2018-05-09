@@ -77,7 +77,7 @@
         </div>
     </div>
                 @php
-                    $laporanSelesai = \App\Models\laporan::where('status_laporan', '=', 3)->count();
+                    $berita = \App\Models\laporan::count();
                     $laporanMasuk = \App\Models\laporan::get()->count();
                     $infoMasuk = \App\Models\info::get()->count();
                 @endphp
@@ -85,8 +85,8 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="service-block" style="background-color: #dff0d8; margin-left: -50px">
                         <div class="service-content" >
-                            <h1 class="text-center" style="font-size: xx-large">{!! $laporanSelesai !!}</h1>
-                            <div class="small col-lg-12 text-center" style="margin-bottom: -22px">Tindakan Kriminal Yang Terselesaikan</div>
+                            <h1 class="text-center" style="font-size: xx-large">{!! $berita !!}</h1>
+                            <div class="small col-lg-12 text-center" style="margin-bottom: -22px">Berita Tindakan Kriminal</div>
                         </div>
                     </div>
                 </div>
