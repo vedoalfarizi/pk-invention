@@ -96,7 +96,7 @@
         array('iso'=>'ID-KT','name'=>'Kalimantan Tengah', 'code'=>62, 'data'=>$kalteng),
         array('iso'=>'ID-KS','name'=>'Kalimantan Selatan', 'code'=>63, 'data'=>$kalsel),
         array('iso'=>'ID-KI','name'=>'Kalimantan Timur', 'code'=>64, 'data'=>$kaltim),
-        array('iso'=>'ID-KI','name'=>'Kalimantan Utara', 'code'=>65, 'data'=>$kalut),
+        array('iso'=>'ID-KU','name'=>'Kalimantan Utara', 'code'=>65, 'data'=>$kalut),
         array('iso'=>'ID-SW','name'=>'Sulawesi Utara', 'code'=>71, 'data'=>$sulut),
         array('iso'=>'ID-ST','name'=>'Sulawesi Tengah', 'code'=>72, 'data'=>$sulteng),
         array('iso'=>'ID-SE','name'=>'Sulawesi Selatan', 'code'=>73, 'data'=>$sulsel),
@@ -144,7 +144,7 @@
                     }
                 },
                 dataLabels: {
-                    enabled: true,
+                    enabled: false,
                     format: '{point.name}'
                 }
             }]
