@@ -203,10 +203,10 @@
         <div class="container" >
 
             <div class="row" >
-
+                @php $c= count($beritas)@endphp
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" >
 
-                        <div id="myCarousel" class="carousel slide col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-ride="carousel">
+                        <div id="myCarousel" class="carousel slide col-lg-10 col-md-10 col-sm-10 col-xs-12"  data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -217,24 +217,21 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img src="{{asset('/images/pk.png')}}" alt="Los Angeles" style="width:80%; height: 250px;">
-                                    <label style="font-size: medium"> BERITA INI JUDUL BERITA YANG AKAN DITAMPILKAN</label>
-                                    <p style="background-color: white;">MALANG - Buser Satreskrim Polres Malang membekuk Udik Cahyono, warga Desa Blayu, Kecamatan Wajak. Pria 38 tahun itu, ...</p>
+{{--                                    <img src="{{url('storage/'.$beritas->foto_berita)}}" class="img-responsive">--}}
+                                    <img src="{{url('storage/'.$beritas[$c-1]->foto_berita)}}" class="img-responsive">
+                                    <label style="font-size: medium"> {!! $beritas[$c-1]->judul !!}</label>
+                                    <p style="background-color: white;">{!! substr($beritas[$c-1]->narasi,0,180) !!}...</p>
                                 </div>
+                                @if($c>1)
+                                    @for($n=$c-2;$n>=0;$n--)
+                                    <div class="item" >
+                                        <img src="{{url('storage/'.$beritas[$n]->foto_berita)}}" class="img-responsive">
+                                        <label style="font-size: medium"> {!! $beritas[$n]->judul !!}</label>
+                                        <p style="background-color: white;">{!! substr($beritas[$n]->narasi,0,180) !!}...</p>
+                                    </div>
+                                    @endfor
+                                    @endif
 
-                                <div class="item">
-                                    <img src="{{asset('/images/pk.png')}}" alt="Los Angeles" style="width:80%; height: 250px;">
-                                    <label style="font-size: medium"> BERITA INI JUDUL BERITA YANG AKAN DITAMPILKAN</label>
-                                    <p style="background-color: white;">MALANG - Buser Satreskrim Polres Malang membekuk Udik Cahyono, warga Desa Blayu, Kecamatan Wajak. Pria 38 tahun itu, ...</p>
-
-                                </div>
-
-                                <div class="item">
-                                    <img src="{{asset('/images/pk.png')}}" alt="Los Angeles" style="width:80%; height: 250px;">
-                                    <label style="font-size: medium"> BERITA INI JUDUL BERITA YANG AKAN DITAMPILKAN</label>
-                                    <p style="background-color: white;">MALANG - Buser Satreskrim Polres Malang membekuk Udik Cahyono, warga Desa Blayu, Kecamatan Wajak. Pria 38 tahun itu, ...</p>
-
-                                </div>
                             </div>
 
                             <!-- Left and right controls -->

@@ -4,12 +4,15 @@
         <h4>Nomor : {{$laporan->no_surat}}</h4>
     </div>
     <div class="col-md-6">
-        <a class="btn btn-primary pull-right" style="margin-right: 20px;margin-bottom: 5px" data-toggle='modal' data-target='#add'>Add New</a>
+        <a class="btn btn-primary pull-right" style="margin-right: 20px;margin-bottom: 5px" data-toggle='modal' data-target='#add'>+ perkembangan</a>
         <a class="btn btn-primary pull-right" style="margin-right: 20px;margin-bottom: 5px" data-toggle='modal' data-target='#detail'>Detail Laporan</a>
+        <a class="btn btn-primary pull-right" style="margin-right: 20px;margin-bottom: 5px" data-toggle='modal' data-target='#berita'>+ Berita</a>
     </div>
 
     <hr width="100%">
 </div>
+
+@include('adminlte-templates::common.errors')
 @include('flash::message')
 <table class="table table-responsive" id="laporans-table">
 
@@ -147,6 +150,58 @@
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                 {!! Form::close() !!}
                 <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{--<------------------------ MODAL --------------------}}
+
+
+{{--<------------------------ MODAL _ BERITA------------------->--}}
+
+<div class="modal fade " tabindex="-1" role="dialog" id="berita">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="alert alert-danger" style="display:none"></div>
+            <div class="modal-header">
+
+                <h5 class="modal-title">Tambahkan Berita terkait Laporan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {!! Form::open(['route' => 'beritas.store', 'files' => true ]) !!}
+                {!! Form::hidden('provinsi', null, ['class' => 'form-control', 'placeholder' => 'provinsi', 'id' => 'provinsi', 'readonly']) !!}
+                {!! Form::hidden('laporan_id', $laporan->id, ['class' => 'form-control']) !!}
+                {!! Form::hidden('lat', $laporan->lat, ['class' => 'form-control']) !!}
+                {!! Form::hidden('long', $laporan->long, ['class' => 'form-control']) !!}
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="row"><br></div>
+                        <div class="form-group col-md-12">
+                            <label>Judul</label>
+                            {!! Form::text('judul', null, ['class' => 'form-control', 'placeholder' => 'Judul Info & Tips']) !!}
+                        </div>
+
+
+
+                        <div class="form-group col-md-12">
+                            {!! Form::file('foto_berita', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" style="padding: 5%">
+                        {!! Form::textarea('narasi', null, ['class' => 'form-control', 'placeholder' => 'Ceritakan kronologi kejadian, bagikan juga tips untuk mencegah kejadian terulang']) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

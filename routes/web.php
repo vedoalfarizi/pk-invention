@@ -13,7 +13,8 @@
 
 Route::get('/', function () {
     $infos = \App\Models\info::all();
-    return view('welcome',compact('infos'));
+    $beritas = \App\Models\beritas::all();
+    return view('welcome',compact('infos','beritas'));
 });
 
 Route::get('/lapor' ,function () {
@@ -78,3 +79,7 @@ Route::get('/laporan/tindak/{id}', 'profilUserController@showTindak');
 
 Route::get('/cari', 'cariInfoController@index');
 
+Route::resource('beritas', 'beritasController');
+
+//berita
+Route::post('/addBerita', 'beritasController@store');
