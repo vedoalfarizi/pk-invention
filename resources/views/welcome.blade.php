@@ -204,30 +204,34 @@
 
             <div class="row" >
                 @php $c= count($beritas)@endphp
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" >
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"  >
 
-                        <div id="myCarousel" class="carousel slide col-lg-10 col-md-10 col-sm-10 col-xs-12"  data-ride="carousel">
+                        <div id="myCarousel" class="carousel slide col-lg-10 col-md-10 col-sm-10 col-xs-12" data-ride="carousel">
                             <!-- Indicators -->
-                            <ol class="carousel-indicators">
+                            <ol class="carousel-indicators" >
                                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                             </ol>
 
                             <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" style="border-radius: 20px;">
+                                @if($c==0)
+                                    @else
                                 <div class="item active">
 {{--                                    <img src="{{url('storage/'.$beritas->foto_berita)}}" class="img-responsive">--}}
                                     <img src="{{url('storage/'.$beritas[$c-1]->foto_berita)}}" class="img-responsive">
                                     <label style="font-size: medium"> {!! $beritas[$c-1]->judul !!}</label>
                                     <p style="background-color: white;">{!! substr($beritas[$c-1]->narasi,0,180) !!}...</p>
                                 </div>
+                                @endif
                                 @if($c>1)
-                                    @for($n=$c-2;$n>=0;$n--)
+                                    @for($n=0;$n>3;$n++)
                                     <div class="item" >
-                                        <img src="{{url('storage/'.$beritas[$n]->foto_berita)}}" class="img-responsive">
-                                        <label style="font-size: medium"> {!! $beritas[$n]->judul !!}</label>
-                                        <p style="background-color: white;">{!! substr($beritas[$n]->narasi,0,180) !!}...</p>
+                                        <img src="{{url('storage/'.$beritas[$c-2]->foto_berita)}}" class="img-responsive">
+                                        <label style="font-size: medium"> {!! $beritas[$c-2]->judul !!}</label>
+                                        <p style="background-color: white;">{!! substr($beritas[$c-2]->narasi,0,180) !!}...</p>
+                                        @php $c--@endphp
                                     </div>
                                     @endfor
                                     @endif
@@ -235,11 +239,11 @@
                             </div>
 
                             <!-- Left and right controls -->
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="border-radius: 20px;">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next" style="border-radius: 20px;">
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                                 <span class="sr-only">Next</span>
                             </a>
