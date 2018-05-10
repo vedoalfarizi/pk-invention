@@ -316,7 +316,8 @@
     }
     $n=0;
     while($perkara = $result->fetch_object()){
-        $p[$n]=$perkara->nama;
+        $temp="'".$perkara->nama."'";
+        $p[$n]=$temp;
         $pid[$n]=$perkara->id;
         $n++;
     }
@@ -347,7 +348,7 @@
             },
 
             xAxis: {
-                categories: ['<?= join($p, ',') ?>'],
+                categories: [<?= join($p, ',') ?>],
                 title: {
                     text: null
                 }
