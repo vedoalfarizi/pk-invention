@@ -105,7 +105,7 @@
                                                 <a class="btn btn-primary" role="button" data-toggle="collapse" onclick="aktifkanGeolocation()" title="Posisi sekarang"   ><i class="fa fa-map-marker" style="color:black;"></i></a>
                                                 <a class="btn btn-info" role="button" data-toggle="collapse" onclick="manualLocation()" title="Posisi manual"><i class="fa fa-location-arrow" style="color:white;"></i></a>
                                                 {!! Form::hidden('lat', null, ['class' => 'form-control', 'id' => 'lat']) !!}
-                                                {!! Form::hidden('long', null, ['class' => 'form-control', 'id' => 'long']) !!}
+                                                {!! Form::hidden('lng', null, ['class' => 'form-control', 'id' => 'long']) !!}
                                                 <div class="alert alert-warning alert-dismissible">
                                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                                     Jangan lupa set lokasi Anda!
@@ -152,7 +152,7 @@
                                     <p>{!! substr($info->narasi, 0, 50) !!} ...</p>
                                 </div>
                                 <script>
-                                    a={{$info->long}};
+                                    a={{$info->lng}};
                                     b={{$info->lat}};
                                     var latlng = new google.maps.LatLng(b, a);
                                     // cari lokasi dari latitude dan longitude

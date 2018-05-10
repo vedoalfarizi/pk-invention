@@ -36,7 +36,7 @@ class info extends Model
         'file_foto',
         'narasi',
         'lat',
-        'long',
+        'lng',
         'provinsi',
         'user_id'
     ];
@@ -53,7 +53,7 @@ class info extends Model
         'file_foto' => 'file',
         'narasi' => 'string',
         'lat' => 'string',
-        'long' => 'string',
+        'lng' => 'string',
         'user_id' => 'integer'
     ];
 
@@ -66,7 +66,7 @@ class info extends Model
         'judul' => 'required',
         'perkara_id' => 'required',
         'lat' => 'required',
-        'long' => 'required'
+        'lng' => 'required'
     ];
 
     /**
