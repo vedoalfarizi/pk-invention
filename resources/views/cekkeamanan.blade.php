@@ -191,7 +191,7 @@
             die(' query error [' . $db->error . ']');
             }
             while($infos = $result->fetch_object()){
-            echo "['".$infos->judul."', ".$infos->lat.", ".$infos->long.", ".$infos->id."],";
+            echo "['".$infos->judul."', ".$infos->lat.", ".$infos->lng.", ".$infos->id."],";
             }
             ?>
             ];
@@ -653,7 +653,8 @@
         }
 
         function kriminalradius(){
-
+            $('#result').empty();
+            $('#result').append('<font color="white" style="background-color: green">List Kegiatan Kriminal</font>');
             $('#hasilcari1').show();
             $('#hasilcari').empty();
             console.log(pos.lat);
@@ -665,6 +666,7 @@
                 url: '../kriminalradius.php?lat='+pos.lat+'&lng='+pos.lng+'&rad='+rad, data: "", dataType: 'json', success: function(rows)
                 {
                     console.log("hy");
+                    $('.kriminalsekitar').remove();
                     for (var i in rows)
                     {
                         var row     = rows[i];
@@ -674,12 +676,13 @@
                         var longitude = row.longitude ;
                         console.log(latitude);
                         console.log(longitude);
+                        console.log("rad="+rad)
                         markersDua.push(marker);
                         map.setCenter(centerBaru);
                         klikInfoWindow(id);
                         map.setZoom(14);
                         console.log(nama);
-                        $('#result').append("oke");
+                        $('#result').append('<div class="kriminalsekitar"><a href="../infos/'+id+'" target="_blank">'+nama+'</a></div>');
                     }
                 }
             });
