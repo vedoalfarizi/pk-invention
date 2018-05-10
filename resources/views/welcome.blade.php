@@ -416,22 +416,22 @@
                     <img src="{{asset('/images/pk.png')}}" style="width: 80%">
                 </div>
                 <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <br><br>
+
                      <ul class="text-18 ulist-bullet ulist-bullet--blue">
                             <li>
-                                .<strong>Cepat,</strong> buat halaman campaign dalam 5 menit
+                                .<strong>Berbuat baik,</strong> <br>Dengan berbagi informasi, dapat mencegah tindakan kriminal yang berulang
                             </li>
                          <br>
                             <li>
-                                .<strong>Transparan,</strong> donasi tercatat real-time dan bisa dilihat siapa saja
+                                .<strong>Transparan,</strong>  <br>Tindakan kriminal yang terjadi tercatat real-time dan bisa dilihat siapa saja
                             </li>
                          <br>
                             <li>
-                                .<strong>Mudah,</strong> terima donasi via transfer bank dan kartu kredit
+                                .<strong>Mudah,</strong>  <br>Satu klik untuk berbagi informasi dan lapor tindakan kriminal
                             </li>
                          <br>
                             <li>
-                                .<strong>Fleksibel,</strong> cairkan donasi kapan saja
+                                .<strong>Fleksibel,</strong>  <br>Akses informasi dan lapor kriminal via online, kapan saja dan dimana saja
                             </li>
                         </ul>
                  </div>

@@ -26,14 +26,19 @@
     <div class="space-medium">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-right">
                     @if(Auth::check())
                         <button type="button" class="btn btn-default btn-xs mb30 pull-right" data-toggle="modal" data-target="#myModal" id="open">Berbagi Informasi</button>
                     @else
                         <a type="button" class="btn btn-primary btn-xs mb30 pull-right" href="{!! url('/login') !!}">Buat Informasi</a>
                     @endif
                 </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                   <strong style="font-size: xx-large"> Mari Berbagi </strong><br> Bagikan informasi tindakan kriminal yang terjadi di lingkungan anda !
+                <br><br>
+                </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pull-left">
                     {!! Form::open(['route' => 'infos.filter']) !!}
