@@ -127,7 +127,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{!! url('/') !!}">
-                    InfyOm Generator
+                    Pantau Kriminal
                 </a>
             </div>
 

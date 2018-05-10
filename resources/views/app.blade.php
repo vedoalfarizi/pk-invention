@@ -78,7 +78,7 @@
 
                                 <li class="active"><a href="{!! url('/') !!}" title="Home">Beranda</a></li>
                                 {{--<li><a href="about.html" title="About us">Informasi</a> </li>--}}
-                                <li class="has-sub"><a href="{!!route('infos.index') !!}" title="Tours">Info & Tips</a>
+                                <li class="has-sub"><a href="{!!route('infos.index') !!}" title="Tours">Informasi</a>
                                     <ul>
                                         @foreach($menus as $menu)
                                         <li><a href="{!! url('infos/cat/'.$menu->id) !!}">{!! $menu->nama !!}</a></li>
