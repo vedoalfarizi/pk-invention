@@ -46,7 +46,7 @@ class perkembanganLapController extends AppBaseController
             }
             $n++;
         }
-        dd($tindaks);
+//        dd($tindaks);
         return view('admin.perkembangan_laps.index', compact('perkembanganLaps','tindaks'));
     }
 

@@ -1,3 +1,5 @@
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=de0yosu81oosgpzndnopzqfazp450uhcr1yn5n0uuykxd1mk"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
 <div class="row">
     <div class="col-md-6">
         <h3>Laporan ID  {{$laporan->id}}</h3>
