@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatelaporanRequest;
 use App\Http\Requests\UpdatelaporanRequest;
+use App\Mail\LaporanUpdate;
 use App\Models\laporan;
 use App\Repositories\laporanRepository;
 use App\Http\Controllers\AppBaseController;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\Mail;
 
 class laporanController extends AppBaseController
 {
@@ -126,6 +128,12 @@ class laporanController extends AppBaseController
         }
 
         $laporan = $this->laporanRepository->update($request->all(), $id);
+
+        $lap = laporan::where('laporans.id', $id)
+            ->join('users', 'laporans.user_id', '=', 'users.id')
+            ->first();
+
+        Mail::to($lap->email)->send(new LaporanUpdate($lap));
 
         Flash::success('Laporan updated successfully.');
 
