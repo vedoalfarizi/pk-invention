@@ -74,46 +74,47 @@
     @php
         $infos = \App\Models\info::all(['lat', 'long']);
 
-        $aceh = \App\Models\info::where('provinsi', 'Aceh')->count();
-        $sumut = \App\Models\info::where('provinsi', 'Sumatera Utara')->count();
-        $riau = \App\Models\info::where('provinsi', 'Riau')->count();
-        $kepri = \App\Models\info::where('provinsi', 'Kepulauan Riau')->count();
-        $sumbar = \App\Models\info::where('provinsi', 'Sumatera Barat')->count();
-        $bengkulu = \App\Models\info::where('provinsi', 'Bengkulu')->count();
-        $jambi = \App\Models\info::where('provinsi', 'Jambi')->count();
-        $babel = \App\Models\info::where('provinsi', 'Bangka Belitung')->count();
-        $sumsel = \App\Models\info::where('provinsi', 'Sumatera Selatan')->count();
-        $lampung = \App\Models\info::where('provinsi', 'Lampung')->count();
+        $aceh = \App\Models\info::where('provinsi', 'like', '%Aceh%')->count();
+        $sumut = \App\Models\info::where('provinsi','like', '%Sumatera Utara%')->count();
+        $riau = \App\Models\info::where('provinsi', 'like', '%Riau%')->count();
+        $kepri = \App\Models\info::where('provinsi', 'like', '%Kepulauan Riau%')->count();
+        $sumbar = \App\Models\info::where('provinsi', 'like', 'Sumatera Barat%')->count();
+        $bengkulu = \App\Models\info::where('provinsi','like', 'Bengkulu%')->count();
+        $jambi = \App\Models\info::where('provinsi','like', 'Jambi%')->count();
+        $babel = \App\Models\info::where('provinsi','like', 'Bangka Belitung%')->count();
+        $sumsel = \App\Models\info::where('provinsi','like', 'Sumatera Selatan%')->count();
+        $lampung = \App\Models\info::where('provinsi','like', 'Lampung%')->count();
 
-        $banten = \App\Models\info::where('provinsi', 'Banten')->count();
-        $jakarta = \App\Models\info::where('provinsi', 'Daerah Khusus Ibukota Jakarta')->count();
-        $jabar = \App\Models\info::where('provinsi', 'Jawa Barat')->count();
-        $jateng = \App\Models\info::where('provinsi', 'Jawa Tengah')->count();
-        $jatim = \App\Models\info::where('provinsi', 'Jawa Timur')->count();
-        $yogya = \App\Models\info::where('provinsi', 'Daerah Istimewa Yogyakarta')->count();
+        $banten = \App\Models\info::where('provinsi','like', 'Banten%')->count();
+        $jakarta = \App\Models\info::where('provinsi','like', 'Daerah Khusus Ibukota Jakarta%')->count();
+        $jabar = \App\Models\info::where('provinsi','like', 'Jawa Barat%')->count();
+        $jateng = \App\Models\info::where('provinsi','like', 'Jawa Tengah%')->count();
+        $jatim = \App\Models\info::where('provinsi','like', 'Jawa Timur%')->count();
+        $yogya = \App\Models\info::where('provinsi','like', 'Daerah Istimewa Yogyakarta%')->count();
 
-        $kalbar = \App\Models\info::where('provinsi', 'Kalimantan Barat')->count();
-        $kalteng = \App\Models\info::where('provinsi', 'Kalimantan Tengah')->count();
-        $kalsel = \App\Models\info::where('provinsi', 'Kalimantan Selatan')->count();
-        $kaltim = \App\Models\info::where('provinsi', 'Kalimantan Timur')->count();
-        $kalut = \App\Models\info::where('provinsi', 'Kalimantan Utara')->count();
+        $kalbar = \App\Models\info::where('provinsi','like', 'Kalimantan Barat%')->count();
+        $kalteng = \App\Models\info::where('provinsi','like', 'Kalimantan Tengah%')->count();
+        $kalsel = \App\Models\info::where('provinsi','like', 'Kalimantan Selatan%')->count();
+        $kaltim = \App\Models\info::where('provinsi','like', 'Kalimantan Timur%')->count();
+        $kalut = \App\Models\info::where('provinsi','like', 'Kalimantan Utara%')->count();
 
-        $sulbar = \App\Models\info::where('provinsi', 'Sulawesi Barat')->count();
-        $sulsel = \App\Models\info::where('provinsi', 'Sulawesi Selatan')->count();
-        $sulteng = \App\Models\info::where('provinsi', 'Sulawesi Tengah')->count();
-        $sultra = \App\Models\info::where('provinsi', 'Sulawesi Tenggara')->count();
-        $sulut = \App\Models\info::where('provinsi', 'Sulawesi Utara')->count();
-        $gorontalo = \App\Models\info::where('provinsi', 'Gorontalo')->count();
+        $sulbar = \App\Models\info::where('provinsi','like', 'Sulawesi Barat%')->count();
+        $sulsel = \App\Models\info::where('provinsi','like', 'Sulawesi Selatan%')->count();
+        $sulbar = \App\Models\info::where('provinsi','like', 'Sulawesi Barat%')->count();
+        $sulteng = \App\Models\info::where('provinsi','like', 'Sulawesi Tengah%')->count();
+        $sultra = \App\Models\info::where('provinsi','like', 'Sulawesi Tenggara%')->count();
+        $sulut = \App\Models\info::where('provinsi','like', 'Sulawesi Utara%')->count();
+        $gorontalo = \App\Models\info::where('provinsi','like', 'Gorontalo%')->count();
 
-        $bali = \App\Models\info::where('provinsi', 'Bali')->count();
-        $ntb = \App\Models\info::where('provinsi', 'Nusa Tenggara Barat')->count();
-        $ntt = \App\Models\info::where('provinsi', 'Nusa Tenggara Timur')->count();
+        $bali = \App\Models\info::where('provinsi','like', 'Bali%')->count();
+        $ntb = \App\Models\info::where('provinsi','like', 'Nusa Tenggara Barat%')->count();
+        $ntt = \App\Models\info::where('provinsi','like', 'Nusa Tenggara Timur%')->count();
 
-        $maluku = \App\Models\info::where('provinsi', 'Maluku')->count();
-        $malut = \App\Models\info::where('provinsi', 'Maluku Utara')->count();
+        $maluku = \App\Models\info::where('provinsi','like', 'Maluku%')->count();
+        $malut = \App\Models\info::where('provinsi','like', 'Maluku Utara%')->count();
 
-        $papua = \App\Models\info::where('provinsi', 'Papua')->count();
-        $pabar = \App\Models\info::where('provinsi', 'Papua Barat')->count();
+        $papua = \App\Models\info::where('provinsi','like', 'Papua%')->count();
+        $pabar = \App\Models\info::where('provinsi','like', 'Papua Barat%')->count();
 
     @endphp
 
