@@ -1,3 +1,6 @@
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=de0yosu81oosgpzndnopzqfazp450uhcr1yn5n0uuykxd1mk"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+
 <div class="row">
     {{--<a href="{!! url('/lapor') !!}" title="Lapor" class="btn btn-warning pull-right"><font color="white">Tambah Peinfo</font></a>--}}
 
@@ -97,10 +100,10 @@
             <div class="service-content">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1><a href="#" class="title">{{$info->judul}}</a></h1>
+                        <h1><a href="#" class="title">{!! $info->judul !!}</a></h1>
                     </div>
                     <div class="col-lg-12">
-                        <p>{{substr($info->narasi,0,200)}} ...</p>
+                        <p>{!! substr($info->narasi,0,200) !!} ...</p>
                     </div>
 
                 </div>

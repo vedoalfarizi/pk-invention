@@ -83,3 +83,5 @@ Route::resource('beritas', 'beritasController');
 
 //berita
 Route::post('/addBerita', 'beritasController@store');
+Route::get('/kriminalradius', 'infoController@radiusKriminal');
+

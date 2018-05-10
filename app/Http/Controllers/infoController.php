@@ -10,8 +10,10 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\Input;
 
 class infoController extends AppBaseController
 {
@@ -213,4 +215,33 @@ class infoController extends AppBaseController
 
 
     }
+
+    public function radiusKriminal()
+    {
+        $lat = Input::get('lat');
+        $lng = Input::get('lng');
+        $rad = Input::get('rad');
+
+//        $infos = DB::table('infos')->select('id','judul', 'lat', 'long')
+//            ->select(DB::raw('6371 * acos(cos(radians(?))
+//                        * cos(radians(lat)) * cos(radians(long)
+//                        - radians(?)) + sin(radians(?))
+//                        * sin(radians(lat)))) AS jarak' , [$lat, $lng, $lat]))
+//            ->havingRaw('jarak <= ?', [$rad])
+//            ->orderBy('jarak')
+//            ->get();
+
+        $infos = DB::select('SELECT id, judul, lat, long,
+                    (6371 * acos(cos(radians('.$lat.'))
+                    * cos(radians(lat)) * cos(radians(long)
+                    - radians('.$lng.')) + sin(radians('.$lat.'))
+                    * sin(radians(lat)))) AS jarak
+                    FROM infos
+                    HAVING jarak <= '.$rad.' ORDER BY jarak');
+
+        dd($infos);
+
+        return response()->json($infos);
+    }
+
 }
