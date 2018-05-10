@@ -22,7 +22,6 @@ class infoController extends AppBaseController
 
     public function __construct(infoRepository $infoRepo)
     {
-        $this->middleware('auth');
         $this->infoRepository = $infoRepo;
     }
 
