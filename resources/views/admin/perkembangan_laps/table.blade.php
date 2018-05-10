@@ -8,6 +8,7 @@
         </tr>
     </thead>
     <tbody>
+
     @foreach($tindaks as $perkembanganLap)
         <tr>
 {{--            {{dd($perkembanganLap)}}--}}

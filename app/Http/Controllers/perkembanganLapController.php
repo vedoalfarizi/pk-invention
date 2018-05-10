@@ -46,6 +46,7 @@ class perkembanganLapController extends AppBaseController
             }
             $n++;
         }
+        dd($tindaks);
         return view('admin.perkembangan_laps.index', compact('perkembanganLaps','tindaks'));
     }
 
@@ -82,7 +83,8 @@ class perkembanganLapController extends AppBaseController
 
         Flash::success('Perkembangan Lap saved successfully.');
         $perkembanganLap = perkembanganLap::where('laporan_id',$input['laporan_id'] )->first();
-        return redirect(action('perkembanganLapController@show',$perkembanganLap->id));
+//        dd($perkembanganLap);
+        return redirect(action('perkembanganLapController@show',$perkembanganLap->laporan_id));
     }
 
     /**

@@ -82,12 +82,26 @@ class progresLaporanController extends Controller
         return view('admin.pelaporans.index', compact('laporans_terima','laporans_tolak'));
     }
 
-    public function tindak($id){
-       perkembanganLap::create ([
-           'laporan_id'=> $id
-       ]);
-        $perkembanganLaps = perkembanganLap::all();
-         return view('admin.perkembangan_laps.index', compact('perkembanganLaps'));
+    public function tindak($id, request $request){
+
+        $input = $request->all();
+        dd($input);
+        $perkembanganLap=perkembanganLap::where('laporan_id',$id)->get();
+        $jum =count($perkembanganLap)+1;
+        if($request->file){
+            $fileName = $request->file->getClientOriginalName();
+            $input['file']='file_perkembangan/'.$input['laporan_id'].'/'. $input['laporan_id'].'_'.$jum;
+            $request->file->storeAs('/public/file_perkembangan/'.$input['laporan_id'], $input['laporan_id'].'_'.$jum);
+
+        }
+
+        $perkembanganLap = $this->perkembanganLapRepository->create($input);
+
+        Flash::success('Perkembangan Lap saved successfully.');
+        $perkembanganLap = perkembanganLap::where('laporan_id',$input['laporan_id'] )->first();
+        return redirect(action('perkembanganLapController@show',$perkembanganLap->id));
+//        $perkembanganLaps = perkembanganLap::all();
+//         return view('admin.perkembangan_laps.index', compact('perkembanganLaps'));
     }
 
     public function tindakDokumen($id){

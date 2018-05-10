@@ -131,7 +131,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <a type="button" class="btn btn-warning btn-fill" href="{{url('/pelaporans/tindakLanjut/'.$laporan->id)}}"><i class="glyphicon glyphicon-arrow-right"></i> Tindak Lanjut</a>
+                        <a type="button" class="btn btn-warning btn-fill" data-toggle='modal' data-target='#add'><i class="glyphicon glyphicon-arrow-right"></i> Tindak Lanjut</a>
                         <a type="button" class="btn btn-primary btn-fill" target="_blank" href="{{url('/pelaporans/cetak/'.$laporan->id)}}"><i class="glyphicon glyphicon-print"></i> Cetak</a>
                         <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>
                     </div>
@@ -140,6 +140,45 @@
         </div>
         {{--<------------------------ MODAL --------------------}}
 
+
+                {{--<------------------------ MODAL _ ADD------------------->--}}
+                <div class="modal fade" id="add" data-backdrop="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <div class="col-md-8">
+                                    Tambah Perkembangan Laporan
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                {!! Form::open(['route' => 'perkembanganLaps.store', 'enctype' => 'multipart/form-data' ]) !!}
+                                {!! Form::hidden('laporan_id', $laporan->id,['class' => 'form-control']) !!}
+                                {{--                {!! Form::hidden('laporan_id', 0 ,['class' => 'form-control']) !!}--}}
+                                <!-- Keterangan -->
+                                    <div class="form-group col-sm-12">
+                                        {!! Form::label('keterangan', 'Keterangan :') !!}
+                                        {!! Form::textarea('keterangan', null,['class' => 'form-control', 'required' => 'yes']) !!}
+                                    </div>
+
+                                    <!-- Keterangan -->
+                                    <div class="form-group col-sm-12">
+                                        {!! Form::label('file', 'Dokumen Pendukung :') !!}
+                                        {!! Form::file('file', null, ['class' => 'form-control']) !!}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                                {!! Form::close() !!}
+                                <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{--<------------------------ MODAL --------------------}}
 
             </td>
         </tr>
