@@ -212,7 +212,8 @@
         <div class="container" >
 
             <div class="row" >
-                @php $c= count($beritas)@endphp
+                @php  $beritas = \App\Models\beritas::all();
+                 $c= count($beritas);@endphp
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"  >
 
                         <div id="myCarousel" class="carousel slide col-lg-10 col-md-10 col-sm-10 col-xs-12" data-ride="carousel">
