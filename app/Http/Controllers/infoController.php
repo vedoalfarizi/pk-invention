@@ -222,22 +222,13 @@ class infoController extends AppBaseController
         $lng = Input::get('lng');
         $rad = Input::get('rad');
 
-//        $infos = DB::table('infos')->select('id','judul', 'lat', 'long')
-//            ->select(DB::raw('6371 * acos(cos(radians(?))
-//                        * cos(radians(lat)) * cos(radians(long)
-//                        - radians(?)) + sin(radians(?))
-//                        * sin(radians(lat)))) AS jarak' , [$lat, $lng, $lat]))
-//            ->havingRaw('jarak <= ?', [$rad])
-//            ->orderBy('jarak')
-//            ->get();
-
-        $infos = DB::select('SELECT id, judul, lat, long,
-                    (6371 * acos(cos(radians('.$lat.'))
-                    * cos(radians(lat)) * cos(radians(long)
-                    - radians('.$lng.')) + sin(radians('.$lat.'))
-                    * sin(radians(lat)))) AS jarak
-                    FROM infos
-                    HAVING jarak <= '.$rad.' ORDER BY jarak');
+        $infos = DB::table('infos')->select('id','judul', 'lat', 'lng')
+            ->select(DB::raw('6371 * acos(cos(radians(?))
+                        * cos(radians(lat)) * cos(radians(lng)
+                        - radians(?)) + sin(radians(?))
+                        * sin(radians(lat)))) AS jarak' , [$lat, $lng, $lat]))
+            ->orderBy('jarak')
+            ->get();
 
         dd($infos);
 
