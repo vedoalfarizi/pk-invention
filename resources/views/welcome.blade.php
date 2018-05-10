@@ -5,8 +5,17 @@
     <!-- amCharts javascript sources -->
 
     {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMgTgELYtNprJdgSrct8TXOoBePeBEwx4"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        // memanggil library Geocoder
+        var geocoder = new google.maps.Geocoder();
+        var map;
+        // memanggil library Infowindow untuk memunculkan infowindow pada marker
+        var infowindow = new google.maps.InfoWindow();
+        var marker;
+    </script>
 
     @php
         $infos = \App\Models\info::all(['lat', 'lng']);
@@ -289,8 +298,10 @@
             <div class="row">
                 @php
                     $infos = \App\Models\info::orderBy('created_at', 'desc')->limit(3)->get();
+                $h=0;
                 @endphp
                 @foreach($infos as $info)
+                    @php $h++; @endphp
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="service-block" style="height: 500px">
                             <div class="service-img">
@@ -298,11 +309,30 @@
                             </div>
                             <div class="service-content">
                                 <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
-                                <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span class="tour-meta-text">{!! $info->lat !!}|{!! $info->lng !!}</span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
+                                <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span id="lokasi-{{$h}}" class="tour-meta-text"></span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
                                 <div class="tour-details-btn" > <span><a href="{!! route('infos.show' , [$info->id]) !!}" class="btn btn-primary" style="position:absolute; bottom: 50px;right: 50px;">Baca Selengkapnya</a></span> </div>
                             </div>
                         </div>
                     </div>
+                    <script>
+                        a={{$info->lng}};
+                        b={{$info->lat}};
+                        var latlng = new google.maps.LatLng(b, a);
+                        // cari lokasi dari latitude dan longitude
+                        geocoder.geocode({'location': latlng}, function(results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                // jika berhasil, map akan secara automatis berpindah ke koordinat tersebut
+                                if (results[1]) {
+                                    simpan=results[1].formatted_address;
+                                    $('#lokasi-'+{{$h}}).after(simpan);
+                                } else {
+                                    window.alert('No results found');
+                                }
+                            } else {
+                                //window.alert('Geocoder failed due to: ' + status);
+                            }
+                        });
+                    </script>
                 @endforeach
             </div>
             <div class="row pull-right">
@@ -326,7 +356,8 @@
     }
     $n=0;
     while($perkara = $result->fetch_object()){
-        $p[$n]=$perkara->nama;
+        $temp="'".$perkara->nama."'";
+        $p[$n]=$temp;
         $pid[$n]=$perkara->id;
         $n++;
     }
@@ -357,7 +388,7 @@
             },
 
             xAxis: {
-                categories: ['<?= join($p, ',') ?>'],
+                categories: [<?= join($p, ',') ?>],
                 title: {
                     text: null
                 }

@@ -48,9 +48,9 @@
 
 
 
-    <li class="{{ Request::is('feedbackInfos*') ? 'active' : '' }}">
-        <a href="{!! route('feedbackInfos.index') !!}"><i class="fa fa-edit"></i><span>Feedback Infos</span></a>
-    </li>
+    {{--<li class="{{ Request::is('feedbackInfos*') ? 'active' : '' }}">--}}
+        {{--<a href="{!! route('feedbackInfos.index') !!}"><i class="fa fa-edit"></i><span>Feedback Infos</span></a>--}}
+    {{--</li>--}}
 
     {{--<li class="{{ Request::is('komentarInfos*') ? 'active' : '' }}">--}}
         {{--<a href="{!! route('komentarInfos.index') !!}"><i class="fa fa-edit"></i><span>Komentar</span></a>--}}
