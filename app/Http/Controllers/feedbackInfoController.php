@@ -18,6 +18,7 @@ class feedbackInfoController extends AppBaseController
 
     public function __construct(feedbackInfoRepository $feedbackInfoRepo)
     {
+        $this->middleware('auth');
         $this->feedbackInfoRepository = $feedbackInfoRepo;
     }
 

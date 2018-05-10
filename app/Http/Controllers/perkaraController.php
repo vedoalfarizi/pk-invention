@@ -18,6 +18,7 @@ class perkaraController extends AppBaseController
 
     public function __construct(perkaraRepository $perkaraRepo)
     {
+        $this->middleware('auth');
         $this->perkaraRepository = $perkaraRepo;
     }
 

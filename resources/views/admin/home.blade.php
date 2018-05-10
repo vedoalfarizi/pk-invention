@@ -40,7 +40,7 @@
     <?php
     $n=0;
     while($kriminal = $result->fetch_object()){
-        $lokasi=$kriminal->lat.",".$kriminal->lng;
+        $lokasi=$kriminal->lat.",".$kriminal->long;
         echo "
         <script>
             // ambil value dari combobox

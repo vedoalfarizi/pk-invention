@@ -19,6 +19,7 @@ class profileController extends AppBaseController
 
     public function __construct(profileRepository $profileRepo)
     {
+        $this->middleware('auth');
         $this->profileRepository = $profileRepo;
     }
 

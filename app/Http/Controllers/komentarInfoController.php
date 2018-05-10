@@ -18,6 +18,7 @@ class komentarInfoController extends AppBaseController
 
     public function __construct(komentarInfoRepository $komentarInfoRepo)
     {
+        $this->middleware('auth');
         $this->komentarInfoRepository = $komentarInfoRepo;
     }
 

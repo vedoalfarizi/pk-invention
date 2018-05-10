@@ -21,6 +21,7 @@ class perkembanganLapController extends AppBaseController
 
     public function __construct(perkembanganLapRepository $perkembanganLapRepo)
     {
+        $this->middleware('auth');
         $this->perkembanganLapRepository = $perkembanganLapRepo;
     }
 

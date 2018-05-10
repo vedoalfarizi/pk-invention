@@ -21,6 +21,7 @@ class laporanController extends AppBaseController
 
     public function __construct(laporanRepository $laporanRepo)
     {
+        $this->middleware('auth');
         $this->laporanRepository = $laporanRepo;
     }
 

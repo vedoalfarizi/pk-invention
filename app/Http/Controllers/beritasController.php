@@ -19,6 +19,7 @@ class beritasController extends AppBaseController
 
     public function __construct(beritasRepository $beritasRepo)
     {
+        $this->middleware('auth');
         $this->beritasRepository = $beritasRepo;
     }
 
