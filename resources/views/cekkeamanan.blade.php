@@ -191,7 +191,7 @@
             die(' query error [' . $db->error . ']');
             }
             while($infos = $result->fetch_object()){
-            echo "['".$infos->judul."', ".$infos->lat.", ".$infos->long.", ".$infos->id."],";
+            echo "['".$infos->judul."', ".$infos->lat.", ".$infos->lng.", ".$infos->id."],";
             }
             ?>
             ];

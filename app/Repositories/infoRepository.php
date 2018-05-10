@@ -26,7 +26,7 @@ class infoRepository extends BaseRepository
         'file_foto',
         'narasi',
         'lat',
-        'long'
+        'lng'
     ];
 
     /**
