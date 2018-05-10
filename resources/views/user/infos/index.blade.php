@@ -4,7 +4,7 @@
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=de0yosu81oosgpzndnopzqfazp450uhcr1yn5n0uuykxd1mk"></script>
     <script>tinymce.init({ selector:'textarea' });</script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMgTgELYtNprJdgSrct8TXOoBePeBEwx4&callback=initMap&language=id&region=ID"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMgTgELYtNprJdgSrct8TXOoBePeBEwx4&language=id&region=ID"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript">
         // memanggil library Geocoder
@@ -135,12 +135,14 @@
                 </div>
                 {!! Form::close() !!}
             </div>
+
+
             <div class="row">
                 <!-- service start -->
                 @php $h=0; @endphp
                 @forelse($infos as $info)
                     @php $h++; @endphp
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-left">
                         <div class="tour-block" style="height: 650px">
                             <div class="tour-img">
                                 <a href="{!! route('infos.show' , [$info->id]) !!}"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="{!! $info->judul !!}" style="height: 250px"></a>
@@ -148,9 +150,6 @@
                             <div class="tour-content">
                                 <h3><a href="{!! route('infos.show' , [$info->id]) !!}" class="title">[{!! strtoupper($info->perkara->nama)!!}]<br>{!! $info->judul !!}</a></h3>
                                 <div class="tour-meta"> <span class="tour-meta-icon"><i class="fa fa-map-marker"></i></span><span id="lokasi-{{$h}}"></span> <span class="tour-meta-text"><br></span> <span class="tour-meta-icon"><i class="fa fa-calendar"></i></span><span class="tour-meta-text">{!! $info->created_at->format('d M Y') !!}</span> </div>
-                                <div class="tour-text mb40">
-                                    <p>{!! substr($info->narasi, 0, 50) !!} ...</p>
-                                </div>
                                 <script>
                                     a={{$info->lng}};
                                     b={{$info->lat}};

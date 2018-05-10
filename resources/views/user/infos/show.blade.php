@@ -18,7 +18,7 @@
                 <!-- post-one-start -->
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="post-block">
-                        <div class="post-img"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto Info dan Tips" class="img-responsive"></div>
+                        <div class="post-img"><img src="{!! url('storage/'.$info->file_foto) !!}" alt="Foto Info dan Tips" class="col-md-12 img-responsive"></div>
                     <!--<div class="post-sticky"> <i class="fa fa-map-marker">{!! $info->lat !!}|{!! $info->lng !!} </i> </div>-->
                         <div class="post-content">
 

@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Full Name">
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Username">
                                 </div>
                                 @if ($errors->has('name'))
                                     <span class="help-block">

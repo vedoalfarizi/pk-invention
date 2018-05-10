@@ -2,6 +2,23 @@
 
 @section('content')
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMgTgELYtNprJdgSrct8TXOoBePeBEwx4"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        // memanggil library Geocoder
+        var geocoder = new google.maps.Geocoder();
+        var map;
+        // memanggil library Infowindow untuk memunculkan infowindow pada marker
+        var infowindow = new google.maps.InfoWindow();
+        var marker;
+
+        // kita munculkan peta default
+
+
+        // ambil value dari combobox
+
+
+
+    </script>
     <div class="space-medium">
         <div class="container">
             @if(isset($mesage))
@@ -132,7 +149,7 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
 
-                };console.log(pos.lat);
+                };
                 marker = new google.maps.Marker({
                     position: pos,
                     map: map,
@@ -148,6 +165,27 @@
                 });
                 infowindow.open(map, marker);
                 map.setCenter(pos);
+
+                a=pos.lng;
+                b=pos.lat;
+                var latlng = new google.maps.LatLng(b, a);
+
+                // cari lokasi dari latitude dan longitude
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        // jika berhasil, map akan secara automatis berpindah ke koordinat tersebut
+                        if (results[1]) {
+                            simpan=results[1].formatted_address;
+                            arrayAdd = simpan.split(",");
+
+                            document.getElementById("provinsi").value = arrayAdd[arrayAdd.length-2];
+                        } else {
+                            window.alert('No results found');
+                        }
+                    } else {
+                        //window.alert('Geocoder failed due to: ' + status);
+                    }
+                });
             });
         }
 
@@ -175,9 +213,31 @@
             infowindow.open(map, marker);
             usegeolocation=true;
             google.maps.event.clearListeners(map, 'click');
-            console.log(pos);
+
             document.getElementById("lat").value = pos.lat;
             document.getElementById("long").value = pos.lng;
+
+            a=pos.lng;
+            b=pos.lat;
+            var latlng = new google.maps.LatLng(b, a);
+
+            // cari lokasi dari latitude dan longitude
+            geocoder.geocode({'location': latlng}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    // jika berhasil, map akan secara automatis berpindah ke koordinat tersebut
+                    if (results[1]) {
+                        simpan=results[1].formatted_address;
+                        arrayAdd = simpan.split(",");
+
+                        document.getElementById("provinsi").value = arrayAdd[arrayAdd.length-2];
+                    } else {
+                        window.alert('No results found');
+                    }
+                } else {
+                    //window.alert('Geocoder failed due to: ' + status);
+                }
+            });
+
         }
 
 

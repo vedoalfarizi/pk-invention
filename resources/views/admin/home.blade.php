@@ -314,7 +314,7 @@
     if(!$result = $db->query($sql)){
         die(' query error [' . $db->error . ']');
     }
-    $n=0;
+    $n=0; $p=[];$jp=[];
     while($perkara = $result->fetch_object()){
         $temp="'".$perkara->nama."'";
         $p[$n]=$temp;
