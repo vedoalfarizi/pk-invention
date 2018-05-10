@@ -40,7 +40,7 @@
     <?php
     $n=0;
     while($kriminal = $result->fetch_object()){
-        $lokasi=$kriminal->lat.",".$kriminal->long;
+        $lokasi=$kriminal->lat.",".$kriminal->lng;
         echo "
         <script>
             // ambil value dari combobox
@@ -72,7 +72,7 @@
     ?>
 
     @php
-        $infos = \App\Models\info::all(['lat', 'long']);
+        $infos = \App\Models\info::all(['lat', 'lng']);
 
         $aceh = \App\Models\info::where('provinsi', 'like', '%Aceh%')->count();
         $sumut = \App\Models\info::where('provinsi','like', '%Sumatera Utara%')->count();
@@ -274,7 +274,7 @@
                         die(' query error [' . $db->error . ']');
                     }
                     while($kriminal = $result->fetch_object()){
-                        echo "['".$kriminal->judul."', ".$kriminal->lat.", ".$kriminal->long.", ".$kriminal->id."],";
+                        echo "['".$kriminal->judul."', ".$kriminal->lat.", ".$kriminal->lng.", ".$kriminal->id."],";
                     }
                     ?>
 
