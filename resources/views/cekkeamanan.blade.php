@@ -660,8 +660,33 @@
             console.log(pos.lat);
             console.log(pos.lng);
             var inputradius1=document.getElementById('inputradiusmes').value;
-            console.log(inputradius1)
+            console.log(inputradius1);
             var rad = parseFloat(inputradius1*100);
+
+//            laravel
+
+//            $.get('/kriminalradius?lat='+pos.lat+'&lng='+pos.lng+'&rad='+rad, function(data){
+//
+//                $.each(data, function(index, rows){
+//
+//                    var row     = rows[i];
+//                    var id   = row.id;
+//                    var nama   = row.name;
+//                    var latitude  = row.latitude ;
+//                    var longitude = row.longitude ;
+//                    console.log(latitude);
+//                    console.log(longitude);
+//                    markersDua.push(marker);
+//                    map.setCenter(centerBaru);
+//                    klikInfoWindow(id);
+//                    map.setZoom(14);
+//                    console.log(nama);
+//                    $('#result').append("oke");
+//
+//                })
+//            });
+
+
             $.ajax({
                 url: '../kriminalradius.php?lat='+pos.lat+'&lng='+pos.lng+'&rad='+rad, data: "", dataType: 'json', success: function(rows)
                 {
