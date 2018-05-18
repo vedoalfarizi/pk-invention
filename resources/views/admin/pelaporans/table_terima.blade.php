@@ -131,7 +131,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <a type="button" class="btn btn-warning btn-fill" data-toggle='modal' data-target='#add'><i class="glyphicon glyphicon-arrow-right"></i> Tindak Lanjut</a>
+                        <a type="button" class="btn btn-warning btn-fill" data-toggle='modal' data-target='#tindak'><i class="glyphicon glyphicon-arrow-right"></i> Tindak Lanjut</a>
                         <a type="button" class="btn btn-primary btn-fill" target="_blank" href="{{url('/pelaporans/cetak/'.$laporan->id)}}"><i class="glyphicon glyphicon-print"></i> Cetak</a>
                         <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Close</button>
                     </div>
@@ -142,7 +142,7 @@
 
 
                 {{--<------------------------ MODAL _ ADD------------------->--}}
-                <div class="modal fade" id="add" data-backdrop="false">
+                <div class="modal fade" id="tindak" data-backdrop="false" index="+1">
                     <div class="modal-dialog">
                         <div class="modal-content">
 

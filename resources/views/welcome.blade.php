@@ -86,7 +86,7 @@
         </div>
     </div>
                 @php
-                    $berita = \App\Models\laporan::count();
+                    $berita = \App\Models\beritas::count();
                     $laporanMasuk = \App\Models\laporan::get()->count();
                     $infoMasuk = \App\Models\info::get()->count();
                 @endphp
